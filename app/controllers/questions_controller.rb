@@ -66,7 +66,12 @@ class QuestionsController < ApplicationController
   #shows page where user can answer the question
   def answer
     @question= Question.find(params[:id])
-    @next = @question.next
+    #@next = @question.next
+    @answer = Answer.new
+    @answer.question = @question
+    #@answer.game = @game
+    @answer.questionstarted = Time.now
+    @answer.save
   end
 
   private

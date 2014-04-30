@@ -19,12 +19,23 @@ class AnswersController < ApplicationController
 
   # GET /answers/1/edit
   def edit
+    @answer = Answer.find(params[:answer_id])
+    @answer.answer(params[:answer])
+    @answer.save
   end
 
   # POST /answers
   # POST /answers.json
   def create
-    @answer = Answer.new(answer_params)
+    @answer = Answer.find(params[:answer_id])
+    @answer.answer(params[:answer])
+   # @answer.question = Question.find(params[:question_id])
+   # @answer.questionfinished = Time.now
+    #logger.debug "Q started: " + @answer.questionstarted
+    #@answer.answer(params[:answer])
+    # @answer.givenanswer = params[:answer]#params[:givenanswer]
+    # # move to answer object
+    # @answer.answercorrect = (@answer.givenanswer == @answer.question.correctAns)
 
     respond_to do |format|
       if @answer.save

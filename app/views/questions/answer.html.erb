@@ -1,11 +1,63 @@
+<script type = 'text/javascript'>
+	function submitAnswer(ans){
+		var answerField = document.getElementById('answer');
+		answerField.value = ans;
+		var form = document.getElementById('answerform');
+		form.submit();
+	}
+</script>
+
 <p>
 
 	<b>Question:</b>
 	<%=h @question.word %>
 </p>
 
-<%= link_to_unless(@next.nil?, 'Volgende', :controller => "questions", :action => "answer",:id=>@next ) %>
-<% if @next.nil? %>
-	<b> het level is voltooid <b>
-	<%= link_to "terug naar levels", :controller => "levels", :action => "startlevel" %>
-<% end %>
+<p>
+	<b>1:</b>
+	<%= link_to @question.ans1, '#', :onclick=>"submitAnswer(1);return false;" %>
+</p>
+
+<p>
+	<b>2:</b>
+	<%= link_to @question.ans2, '#', :onclick=>"submitAnswer(2);return false;" %>
+</p>
+
+<p>
+	<b>3:</b>
+	<%= link_to @question.ans3, '#', :onclick=>"submitAnswer(3);return false;" %>
+</p>
+
+<p>
+	<b>4:</b>
+	<%= link_to @question.ans4, '#', :onclick=>"submitAnswer(4);return false;" %>
+</p>
+
+
+<p>
+	<p>
+  <strong>Hintsemantic:</strong>
+  <%= @question.hintsemantic %>
+</p>
+
+<p>
+  <strong>Hintsentence:</strong>
+  <%= @question.hintsentence %>
+</p>
+
+<p>
+  <strong>Hintsentence:</strong>
+  <%= @question.hintimage %>
+</p>
+
+
+	<%= form_tag({:controller => "answers", :action => "create", :answer_id => @answer.id}, 
+	#:givenanswer => :givenanswer, :answercorrect => @question.correctAns
+	:id => 'answerform') do %>
+	<%= hidden_field_tag :answer, 0 %>
+
+<!--<p><%= submit_tag("voegantwoordtoemetformtag")%></P>-->
+	<% end %>
+
+
+<%= link_to 'Back', questions_path %> 
