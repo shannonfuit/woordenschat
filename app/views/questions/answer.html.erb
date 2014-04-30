@@ -59,5 +59,11 @@
 <!--<p><%= submit_tag("voegantwoordtoemetformtag")%></P>-->
 	<% end %>
 
+<%= link_to_unless(@next.nil?, 'Volgende', :controller => "questions", :action => "answer",:id=>@next ) %>
+<% if @next.nil? %>
+	<b> het level is voltooid <b>
+	<%= link_to "terug naar levels", :controller => "levels", :action => "startlevel" %>
+<% end %>
+
 
 <%= link_to 'Back', questions_path %> 
