@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
   resources :answers
-
   resources :questions
-
   resources :levels
 
   get 'home/index'
+  root :to => 'home#index'
 
+
+  match ':controller/:action/:id', via: [:get, :post]
+  match ':controller/:action/:id.:format', via: [:get, :post]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

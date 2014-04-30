@@ -61,6 +61,22 @@ class LevelsController < ApplicationController
     end
   end
 
+  
+  #own added methods
+
+  def startlevel
+    @levels = Level.all
+  end
+
+
+#this is only redirecting to the first question
+  def play
+    @level = Level.find(params[:id])
+    @question = Question.find_by_level_id(params[:id])
+    redirect_to controller: 'questions', action: 'answer', id: @question.id
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_level
