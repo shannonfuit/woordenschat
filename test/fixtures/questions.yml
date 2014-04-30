@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 
+
+two:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 

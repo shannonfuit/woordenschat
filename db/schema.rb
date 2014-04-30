@@ -11,6 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140430122744) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "givenanswer"
+    t.boolean  "answercorrect"
+    t.boolean  "hintsemanticused"
+    t.boolean  "hintsentenceused"
+    t.boolean  "hintimageused"
+    t.integer  "xp"
+    t.datetime "questionstarted"
+    t.datetime "questionfinished"
+    t.integer  "playtime"
+    t.integer  "level"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+
+  create_table "levels", force: true do |t|
+    t.integer  "number"
+    t.datetime "openingdate"
+    t.datetime "closingdate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: true do |t|
+    t.text     "word"
+    t.text     "ans1"
+    t.text     "ans2"
+    t.text     "ans3"
+    t.text     "ans4"
+    t.text     "hintsemantic"
+    t.text     "hintsentence"
+    t.string   "hintimage"
+    t.integer  "anscorrect"
+    t.integer  "level_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["level_id"], name: "index_questions_on_level_id"
 
 end

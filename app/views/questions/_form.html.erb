@@ -1,0 +1,57 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :word %><br>
+    <%= f.text_area :word %>
+  </div>
+  <div class="field">
+    <%= f.label :ans1 %><br>
+    <%= f.text_area :ans1 %>
+  </div>
+  <div class="field">
+    <%= f.label :ans2 %><br>
+    <%= f.text_area :ans2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ans3 %><br>
+    <%= f.text_area :ans3 %>
+  </div>
+  <div class="field">
+    <%= f.label :ans4 %><br>
+    <%= f.text_area :ans4 %>
+  </div>
+  <div class="field">
+    <%= f.label :hintsemantic %><br>
+    <%= f.text_area :hintsemantic %>
+  </div>
+  <div class="field">
+    <%= f.label :hintsentence %><br>
+    <%= f.text_area :hintsentence %>
+  </div>
+  <div class="field">
+    <%= f.label :hintimage %><br>
+    <%= f.text_field :hintimage %>
+  </div>
+  <div class="field">
+    <%= f.label :anscorrect %><br>
+    <%= f.number_field :anscorrect %>
+  </div>
+  <div class="field">
+    <%= f.label :level_id %><br>
+    <%= f.text_field :level_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

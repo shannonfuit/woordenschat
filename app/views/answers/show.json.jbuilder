@@ -1,0 +1,1 @@
+json.extract! @answer, :id, :givenanswer, :answercorrect, :hintsemanticused, :hintsentenceused, :hintimageused, :xp, :questionstarted, :questionfinished, :playtime, :level, :question_id, :created_at, :updated_at

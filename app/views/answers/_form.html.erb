@@ -1,0 +1,61 @@
+<%= form_for(@answer) do |f| %>
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :givenanswer %><br>
+    <%= f.number_field :givenanswer %>
+  </div>
+  <div class="field">
+    <%= f.label :answercorrect %><br>
+    <%= f.check_box :answercorrect %>
+  </div>
+  <div class="field">
+    <%= f.label :hintsemanticused %><br>
+    <%= f.check_box :hintsemanticused %>
+  </div>
+  <div class="field">
+    <%= f.label :hintsentenceused %><br>
+    <%= f.check_box :hintsentenceused %>
+  </div>
+  <div class="field">
+    <%= f.label :hintimageused %><br>
+    <%= f.check_box :hintimageused %>
+  </div>
+  <div class="field">
+    <%= f.label :xp %><br>
+    <%= f.number_field :xp %>
+  </div>
+  <div class="field">
+    <%= f.label :questionstarted %><br>
+    <%= f.datetime_select :questionstarted %>
+  </div>
+  <div class="field">
+    <%= f.label :questionfinished %><br>
+    <%= f.datetime_select :questionfinished %>
+  </div>
+  <div class="field">
+    <%= f.label :playtime %><br>
+    <%= f.number_field :playtime %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :question_id %><br>
+    <%= f.text_field :question_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

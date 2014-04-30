@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Givenanswer:</strong>
+  <%= @answer.givenanswer %>
+</p>
+
+<p>
+  <strong>Answercorrect:</strong>
+  <%= @answer.answercorrect %>
+</p>
+
+<p>
+  <strong>Hintsemanticused:</strong>
+  <%= @answer.hintsemanticused %>
+</p>
+
+<p>
+  <strong>Hintsentenceused:</strong>
+  <%= @answer.hintsentenceused %>
+</p>
+
+<p>
+  <strong>Hintimageused:</strong>
+  <%= @answer.hintimageused %>
+</p>
+
+<p>
+  <strong>Xp:</strong>
+  <%= @answer.xp %>
+</p>
+
+<p>
+  <strong>Questionstarted:</strong>
+  <%= @answer.questionstarted %>
+</p>
+
+<p>
+  <strong>Questionfinished:</strong>
+  <%= @answer.questionfinished %>
+</p>
+
+<p>
+  <strong>Playtime:</strong>
+  <%= @answer.playtime %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @answer.level %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @answer.question %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

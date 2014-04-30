@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :answers
+
+  resources :questions
+
+  resources :levels
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
