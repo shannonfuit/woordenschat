@@ -29,18 +29,13 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.find(params[:answer_id])
     @answer.answer(params[:answer])
-   # @answer.question = Question.find(params[:question_id])
-   # @answer.questionfinished = Time.now
-    #logger.debug "Q started: " + @answer.questionstarted
-    #@answer.answer(params[:answer])
-    # @answer.givenanswer = params[:answer]#params[:givenanswer]
-    # # move to answer object
-    # @answer.answercorrect = (@answer.givenanswer == @answer.question.correctAns)
+    @next = @answer.question.next
+ 
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
-        format.json { render :show, status: :created, location: @answer }
+          format.html { redirect_to :controller => "questions", :action => "answer",:id => @next}
+          format.json { head}
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }

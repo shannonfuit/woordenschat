@@ -13,7 +13,6 @@ class Answer < ActiveRecord::Base
     end
     elapsed_seconds = (self.questionfinished - self.questionstarted).to_i
     self.playtime = elapsed_seconds
-    self.level = self.question.level.number
   end
 
 end
