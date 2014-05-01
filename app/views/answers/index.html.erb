@@ -30,8 +30,8 @@
         <td><%= answer.questionstarted %></td>
         <td><%= answer.questionfinished %></td>
         <td><%= answer.playtime %></td>
-        <td><%= answer.level %></td>
-        <td><%= answer.question %></td>
+        <td><%= answer.question.level_id %></td>
+        <td><%= answer.question.id %></td>
         <td><%= link_to 'Show', answer %></td>
         <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
         <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

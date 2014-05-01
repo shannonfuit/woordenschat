@@ -68,9 +68,6 @@ class QuestionsController < ApplicationController
     @question= Question.find(params[:id])
     
     @next = @question.next
-    if @next == nil
-      redirect_to :controller => "levels", :action => "startlevel"
-    end
     
     @answer = Answer.new
     @answer.question = @question

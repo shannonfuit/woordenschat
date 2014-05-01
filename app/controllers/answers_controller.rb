@@ -30,15 +30,16 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:answer_id])
     @answer.answer(params[:answer])
     @next = @answer.question.next
- 
+    @answer.save
+
 
     respond_to do |format|
-      if @answer.save
+      if @next != nil
           format.html { redirect_to :controller => "questions", :action => "answer",:id => @next}
           format.json { head}
       else
-        format.html { render :new }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
+        format.html { redirect_to :controller => "home", :action => "index" }
+        format.json { head }
       end
     end
   end
