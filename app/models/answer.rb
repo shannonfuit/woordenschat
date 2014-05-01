@@ -2,7 +2,7 @@ class Answer < ActiveRecord::Base
   belongs_to :question
 
 	#answers the question
-  def answer (answer)
+  def finishquestion (answer)
   	self.questionfinished = Time.now
   	self.givenanswer = answer
     self.answercorrect = (self.givenanswer == self.question.anscorrect)

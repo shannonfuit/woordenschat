@@ -26,9 +26,9 @@ class AnswersController < ApplicationController
 
   # POST /answers
   # POST /answers.json
-  def create
+  def finishquestion
     @answer = Answer.find(params[:answer_id])
-    @answer.answer(params[:answer])
+    @answer.finishquestion(params[:answer])
     @next = @answer.question.next
     @answer.save
 

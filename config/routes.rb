@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+ get "sign_up" => "users#new", :as => "sign_up"
+  root :to => 'users#new'
+
   resources :answers
   resources :questions
   resources :levels
+  resources :users
 
-  get 'home/index'
-  root :to => 'home#index'
+ # get 'home/index'
+ # root :to => 'home#index'
 
 
   match ':controller/:action/:id', via: [:get, :post]

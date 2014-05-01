@@ -51,7 +51,7 @@
 </p>
 
 
-	<%= form_tag({:controller => "answers", :action => "create", :answer_id => @answer.id},
+	<%= form_tag({:controller => "answers", :action => "finishquestion", :answer_id => @answer.id},
 	:id => 'answerform') do %>
 	<%= hidden_field_tag :answer, 0 %>
 	<% end %>
