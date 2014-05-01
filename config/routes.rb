@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
- get "sign_up" => "users#new", :as => "sign_up"
+ # get 'sessions/new'
+
+  get "sign_up" => "users#new", :as => "sign_up"
   root :to => 'users#new'
+
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "log_out" => "sessions#destroy", :as => "log_out"
 
   resources :answers
   resources :questions
   resources :levels
   resources :users
+  resources :sessions
 
  # get 'home/index'
  # root :to => 'home#index'
