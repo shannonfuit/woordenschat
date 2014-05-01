@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
- # get 'home/index'
+  get 'home/index'
  # root :to => 'home#index'
 
 
