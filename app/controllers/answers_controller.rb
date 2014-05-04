@@ -38,7 +38,7 @@ class AnswersController < ApplicationController
           format.html { redirect_to :controller => "questions", :action => "answer",:id => @next}
           format.json { head}
       else
-        format.html { redirect_to :controller => "home", :action => "index" }
+        format.html { redirect_to :controller => "users", :action => "show", :id => current_user }
         format.json { head }
       end
     end

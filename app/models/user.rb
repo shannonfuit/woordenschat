@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :answers
+
   attr_accessor :password
   before_save :encrypt_password
 
@@ -24,5 +26,8 @@ class User < ActiveRecord::Base
       nil
     end
   end
-  
+
+  def totalxp
+    self.answers.sum(:xp)
+  end
 end

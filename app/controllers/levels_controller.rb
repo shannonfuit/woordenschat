@@ -61,13 +61,6 @@ class LevelsController < ApplicationController
     end
   end
 
-  
-  #own added methods
-
-  def startlevel
-    @levels = Level.all
-  end
-
 
 #this is only redirecting to the first question
   def play

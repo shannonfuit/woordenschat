@@ -1,28 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Woordenschat2</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+ <div class="container">
+  
+   <title>Woordenschat2</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<div id="user_nav">
-  	<% if current_user %>
-    	Logged in as <%= current_user.acro %>.
-   		 <%= link_to "Log out", log_out_path %>
-  	<% else %>
-	    <%= link_to "Sign up", sign_up_path %> or
-	    <%= link_to "log in", log_in_path %>
-  	<% end %>
-	</div>
+      <style>
+      body { background: Pink; }
+        </style>
 
-<% flash.each do |name, msg| %>
-<%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+  </head>
+  <body>
 
-<%= yield %>
+
+  <nav class="navbar navbar-default" role="navigation">
+
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-brand">
+          <% if current_user %>
+            Logged in as <%= current_user.acro %>.
+          <% else %>
+            Welkom
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="Spelregels">Spelregels</a></li>
+          <li><a href="Over dit Project">Over dit project</a></li>
+
+          <% if current_user %>
+           <li>  <%= link_to "Log out", log_out_path %> </li>
+          <% else %>
+           <li> <%= link_to "log in", log_in_path %> </li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    <h1>Woordenschat <small>Test je woordkennis!</small></h1>
+  </nav>
+
+
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+
+  <%= yield %>
+
+</div>
 
 </body>
 </html>
