@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501092333) do
+ActiveRecord::Schema.define(version: 20140504224034) do
 
   create_table "answers", force: true do |t|
     t.integer  "givenanswer"
@@ -59,12 +59,11 @@ ActiveRecord::Schema.define(version: 20140501092333) do
   add_index "questions", ["level_id"], name: "index_questions_on_level_id"
 
   create_table "users", force: true do |t|
+    t.string   "acro"
     t.string   "password_hash"
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "acro"
-    t.integer  "xp"
   end
 
 end
