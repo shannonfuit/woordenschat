@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-  #  @user.xp = 0
+    @user.xp = 0
     #raise params.inspect
     if @user.save
       redirect_to root_url, :notice => "Signed up!"
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit( :acro, :password_hash, :password_salt, :password)
+    params.require(:user).permit(:xp, :acro, :password_hash, :password_salt, :password)
   end
 
 end
