@@ -5,6 +5,8 @@
     <tr>
       <th>acro</th>
       <th>XP</th>
+      <th>naam</th>
+      <th>klas</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +16,8 @@
       <tr>
         <td><%= user.acro %></td>
         <td><%= user.xp %></td>
+        <td><%= user.name %></td>
+        <td><%= user.klas %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
