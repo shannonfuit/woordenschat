@@ -10,12 +10,25 @@ class UsersController < ApplicationController
     @user = current_user
     @user.xp = @user.totalxp
     @user.save
+    @gebruikers = User.all.order('xp DESC').take(5)
     @levels = Level.all
   end
 
   def edit
   end
 
+  def update
+    @user = current_user
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'uw avatar is veranderd' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 
   def new
@@ -47,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:klas, :name, :avatar, :xp, :acro, :password_hash, :password_salt, :password)
+    params.require(:user).permit(:klas, :name, :picture, :xp, :acro, :password_hash, :password_salt, :password)
   end
 
 end

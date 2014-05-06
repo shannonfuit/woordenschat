@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
+<!-- hier komt een div met de gegevens van de user -->
+<h2>Gegevens</h2>
 <p>
   <strong>Naam:</strong>
   <%= @user.name %>
@@ -15,9 +18,14 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= @user.avatar %>
 </p>
+<%= image_tag(@user.picture_url, :width => 300) if @user.picture.present? %>
+ </p>
 
+<%= render 'form' %>
+
+
+<!-- hier komt een div met de levels -->
  <h2>Welk level wil je spelen</h2>
 <table>
 	<tr>
@@ -31,7 +39,25 @@
 	</tr>
 <% end %>
 </table>
-<br />
+
+<!-- hier komt een div met de highscores van de users -->
+ <h2>highscores</h2>
+	<table>
+	<tr>
+		<th>speler</th>
+		<th>aantal punten</th>
+	</tr>
+	<% @gebruikers.each do |gebruiker| %>
+	<tr>
+		<td><%=gebruiker.name %></td>
+		<td><%=gebruiker.xp %></td>
+	</tr>
+<% end %>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<!-- hier komt een div met de gewonnen medailles->
+
+

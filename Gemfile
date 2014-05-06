@@ -27,6 +27,9 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# picture uploading
+gem 'carrierwave'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
