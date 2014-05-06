@@ -21,6 +21,8 @@ class AnswersController < ApplicationController
   def edit
     @answer = Answer.find(params[:answer_id])
     @answer.answer(params[:answer])
+    #controleer of onderste regel wegkan!
+    @answer.playedlevel = current_playedlevel
     @answer.save
   end
 
@@ -29,16 +31,16 @@ class AnswersController < ApplicationController
   def finishquestion
     @answer = Answer.find(params[:answer_id])
     @answer.finishquestion(params[:answer])
+    @answer.playedlevel = current_playedlevel
     @next = @answer.question.next
     @answer.save
-
 
     respond_to do |format|
       if @next != nil
           format.html { redirect_to :controller => "questions", :action => "answer",:id => @next}
           format.json { head}
       else
-        format.html { redirect_to :controller => "users", :action => "show", :id => current_user }
+        format.html { redirect_to :controller => "playedlevels", :action => "finishlevel", :id => current_playedlevel}
         format.json { head }
       end
     end

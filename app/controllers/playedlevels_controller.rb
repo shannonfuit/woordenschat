@@ -37,22 +37,6 @@ class PlayedlevelsController < ApplicationController
     end
   end
 
-  #this is only redirecting to the first question
-  def play
-    @level = Level.find(params[:id])
-    @question = Question.find_by_level_id(params[:id])
-    
-    playedlevel = Playedlevel.new
-    playedlevel.level = @level
-    playedlevel.user = current_user
-    playedlevel.startlevel = Time.now
-    playedlevel.save
-    if playedlevel
-      session[:playedlevel_id] = playedlevel.id
-    end
-    redirect_to controller: 'questions', action: 'answer', id: @question.id
-  end
-
   # PATCH/PUT /playedlevels/1
   # PATCH/PUT /playedlevels/1.json
   def update
@@ -75,6 +59,29 @@ class PlayedlevelsController < ApplicationController
       format.html { redirect_to playedlevels_url }
       format.json { head :no_content }
     end
+  end
+
+    #this is only redirecting to the first question
+  def startlevel
+    @level = Level.find(params[:id])
+    @question = Question.find_by_level_id(params[:id])
+    
+    playedlevel = Playedlevel.new
+    playedlevel.level = @level
+    playedlevel.user = current_user
+    playedlevel.startlevel = Time.now
+    playedlevel.save
+    if playedlevel
+      session[:playedlevel_id] = playedlevel.id
+    end
+    redirect_to controller: 'questions', action: 'answer', id: @question.id
+  end
+
+  def finishlevel
+    @playedlevel = current_playedlevel
+    @answer = @playedlevel.answers.count
+
+   # redirect_to :controller => "users", :action => "show", :id => current_user
   end
 
   private
