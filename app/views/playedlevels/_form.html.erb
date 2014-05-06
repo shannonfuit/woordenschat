@@ -1,0 +1,53 @@
+<%= form_for(@playedlevel) do |f| %>
+  <% if @playedlevel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@playedlevel.errors.count, "error") %> prohibited this playedlevel from being saved:</h2>
+
+      <ul>
+      <% @playedlevel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :startlevel %><br>
+    <%= f.datetime_select :startlevel %>
+  </div>
+  <div class="field">
+    <%= f.label :finishlevel %><br>
+    <%= f.datetime_select :finishlevel %>
+  </div>
+  <div class="field">
+    <%= f.label :playtime %><br>
+    <%= f.number_field :playtime %>
+  </div>
+  <div class="field">
+    <%= f.label :levelcompleted %><br>
+    <%= f.check_box :levelcompleted %>
+  </div>
+  <div class="field">
+    <%= f.label :stars %><br>
+    <%= f.number_field :stars %>
+  </div>
+  <div class="field">
+    <%= f.label :level_id %><br>
+    <%= f.text_field :level_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :correctquestions %><br>
+    <%= f.number_field :correctquestions %>
+  </div>
+  <div class="field">
+    <%= f.label :levelxp %><br>
+    <%= f.number_field :levelxp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Startlevel:</strong>
+  <%= @playedlevel.startlevel %>
+</p>
+
+<p>
+  <strong>Finishlevel:</strong>
+  <%= @playedlevel.finishlevel %>
+</p>
+
+<p>
+  <strong>Playtime:</strong>
+  <%= @playedlevel.playtime %>
+</p>
+
+<p>
+  <strong>Levelcompleted:</strong>
+  <%= @playedlevel.levelcompleted %>
+</p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= @playedlevel.stars %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @playedlevel.level %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @playedlevel.user %>
+</p>
+
+<p>
+  <strong>Correctquestions:</strong>
+  <%= @playedlevel.correctquestions %>
+</p>
+
+<p>
+  <strong>Levelxp:</strong>
+  <%= @playedlevel.levelxp %>
+</p>
+
+<%= link_to 'Edit', edit_playedlevel_path(@playedlevel) %> |
+<%= link_to 'Back', playedlevels_path %>

@@ -28,7 +28,7 @@ class LevelsController < ApplicationController
 
     respond_to do |format|
       if @level.save
-        format.html { redirect_to @level, notice: 'Level was successfully created.' }
+        format.html { redirect_to @level, notice: 'Level is succesvol aangemaakt.' }
         format.json { render :show, status: :created, location: @level }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LevelsController < ApplicationController
   def update
     respond_to do |format|
       if @level.update(level_params)
-        format.html { redirect_to @level, notice: 'Level was successfully updated.' }
+        format.html { redirect_to @level, notice: 'Level is succesvol aangepast.' }
         format.json { render :show, status: :ok, location: @level }
       else
         format.html { render :edit }
@@ -60,15 +60,6 @@ class LevelsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
-#this is only redirecting to the first question
-  def play
-    @level = Level.find(params[:id])
-    @question = Question.find_by_level_id(params[:id])
-    redirect_to controller: 'questions', action: 'answer', id: @question.id
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :playedlevels
+
   get 'page/rules'
   get 'page/about'
 

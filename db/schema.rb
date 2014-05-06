@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505084302) do
+ActiveRecord::Schema.define(version: 20140506173435) do
 
   create_table "answers", force: true do |t|
     t.integer  "givenanswer"
@@ -40,6 +40,23 @@ ActiveRecord::Schema.define(version: 20140505084302) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "playedlevels", force: true do |t|
+    t.datetime "startlevel"
+    t.datetime "finishlevel"
+    t.integer  "playtime"
+    t.boolean  "levelcompleted",   default: false
+    t.integer  "stars",            default: 0
+    t.integer  "level_id"
+    t.integer  "user_id"
+    t.integer  "correctquestions", default: 0
+    t.integer  "levelxp",          default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "playedlevels", ["level_id"], name: "index_playedlevels_on_level_id"
+  add_index "playedlevels", ["user_id"], name: "index_playedlevels_on_user_id"
 
   create_table "questions", force: true do |t|
     t.text     "word"

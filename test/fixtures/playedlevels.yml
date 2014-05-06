@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  startlevel: 2014-05-06 19:34:35
+  finishlevel: 2014-05-06 19:34:35
+  playtime: 1
+  levelcompleted: false
+  stars: 1
+  level_id: 
+  user_id: 
+  correctquestions: 1
+  levelxp: 1
+
+two:
+  startlevel: 2014-05-06 19:34:35
+  finishlevel: 2014-05-06 19:34:35
+  playtime: 1
+  levelcompleted: false
+  stars: 1
+  level_id: 
+  user_id: 
+  correctquestions: 1
+  levelxp: 1

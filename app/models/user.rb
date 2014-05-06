@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   has_many :answers
+  has_many :playedlevels
 
   attr_accessor :password
   before_save :encrypt_password

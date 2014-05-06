@@ -61,7 +61,7 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
     @answer.question = @question
     @answer.user = current_user
-    @test = current_user
+    @test = current_playedlevel
     @answer.questionstarted = Time.now
     @answer.save
   end
