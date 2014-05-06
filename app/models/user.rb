@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
   end
 
   def totalxp
-    self.answers.sum(:xp)
+    xp = self.answers.sum(:xp)
+    if xp.nil?
+      xp = 0
+    else xp 
+    end
   end
 end

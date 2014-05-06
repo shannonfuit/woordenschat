@@ -32,7 +32,7 @@
 
         <div class="navbar-brand">
           <% if current_user %>
-            Logged in as <%= current_user.acro %>.
+            Logged in as <%= current_user.name %>.
           <% else %>
             Welkom
           <% end %>
@@ -42,8 +42,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="Spelregels">Spelregels</a></li>
-          <li><a href="Over dit Project">Over dit project</a></li>
+          <li><%= link_to "Spelregels", page_rules_path %></li>
+          <li><%= link_to "Over dit project", page_about_path %></li>
 
           <% if current_user %>
            <li>  <%= link_to "Log out", log_out_path %> </li>

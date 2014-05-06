@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'page/rules'
+  get 'page/about'
+
  # get 'sessions/new'
 
   get "sign_up" => "users#new", :as => "sign_up"
-  root :to => 'users#new'
+  root :to => 'sessions#new'
 
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
@@ -13,10 +16,6 @@ Rails.application.routes.draw do
   resources :levels
   resources :users
   resources :sessions
-
-  get 'home/index'
- # root :to => 'home#index'
-
 
   match ':controller/:action/:id', via: [:get, :post]
   match ':controller/:action/:id.:format', via: [:get, :post]

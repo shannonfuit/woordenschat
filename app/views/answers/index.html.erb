@@ -9,11 +9,12 @@
       <th>Hintsentenceused</th>
       <th>Hintimageused</th> -->
       <th>Xp</th>
-      <th>Questionstarted</th>
-      <th>Questionfinished</th>
+      <!-- <th>Questionstarted</th>
+      <th>Questionfinished</th> -->
       <th>Playtime</th>
       <th>Level</th>
       <th>Question</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,11 +28,12 @@
         <td><%= answer.hintsentenceused %></td>
         <td><%= answer.hintimageused %></td> -->
         <td><%= answer.xp %></td>
-        <td><%= answer.questionstarted %></td>
-        <td><%= answer.questionfinished %></td>
-        <td><%= answer.playtime %></td>
+       <!--  <td><%= answer.questionstarted %></td>
+        <td><%= answer.questionfinished %></td> -->
+        <td><%= answer.playtime %> </td>
         <td><%= answer.question.level_id %></td>
         <td><%= answer.question.id %></td>
+        <td><%= answer.user.name %></td>
         <td><%= link_to 'Show', answer %></td>
         <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
         <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
