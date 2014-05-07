@@ -80,7 +80,7 @@ class PlayedlevelsController < ApplicationController
 
     if @playedlevel.finishlevel < @playedlevel.level.closingdate
       if @playedlevel.stars > 0
-        @starmessage = "gefeliciteerd, je hebt het level binnen de tijd gemaakt en " + @playedlevel.stars.to_s + " sterren behaald"
+        @starmessage = "gefeliciteerd, je hebt het level binnen de tijd gemaakt. het aantal behaalde sterren is: " + @playedlevel.stars.to_s + "."
       else @starmessage = "helaas, je hebt geen sterren gehaald in deze ronde, ik daag je uit, probeer het nog eens!"
       end
     else @starmessage = "helaas, de deadline voor dit level is verstreken. je krijgt daarom geen sterren voor deze ronde"

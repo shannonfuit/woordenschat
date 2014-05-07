@@ -12,6 +12,17 @@ class UsersController < ApplicationController
     @user.save
     @gebruikers = User.all.order('xp DESC').take(5)
     @levels = Level.all
+    @lvlscores = Hash.new
+    @levels.each { |lvl|
+      @lvlscores[lvl] = 0
+      if !(@user.playedlevels.nil? && @user.playedlevels.empty?) then
+        bestlevel = @user.playedlevels.select{ | pl | pl.level_id == lvl.id }.max_by(&:stars)
+        
+        if bestlevel != nil then
+          @lvlscores[lvl] = bestlevel.stars
+        end
+      end 
+    }
   end
 
   def edit

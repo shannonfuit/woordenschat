@@ -9,6 +9,7 @@ class Playedlevel < ActiveRecord::Base
     self.levelcompleted = true
     self.levelxp = self.answers.sum(:xp)
     self.correctquestions = self.answers.where(answercorrect: true).count
+
     if self.finishlevel < self.level.closingdate
 	    if self.correctquestions == 1
 	    	self.stars = 1
@@ -18,5 +19,10 @@ class Playedlevel < ActiveRecord::Base
 	    	self.stars = 3
 	    end
 	 end
-	end
+  end
+
+  def self.maximumstars (current_user, level)
+    Playedlevel.where('user_id > ? AND level_id = ?', current_user, level).order(stars: :desc).first
+  end
+
 end

@@ -7,9 +7,18 @@
 	}
 </script>
 
-<p>
-	<%= debug @test%>
+</p>
+<% if @current_user.picture.present? %>
+	<%= image_tag(@current_user.picture_url, :width => 150) %>
+<% else %>
+	<%= image_tag("default.png", :width => 150) %>
+<% end %>
+</p>
 
+<p>
+	aantal xp: <%= current_user.xp %>
+</p>
+<p>
 	<b>Question:</b>
 	<%=h @question.word %>
 </p>

@@ -27,18 +27,22 @@
 
 <%= render 'form' %>
 
-
 <!-- hier komt een div met de levels -->
  <h2>Welk level wil je spelen</h2>
 <table>
 	<tr>
 		<th>level</th>
+		<th>speel</th>
+		<th>sterren</th>
+
 	</tr>
-	<% @levels.each do |level| %>
+	<% @lvlscores.each do |level, stars| %>
 	<tr>
 		<td> level <%=level.number %></td>
 	<td>
 	<%= link_to ' Speel dit level', :controller => "playedlevels", :action => "startlevel", :id=>level.id %></td>
+	<td><%= stars %></td>
+
 	</tr>
 <% end %>
 </table>
