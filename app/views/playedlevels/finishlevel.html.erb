@@ -1,4 +1,7 @@
-resultaten
-terug naar user page
- list 
-<%=@answer %>
+<p> Beste <%= @playedlevel.user.name %>. </p>
+
+<p>Je hebt dit level in <%= @playedlevel.playtime %> seconden voltooid.</p>
+<p>Je hebt <%= @playedlevel.correctquestions %> van de 3 vragen goed.</p>
+
+<p><%= @starmessage %></p>
+<p> <%= link_to 'Terug naar het overzicht', :controller => "users", :action => "show", :id => current_user %>

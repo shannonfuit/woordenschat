@@ -17,15 +17,6 @@ class AnswersController < ApplicationController
     @answer = Answer.new
   end
 
-  # GET /answers/1/edit
-  def edit
-    @answer = Answer.find(params[:answer_id])
-    @answer.answer(params[:answer])
-    #controleer of onderste regel wegkan!
-    @answer.playedlevel = current_playedlevel
-    @answer.save
-  end
-
   # POST /answers
   # POST /answers.json
   def finishquestion

@@ -57,7 +57,7 @@ class QuestionsController < ApplicationController
     @question= Question.find(params[:id])
     
     @next = @question.next
-    
+    @test = current_playedlevel
     @answer = Answer.new
     @answer.question = @question
     @answer.user = current_user

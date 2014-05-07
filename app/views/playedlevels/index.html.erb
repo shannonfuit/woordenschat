@@ -12,7 +12,7 @@
       <th>User</th>
       <th>Correctquestions</th>
       <th>Levelxp</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -29,13 +29,8 @@
         <td><%= playedlevel.correctquestions %></td>
         <td><%= playedlevel.levelxp %></td>
         <td><%= link_to 'Show', playedlevel %></td>
-        <td><%= link_to 'Edit', edit_playedlevel_path(playedlevel) %></td>
         <td><%= link_to 'Destroy', playedlevel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Playedlevel', new_playedlevel_path %>
