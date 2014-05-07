@@ -41,7 +41,7 @@
 		<td> level <%=level.number %></td>
 	<td>
 	<%= link_to ' Speel dit level', :controller => "playedlevels", :action => "startlevel", :id=>level.id %></td>
-	<td><%= stars %></td>
+	<td><%= image_tag("" + stars.to_s + ".jpg", :width => 60) %></td>
 
 	</tr>
 <% end %>
