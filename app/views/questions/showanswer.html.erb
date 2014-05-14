@@ -1,0 +1,95 @@
+<script type = 'text/javascript'>
+	function submitAnswer(ans){
+		var answerField = document.getElementById('answer');
+		answerField.value = ans;
+		var form = document.getElementById('answerform');
+		form.submit();
+	}
+</script>
+
+
+
+<div class="container">
+	<div class="main">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-danger">
+              		<div class="panel-heading">
+                		<h3 class="panel-title"></i>Vraag</h3>
+              		</div>
+              		<div class="panel-body">
+               			<div>
+               				<div class="float-left">
+               					<div class="counter"></div>
+							    <script type="text/javascript">
+							      var clock = $('.counter').FlipClock(120, {
+							        clockFace: 'Counter'
+							      });
+
+							      setTimeout(function() {
+							        setInterval(function() {
+							          clock.decrement();
+							        }, 1000);
+							      });
+							    </script>
+	               				<p>
+									<b>Question:</b>
+									<%=h @question.word %>
+								</p>
+
+								<p>
+									<b>1:</b>
+									<%= link_to @question.ans1, '#', :onclick=>"submitAnswer(1);return false;" %>
+								</p>
+
+								<p>
+									<b>2:</b>
+									<%= link_to @question.ans2, '#', :onclick=>"submitAnswer(2);return false;" %>
+								</p>
+
+								<p>
+									<b>3:</b>
+									<%= link_to @question.ans3, '#', :onclick=>"submitAnswer(3);return false;" %>
+								</p>
+
+								<p>
+									<b>4:</b>
+									<%= link_to @question.ans4, '#', :onclick=>"submitAnswer(4);return false;" %>
+								</p>	
+							</div>	
+               			</div>
+              		</div>
+	          	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-danger">
+              		<div class="panel-heading">
+                		<h3 class="panel-title"></i>Hint</h3>
+              		</div>
+              		<div class="panel-body">
+               			<div>
+							<%= render 'usedhints' %>
+								<%= form_tag({:controller => "answers", :action => "finishquestion", :answer_id => @answer.id},
+								:id => 'answerform') do %>
+								<%= hidden_field_tag :answer, 0 %>
+								<% end %>
+						</div>	
+               		</div>
+             	</div>
+	        </div>
+			<div class="col-md-2">
+				<div>
+					<div class="panel panel-danger">
+	                	<div class="panel-heading">
+	                  		<h3 class="panel-title"><i class="fa fa-smile-o"></i>User</h3>
+	                	</div>
+	                	<div class="panel-body">
+	                 		<div>
+								<%= render 'userinfo' %>
+	                  		</div>
+						</div>
+	             	</div>
+				</div>
+			</div>
+	    </div>
+	</div>

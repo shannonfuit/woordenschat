@@ -1,27 +1,35 @@
+<div class = "container">
+ <div class = "not-opaque">
+
+
 <p id="notice"><%= notice %></p>
 
+
 <p>
-  <strong>Givenanswer:</strong>
+  <%= @answer.user.name %>
+</p>
+<p>
+  <strong>Gegeven antwoord:</strong>
   <%= @answer.givenanswer %>
 </p>
 
 <p>
-  <strong>Answercorrect:</strong>
+  <strong>Goede antwoord:</strong>
   <%= @answer.answercorrect %>
 </p>
 
 <p>
-  <strong>Hintsemanticused:</strong>
+  <strong>Hint synoniem gebruikt?:</strong>
   <%= @answer.hintsemanticused %>
 </p>
 
 <p>
-  <strong>Hintsentenceused:</strong>
+  <strong>Hint Zin gebruikt?:</strong>
   <%= @answer.hintsentenceused %>
 </p>
 
 <p>
-  <strong>Hintimageused:</strong>
+  <strong>Hint afbeelding gebruikt?:</strong>
   <%= @answer.hintimageused %>
 </p>
 
@@ -31,17 +39,7 @@
 </p>
 
 <p>
-  <strong>Questionstarted:</strong>
-  <%= @answer.questionstarted %>
-</p>
-
-<p>
-  <strong>Questionfinished:</strong>
-  <%= @answer.questionfinished %>
-</p>
-
-<p>
-  <strong>Playtime:</strong>
+  <strong>Tijdsduur:</strong>
   <%= @answer.playtime %>
 </p>
 
@@ -51,8 +49,12 @@
 </p>
 
 <p>
-  <strong>Question:</strong>
+  <strong>Vraag:</strong>
   <%= @answer.question.id %>
 </p>
 
+
 <%= link_to 'Back', answers_path %>
+
+</div>
+</div>

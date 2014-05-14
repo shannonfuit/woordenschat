@@ -1,0 +1,33 @@
+<div class = "container">
+<div class = "not-opaque">
+	<h2>Stappenplan ter voorbereiding</h2>
+	<p> stap 1: Maak de levels aan (let op, bij wijziging: kies voor edit via onderstaand overzichtscherm). Verwijder geen levels!</br>
+		<%= link_to 'maak levels aan', new_level_path %> 
+	</P>
+	
+	<p> stap 2: Maak de vragen aan </br>
+		<%= link_to 'maak vragen aan', new_question_path %> 
+	</P>
+
+	<p> stap 3: maak gebruikers aan </br>
+		<%= link_to 'maak gebruikers aan', new_user_path %>
+	</P>
+
+	<h2>Overzicht </h2>
+	<p>
+		<%= link_to 'Levels', levels_path %>
+	</P>
+	<p>
+		<%= link_to 'Vragen', questions_path %>
+	</P>
+	<p>
+		<%= link_to 'Gebruikers', users_path %>
+	</P>
+	<p>
+		<%= link_to 'beantwoorde vragen', answers_path %>
+	</P>
+	<p>
+		<%= link_to 'gespeelde levels', playedlevels_path %>
+	</P>
+</div>
+</div>

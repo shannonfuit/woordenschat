@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class = "container">
+<div class = "not-opaque">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @level.number %>
-</p>
+	<p>
+	  <strong>Number:</strong>
+	  <%= @level.number %>
+	</p>
 
-<p>
-  <strong>Openingdate:</strong>
-  <%= @level.openingdate %>
-</p>
+	<p>
+	  <strong>Openingdate:</strong>
+	  <%= @level.openingdate %>
+	</p>
 
-<p>
-  <strong>Closingdate:</strong>
-  <%= @level.closingdate %>
-</p>
+	<p>
+	  <strong>Closingdate:</strong>
+	  <%= @level.closingdate %>
+	</p>
 
-<%= link_to 'Edit', edit_level_path(@level) %> |
-<%= link_to 'Back', levels_path %>
+	<%= link_to 'Edit', edit_level_path(@level) %> |
+	<%= link_to 'Back', levels_path %>
+
+</div>
+</div>

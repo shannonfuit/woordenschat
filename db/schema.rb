@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506183139) do
+ActiveRecord::Schema.define(version: 20140509194524) do
 
   create_table "answers", force: true do |t|
     t.integer  "givenanswer"
     t.boolean  "answercorrect"
-    t.boolean  "hintsemanticused"
-    t.boolean  "hintsentenceused"
-    t.boolean  "hintimageused"
+    t.boolean  "hintsemanticused", default: false
+    t.boolean  "hintsentenceused", default: false
+    t.boolean  "hintimageused",    default: false
     t.integer  "xp"
     t.datetime "questionstarted"
     t.datetime "questionfinished"

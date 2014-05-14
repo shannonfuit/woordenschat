@@ -51,18 +51,47 @@ class QuestionsController < ApplicationController
   end
 
   #added methods
-
-  #shows page where user can answer the question
-  def answer
-    @question= Question.find(params[:id])
-    
+  def startanswer
+    @question= Question.find(params[:id])  
     @next = @question.next
-    @test = current_playedlevel
     @answer = Answer.new
     @answer.question = @question
-    @answer.user = current_user
     @answer.questionstarted = Time.now
+    @answer.user = current_user
     @answer.save
+
+    redirect_to controller: 'questions', action: 'showanswer', id: @question.id, answerid: @answer.id
+  end
+
+  #shows page where user can answer the question
+  def showanswer
+    @question= Question.find(params[:id])
+    @next = @question.next
+    @answer = Answer.find(params[:answerid])
+    @current_playedlevel = current_playedlevel
+    @current_user = current_user
+    #@answer = Answer.new
+    #@answer.question = @question
+    #@answer.user = current_user
+    #@answer.questionstarted = Time.now
+    #@answer.save
+  end
+
+  def usedhints
+    question= Question.find(params[:id])
+    answer = Answer.find(params[:answerid])
+    hint = params[:hintid]
+
+    if hint == "hintsemanticused"
+      answer.hintsemanticused = true
+    elsif hint == "hintsentenceused"
+      answer.hintsentenceused = true
+    elsif hint == "hintimageused"
+      answer.hintimageused = true
+    end
+    answer.save
+
+    redirect_to controller: 'questions', action: 'showanswer', id: question.id, answerid: answer.id
   end
 
   private

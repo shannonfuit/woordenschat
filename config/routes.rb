@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :playedlevels
+  
 
   get 'page/rules'
   get 'page/about'
+  get 'page/admin'
 
  # get 'sessions/new'
 
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   resources :levels
   resources :users
   resources :sessions
+  resources :playedlevels
 
   match ':controller/:action/:id', via: [:get, :post]
   match ':controller/:action/:id.:format', via: [:get, :post]

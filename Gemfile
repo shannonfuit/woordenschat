@@ -30,6 +30,8 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # picture uploading
 gem 'carrierwave'
 
+#bourbon
+gem 'bourbon'
 # Use unicorn as the app server
 # gem 'unicorn'
 

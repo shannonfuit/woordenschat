@@ -1,54 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class = "container">
+<div class = "not-opaque">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Word:</strong>
-  <%= @question.word %>
-</p>
+  <p>
+    <strong>Word:</strong>
+    <%= @question.word %>
+  </p>
 
-<p>
-  <strong>Ans1:</strong>
-  <%= @question.ans1 %>
-</p>
+  <p>
+    <strong>Ans1:</strong>
+    <%= @question.ans1 %>
+  </p>
 
-<p>
-  <strong>Ans2:</strong>
-  <%= @question.ans2 %>
-</p>
+  <p>
+    <strong>Ans2:</strong>
+    <%= @question.ans2 %>
+  </p>
 
-<p>
-  <strong>Ans3:</strong>
-  <%= @question.ans3 %>
-</p>
+  <p>
+    <strong>Ans3:</strong>
+    <%= @question.ans3 %>
+  </p>
 
-<p>
-  <strong>Ans4:</strong>
-  <%= @question.ans4 %>
-</p>
+  <p>
+    <strong>Ans4:</strong>
+    <%= @question.ans4 %>
+  </p>
 
-<p>
-  <strong>Hintsemantic:</strong>
-  <%= @question.hintsemantic %>
-</p>
+  <p>
+    <strong>Hintsemantic:</strong>
+    <%= @question.hintsemantic %>
+  </p>
 
-<p>
-  <strong>Hintsentence:</strong>
-  <%= @question.hintsentence %>
-</p>
+  <p>
+    <strong>Hintsentence:</strong>
+    <%= @question.hintsentence %>
+  </p>
 
-<p>
-  <strong>Hintimage:</strong>
-  <%= @question.hintimage %>
-</p>
+  <p>
+    <strong>Hintimage:</strong>
+    <%= @question.hintimage %>
+  </p>
 
-<p>
-  <strong>Anscorrect:</strong>
-  <%= @question.anscorrect %>
-</p>
+  <p>
+    <strong>Anscorrect:</strong>
+    <%= @question.anscorrect %>
+  </p>
 
-<p>
-  <strong>Level:</strong>
-  <%= @question.level.number %>
-</p>
+  <p>
+    <strong>Level:</strong>
+    <%= @question.level.number %>
+  </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+  <%= link_to 'Edit', edit_question_path(@question) %> |
+  <%= link_to 'Back', questions_path %>
+</div>
+</div>

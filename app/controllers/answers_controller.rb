@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @next != nil
-          format.html { redirect_to :controller => "questions", :action => "answer",:id => @next}
+          format.html { redirect_to :controller => "questions", :action => "startanswer",:id => @next}
           format.json { head}
       else
         format.html { redirect_to :controller => "playedlevels", :action => "finishlevel", :id => current_playedlevel}

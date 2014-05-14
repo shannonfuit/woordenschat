@@ -70,7 +70,7 @@ class PlayedlevelsController < ApplicationController
     if playedlevel
       session[:playedlevel_id] = playedlevel.id
     end
-    redirect_to controller: 'questions', action: 'answer', id: @question.id
+    redirect_to controller: 'questions', action: 'startanswer', id: @question.id
   end
 
   def finishlevel

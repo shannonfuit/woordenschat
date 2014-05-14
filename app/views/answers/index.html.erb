@@ -1,20 +1,19 @@
-<h1>Listing answers</h1>
+ <div class = "not-opaque">
+  <h1>Antwoordenlijst</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Givenanswer</th>
-      <th>Answercorrect</th>
-<!--       <th>Hintsemanticused</th>
-      <th>Hintsentenceused</th>
-      <th>Hintimageused</th> -->
+      <th>Gegeven antwoord</th>
+      <th>Goede antwoord</th>
+      <th>Hint synoniem?</th>
+      <th>hint zin?</th>
+      <th>hint plaatje?</th>
       <th>Xp</th>
-      <!-- <th>Questionstarted</th>
-      <th>Questionfinished</th> -->
-      <th>Playtime</th>
-      <th>Level</th>
-      <th>Question</th>
-      <th>User</th>
+      <th>seconden</th>
+      <th>Lvl</th>
+      <th>Vraag</th>
+      <th>Gebruiker</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -24,19 +23,18 @@
       <tr>
         <td><%= answer.givenanswer %></td>
         <td><%= answer.answercorrect %></td>
-<!--         <td><%= answer.hintsemanticused %></td>
+        <td><%= answer.hintsemanticused %></td>
         <td><%= answer.hintsentenceused %></td>
-        <td><%= answer.hintimageused %></td> -->
+        <td><%= answer.hintimageused %></td>
         <td><%= answer.xp %></td>
-       <!--  <td><%= answer.questionstarted %></td>
-        <td><%= answer.questionfinished %></td> -->
         <td><%= answer.playtime %> </td>
         <td><%= answer.question.level_id %></td>
         <td><%= answer.question.id %></td>
         <td><%= answer.user.name %></td>
-        <td><%= link_to 'Show', answer %></td>
-        <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Toon', answer %></td>
+        <td><%= link_to 'Verwijder', answer, method: :delete, data: { confirm: 'Weet je het zeker?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

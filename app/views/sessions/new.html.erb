@@ -1,17 +1,38 @@
-<h1>Log in</h1>
+<div class="container">
+      <div class="main">
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-smile-o"></i>Log In </h3>
+              </div>
+              <div class="panel-body">
+                <div>
+                  <div class="float-left">
 
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :acro %><br />
-    <%= text_field_tag :acro, params[:acro] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">inloggen<%= submit_tag 'login', :style => "display:none" %></button></p>
-<% end %>
+                    <%= form_tag sessions_path do %>
+                      <p>
+                        <%= label_tag :acro %> (kleine letters)<br />
+                        <%= text_field_tag :acro, params[:acro] %>
+                      </p>
+                      <p>
+                        <%= label_tag :password %><br />
+                        <%= password_field_tag :password %>
+                      </p>
+                      <button class="btn btn-lg btn-danger btn-block" type="submit">inloggen<%= submit_tag 'login', :style => "display:none" %></button></p>
+                    <% end %>
 
 
-	</div>
-</div>
+                    	</div>
+                    </div>
+               </div>
+               <div class="col-md-3">
+          </div>
+        </div>
+        </div>
+              </div>
+      </div>
+      </div>
+        </div>

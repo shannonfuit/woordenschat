@@ -1,31 +1,33 @@
-<h1>Listing users</h1>
+ <div class = "not-opaque">
+    <h1>Listing users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>acro</th>
-      <th>XP</th>
-      <th>naam</th>
-      <th>klas</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.acro %></td>
-        <td><%= user.xp %></td>
-        <td><%= user.name %></td>
-        <td><%= user.klas %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>acro</th>
+        <th>XP</th>
+        <th>naam</th>
+        <th>klas</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.acro %></td>
+          <td><%= user.xp %></td>
+          <td><%= user.name %></td>
+          <td><%= user.klas %></td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'user', new_user_path %>
+  <br>
+
+  <%= link_to 'user', new_user_path %>
+</div>

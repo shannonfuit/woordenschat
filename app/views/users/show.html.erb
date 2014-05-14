@@ -1,70 +1,103 @@
+<div class="container">
+			<div class="main">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="panel panel-danger">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-smile-o"></i>&nbsp;<%= @user.name %></h3>
+              </div>
+              <div class="panel-body">
+               	<div>
+               		<div class="float-left">
 
 
-<!-- hier komt een div met de gegevens van de user -->
-<h2>Gegevens</h2>
-<p>
-  <strong>Naam:</strong>
-  <%= @user.name %>
-</p>
-<p>
-  <strong>Klas:</strong>
-  <%= @user.klas %>
-</p>
-<p>
-  <strong>XP:</strong>
-  <%= @user.xp %>
-</p>
+                    <table class="fullwidth">
+                      <tr>
+                        <td><% if @user.picture.present? %>
+                              <%= image_tag(@user.picture_url, :width => 200, :class => "img-rounded") %>
+                            <% else %>
+                              <%= image_tag("default.png", :width => 200, :class => "img-rounded") %>
+                            <% end %>
+                            <%= render 'form' %>
+                        </td>
+        
+                        <td> <p>
+                              <strong>Klas:</strong>
+                              <%= @user.klas %>
+                            </p>
+                            <p>
+                              <strong>XP:</strong>
+                              <%= @user.xp %>
+                            </p></td>
+                      </tr>
+                 
+                    </table>
+					        </div>
+               	</div>
+              </div>
+	          </div>
+					</div>
+					<div class="col-md-6">
+						<div>
+							<div class="panel panel-danger">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><i class="fa fa-sitemap"></i>Levels</h3>
+                </div>
+                <div class="panel-body">
+                  <div>
 
-<p>
-  <strong>Avatar:</strong>
-</p>
-<% if @user.picture.present? %>
-	<%= image_tag(@user.picture_url, :width => 150) %>
-<% else %>
-	<%= image_tag("default.png", :width => 150) %>
-<% end %>
- </p>
+    
+                    <table class="fullwidth">
+                    <% @lvlscores.each do |level, stars| %>
+                      <tr>
+                        <td><%= link_to 'Level ' + level.number.to_s, :controller => "playedlevels", :action => "startlevel", :id=>level.id %></td>
+                        <td> <%= level.openingdate.strftime("%d-%m-%Y")  %> t/m <%= level.closingdate.strftime("%d-%m-%d-%Y") %>.</td>
+                        <td><%= image_tag("" + stars.to_s + ".jpg", :width => 60) %></td>
+                      </tr>
+                    <% end %>
+                    </table>
+                  </div>
+				</div>
+              </div>
+			</div>
+			</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+						<div>
+							<div class="panel panel-danger">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><i class="fa fa-sort-amount-desc"></i>Highcores</h3>
+                </div>
+                <div class="panel-body">
+                  <table class="fullwidth">
+                  <% @gebruikers.each do |gebruiker| %>
+                    <tr>
+                      <td><%=gebruiker.name %></td>
+                      <td class="align-right"><%=gebruiker.xp %></td>
+                    </tr>
+                  <% end %>
+                  </table>
+						    </div>
+              </div>
+					  </div>
+				  </div>
+          <div class="col-md-6">
+						<div>
+							<div class="panel panel-danger">
+                <div class="panel-heading border-warning">
+                  <h3 class="panel-title"><i class="fa fa-trophy"></i>Trofeeën</h3>
+                </div>
+                <div class="panel-body">
+                  <div></div>
+						    </div>
+              </div>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+    </div>
 
-<%= render 'form' %>
 
-<!-- hier komt een div met de levels -->
- <h2>Welk level wil je spelen</h2>
-<table>
-	<tr>
-		<th>level</th>
-		<th>speel</th>
-		<th>sterren</th>
-
-	</tr>
-	<% @lvlscores.each do |level, stars| %>
-	<tr>
-		<td> level <%=level.number %></td>
-	<td>
-	<%= link_to ' Speel dit level', :controller => "playedlevels", :action => "startlevel", :id=>level.id %></td>
-	<td><%= image_tag("" + stars.to_s + ".jpg", :width => 60) %></td>
-
-	</tr>
-<% end %>
-</table>
-
-<!-- hier komt een div met de highscores van de users -->
- <h2>highscores</h2>
-	<table>
-	<tr>
-		<th>speler</th>
-		<th>aantal punten</th>
-	</tr>
-	<% @gebruikers.each do |gebruiker| %>
-	<tr>
-		<td><%=gebruiker.name %></td>
-		<td><%=gebruiker.xp %></td>
-	</tr>
-<% end %>
-</table>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
-<!-- hier komt een div met de gewonnen medailles->
 
 

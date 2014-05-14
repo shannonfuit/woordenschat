@@ -9,63 +9,85 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <style>
-      body { background: red; }
-        </style>
+          <style type="text/css">
+      .main {
+        padding: 75px 15px;
+      }
+      
+      h3 i.fa
+      {
+          padding-right: 10px;
+      }
+      
+      .fullwidth
+      {
+          width: 100%;
+      }
+      
+      .align-right
+      {
+          text-align: right;   
+      }
+      body { background: #800000; }
+
+      .not-opaque {
+        background: white;
+      }
+            /* Fallback for web browsers that don't support RGBa */
+        background-color: rgb(0, 0, 0);
+        /* RGBa with 0.6 opacity */
+        background-color: rgba(0, 0, 0, 0);
+        /* For IE 5.5 - 7*/
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+        /* For IE 8*/
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+      }
+
+   
+
+    </style>
 
   </head>
   <body>
 
-<div class="container">
-  <nav class="navbar navbar-default" role="navigation">
-
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-  
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-        <div class="navbar-brand">
-          <% if current_user %>
-            Logged in as <%= current_user.name %>.
-          <% else %>
-            Welkom
-          <% end %>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Woordenschat</a>
         </div>
-      </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Spelregels", page_rules_path %></li>
-          <li><%= link_to "Over dit project", page_about_path %></li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to "Spelregels", page_rules_path %></li>
+            <li><%= link_to "Over dit project", page_about_path %></li>
+            <li><% flash.each do |name, msg| %>
+                  <%= content_tag :div, msg, :id => "flash_#{name}" %></li>
+      <% end %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+             <% if current_user %>
+               <li>  <%= link_to "Log out", log_out_path %> </li>
+                <li> <%= link_to "Profiel", :controller => "users", :action => "show", :id => current_user %>.</li>
+              <% else %>
+               <li> <%= link_to "log in", log_in_path %> </li>
+              <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+      
+    <%= yield %>
 
-          <% if current_user %>
-           <li>  <%= link_to "Log out", log_out_path %> </li>
-          <% else %>
-           <li> <%= link_to "log in", log_in_path %> </li>
-          <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    <h1>Woordenschat <small>Test je woordkennis!</small></h1>
-  </nav>
-
-
-  <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-
-  <%= yield %>
-
-</div>
-
-</body>
+  </body>
 </html>
 
 

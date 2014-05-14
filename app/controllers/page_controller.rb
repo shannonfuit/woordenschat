@@ -4,4 +4,7 @@ class PageController < ApplicationController
 
   def about
   end
+
+  def admin
+  end
 end

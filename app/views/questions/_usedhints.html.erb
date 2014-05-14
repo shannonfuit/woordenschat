@@ -1,0 +1,22 @@
+<b>Hints:</b>
+
+
+<p>
+	<%= link_to_unless @answer.hintsentenceused == true || @answer.hintimageused == true, 'synoniem', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintsemanticused" %>
+</p>
+
+<p> 
+	<%= link_to_unless @answer.hintsemanticused == true || @answer.hintimageused == true, 'zin', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintsentenceused" %>
+</p>
+
+<p>
+	<%= link_to_unless @answer.hintsentenceused == true || @answer.hintsemanticused == true, 'afbeelding', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintimageused" %>
+</p>
+
+<% if @answer.hintsemanticused == true %>
+	<%= @question.hintsemantic %>
+<% elsif @answer.hintsentenceused == true %>
+	<%= @question.hintsentence %>
+<% elsif @answer.hintimageused  == true%>
+	<%= image_tag("default.png", :width => 150) %>
+<% end %>
