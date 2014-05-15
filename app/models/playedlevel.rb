@@ -18,7 +18,7 @@ class Playedlevel < ActiveRecord::Base
 	    elsif self.correctquestions == 3
 	    	self.stars = 3
 	    end
-	 end
+    end
   end
 
   def self.maximumstars (current_user, level)

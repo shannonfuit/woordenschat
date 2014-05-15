@@ -52,3 +52,16 @@ $colHighlight   : #0000a0;
 				color: $colHighlight;
 				background-color: $bgHighlight; }}}
 }
+
+.question {
+	> p {
+		font-size:30px;
+		padding: 15px;
+		}
+}
+
+.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+

@@ -1,6 +1,6 @@
 <div class = "not-opaque">
 
-<h1>Listing questions</h1>
+<h1>Overzicht van de vragen</h1>
 
 <table>
   <thead>
@@ -29,12 +29,14 @@
         <td><%= question.ans4 %></td>
         <td><%= question.hintsemantic %></td>
         <td><%= question.hintsentence %></td>
-        <td><%= question.hintimage %></td>
+        <td><% if question.hintimage.present? %>
+                <%= image_tag(question.hintimage, :width => 50) %>
+            <% end %></td>
         <td><%= question.anscorrect %></td>
-        <td><%= question.level %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= question.level.number %></td>
+        <td><%= link_to 'Toon', question %></td>
+        <td><%= link_to 'Bewerken', edit_question_path(question) %></td>
+        <td><%= link_to 'Verwijder', question, method: :delete, data: { confirm: 'Weet je het zeker?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,5 +44,5 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'Nieuwe vraag', new_question_path %>
 </div>

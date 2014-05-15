@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http:////netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
           <style type="text/css">
       .main {
@@ -43,8 +44,14 @@
         -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
       }
 
-   
-
+      .field input {
+    color: #999;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+    border: 2px solid #999;
+    border-radius:2px;
+}
     </style>
 
   </head>
@@ -74,12 +81,17 @@
       <% end %>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-             <% if current_user %>
-               <li>  <%= link_to "Log out", log_out_path %> </li>
-                <li> <%= link_to "Profiel", :controller => "users", :action => "show", :id => current_user %>.</li>
-              <% else %>
-               <li> <%= link_to "log in", log_in_path %> </li>
-              <% end %>
+            <%if current_user != nil %>
+              <% if current_user.acro == "mve" %>
+                <li> <%= link_to "Beheerpagina", page_admin_path %> </li>
+              <%end%>
+            <% end %>
+            <% if current_user %>
+              <li> <%= link_to "Log out", log_out_path %> </li>
+              <li> <%= link_to "Profiel", :controller => "users", :action => "show", :id => current_user %>.</li>
+            <% else %>
+              <li> <%= link_to "log in", log_in_path %> </li>
+            <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

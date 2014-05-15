@@ -6,11 +6,14 @@
           <div class="col-md-6">
             <div class="panel panel-info">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-smile-o"></i>Log In </h3>
+                <h3 class="panel-title"></i>Log In </h3>
               </div>
               <div class="panel-body">
                 <div>
                   <div class="float-left">
+                    <% flash.each do |name, msg| %>
+                     <p> <%= content_tag :div, msg, :id => "flash_#{name}" %></p>
+                    <% end %>
 
                     <%= form_tag sessions_path do %>
                       <p>

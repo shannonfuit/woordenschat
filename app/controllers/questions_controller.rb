@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to @question, notice: 'Question was succesvol aangemaakt.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to @question, notice: 'Vraag is succesvol aangepast.' }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
@@ -70,6 +70,7 @@ class QuestionsController < ApplicationController
     @answer = Answer.find(params[:answerid])
     @current_playedlevel = current_playedlevel
     @current_user = current_user
+    @current_levelxp = current_levelxp
     #@answer = Answer.new
     #@answer.question = @question
     #@answer.user = current_user

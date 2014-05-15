@@ -25,6 +25,8 @@ class AnswersController < ApplicationController
     @answer.playedlevel = current_playedlevel
     @next = @answer.question.next
     @answer.save
+    @current_levelxp = current_levelxp
+    session[:levelxp] = @current_levelxp + @answer.xp
 
     respond_to do |format|
       if @next != nil

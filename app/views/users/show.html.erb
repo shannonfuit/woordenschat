@@ -9,26 +9,25 @@
               <div class="panel-body">
                	<div>
                		<div class="float-left">
-
-
                     <table class="fullwidth">
                       <tr>
-                        <td><% if @user.picture.present? %>
-                              <%= image_tag(@user.picture_url, :width => 200, :class => "img-rounded") %>
-                            <% else %>
-                              <%= image_tag("default.png", :width => 200, :class => "img-rounded") %>
-                            <% end %>
-                            <%= render 'form' %>
-                        </td>
-        
-                        <td> <p>
+                        <td><div class="text-center">
+                           
+                           <p>
                               <strong>Klas:</strong>
                               <%= @user.klas %>
                             </p>
                             <p>
                               <strong>XP:</strong>
                               <%= @user.xp %>
-                            </p></td>
+                            </p><% if @user.picture.present? %>
+                              <%= image_tag(@user.picture_url, :width => 200, :class => "img-rounded displayed") %>
+                            <% else %>
+                              <%= image_tag("default.png", :width => 200, :class => "img-rounded displayed") %>
+                            <% end %>
+                             <%= render 'form' %>
+                          </div>
+                          </td>
                       </tr>
                  
                     </table>

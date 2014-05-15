@@ -1,5 +1,5 @@
 <div class = "not-opaque">
-<h1>Listing levels</h1>
+<h1>Overzicht van de levels</h1>
 
 <table>
   <thead>
@@ -17,9 +17,9 @@
         <td><%= level.number %></td>
         <td><%= level.openingdate %></td>
         <td><%= level.closingdate %></td>
-        <td><%= link_to 'Show', level %></td>
-        <td><%= link_to 'Edit', edit_level_path(level) %></td>
-        <td><%= link_to 'Destroy', level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Toon', level %></td>
+        <td><%= link_to 'Bewerken', edit_level_path(level) %></td>
+        <td><%= link_to 'Verwijder', level, method: :delete, data: { confirm: 'Annuleer deze actie en gebruik bewerken.' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +27,5 @@
 
 <br>
 
-<%= link_to 'New Level', new_level_path %>
+<%= link_to 'Nieuw Level', new_level_path %>
 </div>

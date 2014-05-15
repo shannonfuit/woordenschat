@@ -23,6 +23,7 @@ class UsersController < ApplicationController
         end
       end 
     }
+  session[:levelxp] = 0
   end
 
   def edit
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     #raise params.inspect
     if @user.save
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to root_url, :notice => "Aangemaakt!"
     else
       render "new"
     end

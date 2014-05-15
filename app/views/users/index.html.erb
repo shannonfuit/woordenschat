@@ -1,5 +1,5 @@
  <div class = "not-opaque">
-    <h1>Listing users</h1>
+    <h1>Overzicht users</h1>
 
   <table>
     <thead>
@@ -8,6 +8,7 @@
         <th>XP</th>
         <th>naam</th>
         <th>klas</th>
+        <th>avatar</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -19,9 +20,12 @@
           <td><%= user.xp %></td>
           <td><%= user.name %></td>
           <td><%= user.klas %></td>
-          <td><%= link_to 'Show', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><% if user.picture.present? %>
+                <%= image_tag(user.picture, :width => 50) %>
+            <% end %></td>
+          <td><%= link_to 'Toon', user %></td>
+          <td><%= link_to 'Bewerken', edit_user_path(user) %></td>
+          <td><%= link_to 'Verwijder', user, method: :delete, data: { confirm: 'Weet je dit zeker?' } %></td>
         </tr>
       <% end %>
     </tbody>

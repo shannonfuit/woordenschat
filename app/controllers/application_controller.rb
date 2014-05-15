@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
 	  @current_playedlevel ||= Playedlevel.find(session[:playedlevel_id]) if session[:playedlevel_id]
 	end
   
+  	def current_levelxp
+	  @current_levelxp ||= session[:levelxp] if session[:levelxp]
+	end
+  
 end
