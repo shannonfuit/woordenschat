@@ -1,10 +1,10 @@
-@import "flipclock.scss";
+@import "flipclock.css";
 @import "../../../vendor/assets/stylesheets/bootstrap/bootstrap.scss";
 
-$bgDefault      : #ffaeae;
-$bgHighlight    : #ff7979;
-$colDefault     : #000000;
-$colHighlight   : #950000;
+$bgDefault      : #79bcff;
+$bgHighlight    : #3c9dff;
+$colDefault     : #ecf0f1;
+$colHighlight   : #0000a0;
 .navbar-default {
 	background-color: $bgDefault;
 	border-color: $bgHighlight;
