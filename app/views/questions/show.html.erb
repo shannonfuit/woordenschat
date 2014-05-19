@@ -39,8 +39,8 @@
 
   <p>
     <strong>Hintimage:</strong>
-    <% if question.hintimage.present? %>
-      <%= image_tag(question.hintimage, :width => 50) %>
+    <% if @question.hintimage.present? %>
+      <%= image_tag(@question.hintimage, :width => 50) %>
     <% end %>
   </p>
 

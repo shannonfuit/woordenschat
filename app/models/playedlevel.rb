@@ -11,11 +11,11 @@ class Playedlevel < ActiveRecord::Base
     self.correctquestions = self.answers.where(answercorrect: true).count
 
     if self.finishlevel < self.level.closingdate
-	    if self.correctquestions == 1
+	    if self.correctquestions == 3
 	    	self.stars = 1
-	    elsif self.correctquestions == 2
+	    elsif self.correctquestions == 6
 	    	self.stars = 2
-	    elsif self.correctquestions == 3
+	    elsif self.correctquestions == 9
 	    	self.stars = 3
 	    end
     end
