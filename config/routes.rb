@@ -1,25 +1,27 @@
 Rails.application.routes.draw do
-
   
 
-  get 'page/rules'
-  get 'page/about'
-  get 'page/admin'
-
- # get 'sessions/new'
-
-  get "sign_up" => "users#new", :as => "sign_up"
-  root :to => 'sessions#new'
-
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "log_out" => "sessions#destroy", :as => "log_out"
+  resources :achievements
 
   resources :answers
   resources :questions
   resources :levels
   resources :users
   resources :sessions
-  resources :playedlevels
+  resources :playedlevels 
+  resources :medals 
+
+  get 'page/rules'
+  get 'page/about'
+  get 'page/admin'
+  
+  get "sign_up" => "users#new", :as => "sign_up"
+  root :to => 'sessions#new'
+
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "log_out" => "sessions#destroy", :as => "log_out"
+
+
 
   match ':controller/:action/:id', via: [:get, :post]
   match ':controller/:action/:id.:format', via: [:get, :post]

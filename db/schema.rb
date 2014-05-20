@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509194524) do
+ActiveRecord::Schema.define(version: 20140520191134) do
+
+  create_table "achievements", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "medal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "achievements", ["medal_id"], name: "index_achievements_on_medal_id"
+  add_index "achievements", ["user_id"], name: "index_achievements_on_user_id"
 
   create_table "answers", force: true do |t|
     t.integer  "givenanswer"
@@ -41,6 +51,15 @@ ActiveRecord::Schema.define(version: 20140509194524) do
     t.datetime "closingdate"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "medals", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "xp"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "playedlevels", force: true do |t|
