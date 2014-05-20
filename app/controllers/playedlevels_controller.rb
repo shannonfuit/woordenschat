@@ -78,6 +78,11 @@ class PlayedlevelsController < ApplicationController
     @playedlevel.levelfinished
     @playedlevel.save
 
+    @medals = Medal.all
+    user = current_user
+    @medals.each{|medal|
+      medal.judge(user, @playedlevel)
+    }
     if @playedlevel.finishlevel < @playedlevel.level.closingdate
       if @playedlevel.stars > 0
         @starmessage = "gefeliciteerd, je hebt het level binnen de tijd gemaakt. het aantal behaalde sterren is: " + @playedlevel.stars.to_s + "."
