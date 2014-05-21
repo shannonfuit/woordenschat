@@ -31,10 +31,21 @@ class User < ActiveRecord::Base
   end
 
   def totalxp
-    xp = self.answers.sum(:xp)
+    xp = self.answers.sum(:xp) + self.achievements.inject(0){|sum,x| sum += x.medal.xp}
     if xp.nil?
       xp = 0
     else xp 
     end
+  end
+
+  def haswon (medal)
+    achievementcollected = false
+    achievements = self.achievements.all
+    achievements.each do |achievement|
+      if achievement.medal == medal
+        achievementcollected = true
+      end
+    end
+    return achievementcollected
   end
 end

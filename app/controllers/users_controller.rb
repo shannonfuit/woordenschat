@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user.xp = @user.totalxp
     @user.save
     @gebruikers = User.all.order('xp DESC').take(5)
+    
     @levels = Level.all
     @lvlscores = Hash.new
     @levels.each { |lvl|
@@ -23,6 +24,8 @@ class UsersController < ApplicationController
         end
       end 
     }
+    @achievements = @user.achievements.all  
+
   session[:levelxp] = 0
   end
 

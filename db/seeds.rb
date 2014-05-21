@@ -27,7 +27,20 @@ q1 = Question.create([
     anscorrect: 1,
     level_id: levels.first.id }])
 
-ThreeStarMedal.create([
-    { name: 'Goud level 1', description: 'Haal drie sterren op level 1', xp: 500 },
-    { name: 'Goud level 2', description: 'Haal drie sterren op level 2', xp: 500 }
+NoHintsMedal.create([
+    { name: 'Geen hints level 1', description: 'Geen hints gebruikt in level 1', xp: 500, levelnumber: 1 },
+    { name: 'Geen hints level 2', description: 'Geen hints gebruikt in level 2', xp: 500, levelnumber: 2 }
     ])
+
+ThreeStarMedal.create([
+    { name: '3 Sterren level 1', description: 'Haal drie sterren op level 1', xp: 500, levelnumber: 1 },
+    { name: '3 Sterren level 2', description: 'Haal drie sterren op level 2', xp: 500, levelnumber: 2 }
+    ])
+
+DeadlineMedal.create([
+    { name: 'Deadline level 1', description: 'Speel level 1 voor de sluitingsdatum ', xp: 500, levelnumber: 1 },
+    { name: 'Deadline level 2', description: 'Speel level 2 voor de sluitingsdatum', xp: 500, levelnumber: 2 }
+    ])
+
+ # self.password_salt = BCrypt::Engine.generate_salt
+ #      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)

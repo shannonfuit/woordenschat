@@ -43,9 +43,7 @@
                   <h3 class="panel-title"><i class="fa fa-sitemap"></i>Levels</h3>
                 </div>
                 <div class="panel-body">
-                  <div>
-
-    
+                  <div>    
                     <table class="fullwidth">
                     <% @lvlscores.each do |level, stars| %>
                       <tr>
@@ -88,7 +86,18 @@
                   <h3 class="panel-title"><i class="fa fa-trophy"></i>Trofeeën</h3>
                 </div>
                 <div class="panel-body">
-                  <div></div>
+                  <div>
+                    <table class="fullwidth">
+                    <% @achievements.each do |achievement| %>
+                      <tr>
+                        <td><%=achievement.medal.name%></td>
+                        <td><%=achievement.medal.description%></td>
+                        <td><%=achievement.medal.xp%></td>
+                      </tr>
+                    <% end %>
+                    </table>
+
+                  </div>
 						    </div>
               </div>
 					  </div>

@@ -1,0 +1,29 @@
+<%= form_for(@medal) do |f| %>
+  <% if @medal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medal.errors.count, "error") %> prohibited this medal from being saved:</h2>
+
+      <ul>
+      <% @medal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :xp %><br>
+    <%= f.number_field :xp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

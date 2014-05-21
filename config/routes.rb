@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :sessions
   resources :playedlevels 
   resources :medals 
+  resources :deadline_medals, controller: 'medals', type: 'DeadlineMedal' 
+  resources :three_star_medals, controller: 'medals', type: 'ThreeStarMedal' 
+  resources :no_hints_medals, controller: 'medals', type: 'NoHintMedal' 
+
 
   get 'page/rules'
   get 'page/about'
