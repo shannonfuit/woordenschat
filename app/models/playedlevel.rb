@@ -9,7 +9,7 @@ class Playedlevel < ActiveRecord::Base
     self.levelcompleted = true
     self.levelxp = self.answers.sum(:xp)
     self.correctquestions = self.answers.where(answercorrect: true).count
-=begin
+
     if self.finishlevel < self.level.closingdate
 	    if self.correctquestions == 3
 	    	self.stars = 1
@@ -19,8 +19,6 @@ class Playedlevel < ActiveRecord::Base
 	    	self.stars = 3
 	    end
     end
-=end
-    self.stars = 3 # Temporary hardcode to test a medal.
   end
 
   def self.maximumstars (current_user, level)

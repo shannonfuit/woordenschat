@@ -1,110 +1,117 @@
-<div class="container">
-			<div class="main">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-smile-o"></i>&nbsp;<%= @user.name %></h3>
-              </div>
-              <div class="panel-body">
-               	<div>
-               		<div class="float-left">
-                    <table class="fullwidth">
-                      <tr>
-                        <td><div class="text-center">
-                           
-                           <p>
-                              <strong>Klas:</strong>
-                              <%= @user.klas %>
-                            </p>
-                            <p>
-                              <strong>XP:</strong>
-                              <%= @user.xp %>
-                            </p><% if @user.picture.present? %>
-                              <%= image_tag(@user.picture_url, :height => 200, :class => "img-rounded displayed") %>
-                            <% else %>
-                              <%= image_tag("default.png", :width => 200, :class => "img-rounded displayed") %>
-                            <% end %>
-                             <%= render 'form' %>
-                          </div>
-                          </td>
-                      </tr>
-                 
-                    </table>
-					        </div>
-               	</div>
-              </div>
-	          </div>
-					</div>
-					<div class="col-md-6">
-						<div>
-							<div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3 class="panel-title"><i class="fa fa-sitemap"></i>Levels</h3>
-                </div>
-                <div class="panel-body">
-                  <div>    
-                    <table class="fullwidth">
-                    <% @lvlscores.each do |level, stars| %>
-                      <tr>
-                        <td><%= link_to 'Level ' + level.number.to_s, :controller => "playedlevels", :action => "startlevel", :id=>level.id %></td>
-                        <td> <%= level.openingdate.strftime("%d-%m-%Y")  %> t/m <%= level.closingdate.strftime("%d-%m-%d-%Y") %>.</td>
-                        <td><%= image_tag("" + stars.to_s + ".jpg", :width => 60) %></td>
-                      </tr>
-                    <% end %>
-                    </table>
-                  </div>
-				</div>
-              </div>
-			</div>
-			</div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-						<div>
-							<div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3 class="panel-title"><i class="fa fa-sort-amount-desc"></i>Highscores</h3>
-                </div>
-                <div class="panel-body">
-                  <table class="fullwidth">
-                  <% @gebruikers.each do |gebruiker| %>
-                    <tr>
-                      <td><%=gebruiker.name %></td>
-                      <td class="align-right"><%=gebruiker.xp %></td>
-                    </tr>
-                  <% end %>
-                  </table>
-						    </div>
-              </div>
-					  </div>
-				  </div>
-          <div class="col-md-6">
-						<div>
-							<div class="panel panel-info">
-                <div class="panel-heading border-warning">
-                  <h3 class="panel-title"><i class="fa fa-trophy"></i>Trofeeën</h3>
-                </div>
-                <div class="panel-body">
-                  <div>
-                    <table class="fullwidth">
-                    <% @achievements.each do |achievement| %>
-                      <tr>
-                        <td><%=achievement.medal.name%></td>
-                        <td><%=achievement.medal.description%></td>
-                        <td><%=achievement.medal.xp%></td>
-                      </tr>
-                    <% end %>
-                    </table>
 
-                  </div>
-						    </div>
-              </div>
-					  </div>
-				  </div>
-			  </div>
-		  </div>
+<div class="container">
+  <div class="main">
+    <div class="row">
+
+      <div class="col-md-1"></div>
+
+      <div class="col col-md-4">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+           <h4> <i class="fa fa-smile-o"></i>&nbsp;<%= @user.name %></h4>
+          </div>
+          <div class="panel-body">
+            <div class="float-left">
+              <table class="fullwidth">
+                <tr>
+                  <td>
+                      <p>
+                        <strong>Jouw behaalde XP:</strong>
+                        <%= @user.xp %>
+                      </p><% if @user.picture.present? %>
+                        <%= image_tag(@user.picture_url, :height => 200, :class => "img-rounded") %>
+                      <% else %>
+                        <%= image_tag("default.png", :width => 200, :class => "img-rounded") %>
+                      <% end %>
+                      <%= render 'form' %>             
+                  </td>
+                </tr>                    
+              </table>
+            </div>  
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h4><i class="fa fa-sitemap">&nbsp;</i>Levels</h4>
+          </div>
+          <div class="panel-body">    
+            <table class="fullwidth">
+            <% @lvlscores.each do |level, stars| %>
+              <tr>
+                <td><%= link_to 'Level ' + level.number.to_s, :controller => "playedlevels", :action => "startlevel", :id=>level.id %></td>
+                <td> <%= level.openingdate.strftime("%d-%m-%Y")  %> t/m <%= level.closingdate.strftime("%d-%m-%d-%Y") %>.</td>
+                <td><%= image_tag("" + stars.to_s + ".jpg", :width => 60) %></td>
+              </tr>
+            <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
     </div>
+      <div class="row col-wrap">
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-4">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4><i class="fa fa-sort-amount-desc">&nbsp;</i>Highscores</h4>
+            </div>
+            <div class="panel-body">
+              <table class="fullwidth">
+              <% @gebruikers.each do |gebruiker| %>
+                <tr>
+                    <td><%=gebruiker.name %></td>
+                    <td class="align-right"><%=gebruiker.xp %></td>
+                </tr>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading border-warning">
+              <h4><i class="fa fa-trophy">&nbsp;</i>Trofeeën</h4>
+            </div>
+            <div class="panel-body">
+              <table class="fullwidth">
+              <% @achievements.each do |achievement| %>
+                <tr>
+                  <td><%=achievement.medal.name%></td>
+                  <td><%=achievement.medal.description%></td>
+                  <td><%=achievement.medal.xp%></td>
+                </tr>
+              <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

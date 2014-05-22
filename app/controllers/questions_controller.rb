@@ -59,6 +59,7 @@ class QuestionsController < ApplicationController
     @answer.questionstarted = Time.now
     @answer.user = current_user
     @answer.save
+    session[:answer_id] = @answer.id
 
     redirect_to controller: 'questions', action: 'showanswer', id: @question.id, answerid: @answer.id
   end
@@ -71,11 +72,10 @@ class QuestionsController < ApplicationController
     @current_playedlevel = current_playedlevel
     @current_user = current_user
     @current_levelxp = current_levelxp
-    #@answer = Answer.new
-    #@answer.question = @question
-    #@answer.user = current_user
-    #@answer.questionstarted = Time.now
-    #@answer.save
+
+    @time = @answer.questionstarted
+    @seconds_left = @time - Time.now + 90
+
   end
 
   def usedhints

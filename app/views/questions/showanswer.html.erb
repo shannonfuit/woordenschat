@@ -41,7 +41,7 @@ zoom: 0.8;
               		<div class="panel-body">
                		<div class="clock"></div>
 								<script type="text/javascript">
-									var clock = $('.clock').FlipClock(90, {
+									var clock = $('.clock').FlipClock(<%= @seconds_left %>, {
 										countdown: true,
 										clockFace: 'MinuteCounter'
 									});

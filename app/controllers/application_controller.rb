@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
 	private
 
+	#user after login
 	def current_user
 	  @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
 	  # if(@current_user == nil)
@@ -15,12 +16,13 @@ class ApplicationController < ActionController::Base
 	  # end
 	end
 
+	#Level currently played. used as parameter for medals.
 	def current_playedlevel
 	  @current_playedlevel ||= Playedlevel.find(session[:playedlevel_id]) if session[:playedlevel_id]
 	end
-  
+  	
+  	# used for keeping track of the amount of XP during a level
   	def current_levelxp
 	  @current_levelxp ||= session[:levelxp] if session[:levelxp]
 	end
-  
 end
