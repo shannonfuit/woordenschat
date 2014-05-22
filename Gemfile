@@ -32,6 +32,7 @@ gem 'carrierwave'
 gem 'bourbon'
 # Use unicorn as the app server
 # gem 'unicorn'
+gem 'fog', '0.5.3'
 
 group :development do
   gem 'sqlite3'
