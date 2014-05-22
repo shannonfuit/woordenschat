@@ -60,7 +60,7 @@ class PlayedlevelsController < ApplicationController
     #this is only redirecting to the first question
   def startlevel
     @level = Level.find(params[:id])
-    @question = Question.find_by_level_id(params[:id])
+    @question = Question.find_by_level_id(params[:id]).first
     
     playedlevel = Playedlevel.new
     playedlevel.level = @level
