@@ -4,7 +4,7 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+Bundler.require(*Rails.groups)
 
 module Woordenschat2
   class Application < Rails::Application
@@ -21,4 +21,3 @@ module Woordenschat2
     # config.i18n.default_locale = :de
   end
 end
-
