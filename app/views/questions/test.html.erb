@@ -1,0 +1,516 @@
+<style>
+
+.countitround * {
+    padding:0;
+    margin:0;
+}
+
+.countitround .countitround_days,
+.countitround .countitround_hours,
+.countitround .countitround_minutes,
+.countitround .countitround_seconds {
+    position: relative;
+    width:188px;
+    height:188px;
+    float:left;
+    margin:5px;
+}
+
+.countitround .canvas_days,
+.countitround .canvas_hours, 
+.countitround .canvas_minutes, 
+.countitround .canvas_seconds { 
+    position: relative;
+    z-index: 2;
+}
+
+.countitround .canvas_background {
+    position: absolute;
+    z-index: 1;
+}
+
+.countitround .countitround_days_text,
+.countitround .countitround_hours_text,
+.countitround .countitround_minutes_text,
+.countitround .countitround_seconds_text {
+    width:188px;
+    height:188px;
+    position: absolute;
+    top:0;
+    left:0;
+    text-align: center;
+    line-height: 188px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color:#000;
+    font-weight: normal;
+    font-weight: bold;
+}
+   
+
+
+.countitround .countitround_days_count,
+.countitround .countitround_hours_count,
+.countitround .countitround_minutes_count,
+.countitround .countitround_seconds_count {
+    width:188px;
+    height:188px;
+    position: absolute;
+    top:0;
+    left:0;
+    text-align: center;
+    line-height: 188px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color:#000;
+    font-weight: normal;
+    font-weight: bold;
+}
+   
+
+</style>
+
+
+
+<script>
+function countitround(){var glob={deg:function(e){return Math.PI/180*e-Math.PI/180*90},size:{x:function(e){return glob.settings["size"+e]/2},y:function(e){return glob.settings["size"+e]/2},z:function(e){return glob.settings["size"+e]/2-(Number(glob.settings["backgroundwidth"+e])>Number(glob.settings["frontwidth"+e])?glob.settings["backgroundwidth"+e]:glob.settings["frontwidth"+e])/2-glob.settings["glowwidth"+e]}},complete:function(){if(jQuery.trim(glob.settings.callback)!=""){eval(glob.settings.callback)}}};this.init=function(e){glob.settings=e;if(glob.settings.now>=glob.settings.enddate){glob.complete();return;glob.complete}glob.total=Math.floor((glob.settings.enddate-glob.settings.startdate)/86400);glob.days=Math.floor((glob.settings.enddate-glob.settings.now)/86400);glob.hours=24-Math.floor((glob.settings.enddate-glob.settings.now)%86400/3600);glob.minutes=60-Math.floor((glob.settings.enddate-glob.settings.now)%86400%3600/60);glob.seconds=60-Math.floor((glob.settings.enddate-glob.settings.now)%86400%3600%60);if(jQuery("#"+glob.settings.unique).find(".countitround_days").length<=0){glob.hours=Math.floor((glob.settings.enddate-glob.settings.now)/3600)}if(jQuery("#"+glob.settings.unique).find(".countitround_hours").length<=0){glob.minutes=Math.floor((glob.settings.enddate-glob.settings.now)/60)}if(jQuery("#"+glob.settings.unique).find(".countitround_minutes").length<=0){glob.seconds=Math.floor(glob.settings.enddate-glob.settings.now)}clock.set.background();clock.set.seconds();clock.set.minutes();clock.set.hours();clock.set.days();clock.start()};var clock={set:{background:function(){jQuery("#"+glob.settings.unique).find(".canvas_background").each(function(){var e;if(jQuery(this).parent().attr("class").indexOf("days")>=1)e=1;if(jQuery(this).parent().attr("class").indexOf("hours")>=1)e=2;if(jQuery(this).parent().attr("class").indexOf("minutes")>=1)e=3;if(jQuery(this).parent().attr("class").indexOf("seconds")>=1)e=4;var t=jQuery(this).get(0);var n=t.getContext("2d");n.canvas.height=glob.settings["size"+e];n.canvas.width=glob.settings["size"+e];n.clearRect(0,0,t.width,t.height);n.beginPath();n.strokeStyle=glob.settings["backgroundcolor"+e];n.arc(glob.size.x(e),glob.size.y(e),glob.size.z(e),glob.deg(0),glob.deg(360));n.lineWidth=glob.settings["backgroundwidth"+e];n.stroke()})},days:function(){var e=jQuery("#"+glob.settings.unique).find(".canvas_days").get(0);if(!e)return;var t=e.getContext("2d");t.canvas.height=glob.settings.size1;t.canvas.width=glob.settings.size1;t.clearRect(0,0,e.width,e.height);t.beginPath();t.strokeStyle=glob.settings.color1;t.shadowBlur=glob.settings.glowwidth1;t.shadowOffsetX=0;t.shadowOffsetY=0;t.shadowColor=glob.settings.glow1;t.arc(glob.size.x(1),glob.size.y(1),glob.size.z(1),glob.deg(0),glob.deg(360/glob.total*(glob.total-glob.days)));t.lineWidth=glob.settings.frontwidth1;t.stroke();jQuery("#"+glob.settings.unique).find(".countitround_days_count").text(glob.days)},hours:function(){var e=jQuery("#"+glob.settings.unique).find(".canvas_hours").get(0);if(!e)return;var t=e.getContext("2d");t.canvas.height=glob.settings.size2;t.canvas.width=glob.settings.size2;t.clearRect(0,0,e.width,e.height);t.beginPath();t.strokeStyle=glob.settings.color2;t.shadowBlur=glob.settings.glowwidth2;t.shadowOffsetX=0;t.shadowOffsetY=0;t.shadowColor=glob.settings.glow2;var n=15*glob.hours;var r=24-glob.hours;if(jQuery("#"+glob.settings.unique).find(".countitround_days").length<=0){n=360/Math.floor((glob.settings.enddate-glob.settings.startdate)/3600)*(Math.floor((glob.settings.enddate-glob.settings.startdate)/3600)-glob.hours);r=glob.hours}t.arc(glob.size.x(2),glob.size.y(2),glob.size.z(2),glob.deg(0),glob.deg(n));t.lineWidth=glob.settings.frontwidth2;t.stroke();jQuery("#"+glob.settings.unique).find(".countitround_hours_count").text(r)},minutes:function(){var e=jQuery("#"+glob.settings.unique).find(".canvas_minutes").get(0);if(!e)return;var t=e.getContext("2d");t.canvas.height=glob.settings.size3;t.canvas.width=glob.settings.size3;t.clearRect(0,0,e.width,e.height);t.beginPath();t.strokeStyle=glob.settings.color3;t.shadowBlur=glob.settings.glowwidth3;t.shadowOffsetX=0;t.shadowOffsetY=0;t.shadowColor=glob.settings.glow3;var n=6*glob.minutes;var r=60-glob.minutes;if(jQuery("#"+glob.settings.unique).find(".countitround_hours").length<=0){n=360/Math.floor((glob.settings.enddate-glob.settings.startdate)/60)*(Math.floor((glob.settings.enddate-glob.settings.startdate)/60)-glob.minutes);r=glob.minutes}t.arc(glob.size.x(3),glob.size.y(3),glob.size.z(3),glob.deg(0),glob.deg(n));t.lineWidth=glob.settings.frontwidth3;t.stroke();jQuery("#"+glob.settings.unique).find(".countitround_minutes_count").text(r)},seconds:function(){var e=jQuery("#"+glob.settings.unique).find(".canvas_seconds").get(0);var t=e.getContext("2d");t.canvas.height=glob.settings.size4;t.canvas.width=glob.settings.size4;t.clearRect(0,0,e.width,e.height);t.beginPath();t.strokeStyle=glob.settings.color4;t.shadowBlur=glob.settings.glowwidth4;t.shadowOffsetX=0;t.shadowOffsetY=0;t.shadowColor=glob.settings.glow4;var n=6*glob.seconds;var r=60-glob.seconds;if(jQuery("#"+glob.settings.unique).find(".countitround_minutes").length<=0){n=360/Math.floor(glob.settings.enddate-glob.settings.startdate)*(Math.floor(glob.settings.enddate-glob.settings.startdate)-glob.seconds);r=glob.seconds}t.arc(glob.size.x(4),glob.size.y(4),glob.size.z(4),glob.deg(0),glob.deg(n));t.lineWidth=glob.settings.frontwidth4;t.stroke();jQuery("#"+glob.settings.unique).find(".countitround_seconds_count").text(r)}},start:function(){var e;if(jQuery("#"+glob.settings.unique).find(".countitround_minutes").length<=0){e=setInterval(function(){if(glob.seconds<=0){glob.complete();clearInterval(e);return}else{glob.seconds--}clock.set.seconds()},1e3);return}if(jQuery("#"+glob.settings.unique).find(".countitround_hours").length<=0){e=setInterval(function(){if(glob.seconds>59){if(glob.minutes==0){clearInterval(e);glob.complete();return}glob.seconds=1;glob.minutes--;clock.set.minutes()}else{glob.seconds++}clock.set.seconds()},1e3);return}if(jQuery("#"+glob.settings.unique).find(".countitround_days").length<=0){e=setInterval(function(){if(glob.seconds>59){if(60-glob.minutes<=0&&glob.hours<=0){clearInterval(e);glob.complete();return}glob.seconds=1;if(glob.minutes>59){glob.minutes=1;clock.set.minutes();glob.hours--;clock.set.hours()}else{glob.minutes++}clock.set.minutes()}else{glob.seconds++}clock.set.seconds()},1e3);return}e=setInterval(function(){if(glob.seconds>59){if(60-glob.minutes<=0&&24-glob.hours<=0&&glob.days<=0){clearInterval(e);glob.complete();return}glob.seconds=1;if(glob.minutes>59){glob.minutes=1;clock.set.minutes();if(glob.hours>23){glob.hours=1;if(glob.days>0){glob.days--;clock.set.days()}}else{glob.hours++}clock.set.hours()}else{glob.minutes++}clock.set.minutes()}else{glob.seconds++}clock.set.seconds()},1e3)}}}jQuery(document).ready(function(){var e=0;while(countitroundinstance[e]){(new countitround).init(countitroundinstance[e]);e++}})
+</script>
+
+<body>
+        <div class="crdemo-logo"></div>
+
+        <div id="crdemo-demo">
+            
+                
+                                
+                    <style scoped="">@import url("http://www.jbmarket.net/demos/wordpress/wp-content/plugins/countitround/site/css/default.css");</style>
+<style type="text/css" scoped="">
+    #countitround_GMVIMUNQYZ .countitround_days{
+        width:150px;
+        height:150px;
+    }
+    #countitround_GMVIMUNQYZ .countitround_hours{
+        width:150px;
+        height:150px;
+    }
+    #countitround_GMVIMUNQYZ .countitround_minutes{
+        width:150px;
+        height:150px;
+    }
+    #countitround_GMVIMUNQYZ .countitround_seconds{
+        width:150px;
+        height:150px;
+    }
+    #countitround_GMVIMUNQYZ .countitround_days_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_GMVIMUNQYZ .countitround_hours_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_GMVIMUNQYZ .countitround_minutes_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_GMVIMUNQYZ .countitround_seconds_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_GMVIMUNQYZ .countitround_days_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_GMVIMUNQYZ .countitround_hours_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_GMVIMUNQYZ .countitround_minutes_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_GMVIMUNQYZ .countitround_seconds_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+</style>
+
+<div class="countitround" id="countitround_GMVIMUNQYZ">
+    
+        <div class="countitround_days"> 
+        <canvas class="canvas_background" height="150" width="150"></canvas>
+        <canvas class="canvas_days" height="150" width="150"></canvas>
+        <div class="countitround_days_count">193</div>
+        <div class="countitround_days_text">Days</div>
+    </div>
+        
+        <div class="countitround_hours">
+        <canvas class="canvas_background" height="150" width="150"></canvas>
+        <canvas class="canvas_hours" height="150" width="150"></canvas>
+        <div class="countitround_hours_count">0</div>
+        <div class="countitround_hours_text">Hours</div>
+    </div>
+        
+        <div class="countitround_minutes">
+        <canvas class="canvas_background" height="150" width="150"></canvas>
+        <canvas class="canvas_minutes" height="150" width="150"></canvas>
+        <div class="countitround_minutes_count">50</div>
+        <div class="countitround_minutes_text">Minutes</div>
+    </div>
+        
+        <div class="countitround_seconds">
+        <canvas class="canvas_background" height="150" width="150"></canvas>
+        <canvas class="canvas_seconds" height="150" width="150"></canvas>
+        <div class="countitround_seconds_count">49</div>
+        <div class="countitround_seconds_text">Seconds</div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+    if (typeof countitroundinstance === "undefined") {
+        var countitroundinstance = [];
+    }
+    
+    countitroundinstance.push({"unique":"countitround_GMVIMUNQYZ","startdate":"1385856000","enddate":"1417435200","now":"1400756368","layout":"dhms","callback":"","color1":"#ffc937","color2":"#ff7c00","color3":"#ff6b53","color4":"#c44f3f","backgroundcolor1":"#e3dfdf","backgroundcolor2":"#e3dfdf","backgroundcolor3":"#e3dfdf","backgroundcolor4":"#e3dfdf","glow1":"#ff6565","glow2":"#378cff","glow3":"#9cdb7d","glow4":"#ffdc50","glowwidth1":"0","glowwidth2":"0","glowwidth3":"0","glowwidth4":"0","backgroundwidth1":"30","backgroundwidth2":"30","backgroundwidth3":"30","backgroundwidth4":"30","frontwidth1":"30","frontwidth2":"30","frontwidth3":"30","frontwidth4":"30","size1":"150","size2":"150","size3":"150","size4":"150","textsize1":"14","textsize2":"14","textsize3":"14","textsize4":"14","countsize1":"30","countsize2":"30","countsize3":"30","countsize4":"30","textcolor1":"#868686","textcolor2":"#868686","textcolor3":"#868686","textcolor4":"#868686","countcolor1":"#313131","countcolor2":"#313131","countcolor3":"#313131","countcolor4":"#313131"});
+</script>
+<div class="space"></div>
+<style scoped="">@import url("http://www.jbmarket.net/demos/wordpress/wp-content/plugins/countitround/site/css/default.css");</style>
+<style type="text/css" scoped="">
+    #countitround_EJINXYPEBY .countitround_days{
+        width:150px;
+        height:150px;
+    }
+    #countitround_EJINXYPEBY .countitround_hours{
+        width:130px;
+        height:130px;
+    }
+    #countitround_EJINXYPEBY .countitround_minutes{
+        width:130px;
+        height:130px;
+    }
+    #countitround_EJINXYPEBY .countitround_seconds{
+        width:130px;
+        height:130px;
+    }
+    #countitround_EJINXYPEBY .countitround_days_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_EJINXYPEBY .countitround_hours_count{
+        width:130px;
+        height:130px;
+        line-height:118px;
+        font-size:23px;
+        color:#313131;
+    }
+    #countitround_EJINXYPEBY .countitround_minutes_count{
+        width:130px;
+        height:130px;
+        line-height:118px;
+        font-size:23px;
+        color:#313131;
+    }
+    #countitround_EJINXYPEBY .countitround_seconds_count{
+        width:130px;
+        height:130px;
+        line-height:118px;
+        font-size:23px;
+        color:#313131;
+    }
+    #countitround_EJINXYPEBY .countitround_days_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_EJINXYPEBY .countitround_hours_text{
+        width:130px;
+        height:130px;
+        line-height:153px;
+        font-size:12px;
+        color:#868686;
+    }
+    #countitround_EJINXYPEBY .countitround_minutes_text{
+        width:130px;
+        height:130px;
+        line-height:153px;
+        font-size:12px;
+        color:#868686;
+    }
+    #countitround_EJINXYPEBY .countitround_seconds_text{
+        width:130px;
+        height:130px;
+        line-height:153px;
+        font-size:12px;
+        color:#868686;
+    }
+</style>
+
+<div class="countitround" id="countitround_EJINXYPEBY">
+    
+        
+        <div class="countitround_hours">
+        <canvas class="canvas_background" height="130" width="130"></canvas>
+        <canvas class="canvas_hours" height="130" width="130"></canvas>
+        <div class="countitround_hours_count">4632</div>
+        <div class="countitround_hours_text">Hours</div>
+    </div>
+        
+        <div class="countitround_minutes">
+        <canvas class="canvas_background" height="130" width="130"></canvas>
+        <canvas class="canvas_minutes" height="130" width="130"></canvas>
+        <div class="countitround_minutes_count">50</div>
+        <div class="countitround_minutes_text">Minutes</div>
+    </div>
+        
+        <div class="countitround_seconds">
+        <canvas class="canvas_background" height="130" width="130"></canvas>
+        <canvas class="canvas_seconds" height="130" width="130"></canvas>
+        <div class="countitround_seconds_count">49</div>
+        <div class="countitround_seconds_text">Seconds</div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+    if (typeof countitroundinstance === "undefined") {
+        var countitroundinstance = [];
+    }
+    
+    countitroundinstance.push({"unique":"countitround_EJINXYPEBY","startdate":"1385856000","enddate":"1417435200","now":"1400756368","layout":"hms","callback":"","color1":"#ffc937","color2":"#37a3ff","color3":"#e05fdb","color4":"#ff7891","backgroundcolor1":"#e3dfdf","backgroundcolor2":"#e3dfdf","backgroundcolor3":"#e3dfdf","backgroundcolor4":"#e3dfdf","glow1":"#ff6565","glow2":"#378cff","glow3":"#9cdb7d","glow4":"#ffdc50","glowwidth1":"0","glowwidth2":"0","glowwidth3":"0","glowwidth4":"0","backgroundwidth1":"30","backgroundwidth2":"25","backgroundwidth3":"25","backgroundwidth4":"25","frontwidth1":"30","frontwidth2":"15","frontwidth3":"15","frontwidth4":"15","size1":"150","size2":"130","size3":"130","size4":"130","textsize1":"14","textsize2":"12","textsize3":"12","textsize4":"12","countsize1":"30","countsize2":"23","countsize3":"23","countsize4":"23","textcolor1":"#868686","textcolor2":"#868686","textcolor3":"#868686","textcolor4":"#868686","countcolor1":"#313131","countcolor2":"#313131","countcolor3":"#313131","countcolor4":"#313131"});
+</script>
+<div class="space"></div>
+<style scoped="">@import url("http://www.jbmarket.net/demos/wordpress/wp-content/plugins/countitround/site/css/default.css");</style>
+<style type="text/css" scoped="">
+    #countitround_OQZXMUDMDQ .countitround_days{
+        width:150px;
+        height:150px;
+    }
+    #countitround_OQZXMUDMDQ .countitround_hours{
+        width:150px;
+        height:150px;
+    }
+    #countitround_OQZXMUDMDQ .countitround_minutes{
+        width:110px;
+        height:110px;
+    }
+    #countitround_OQZXMUDMDQ .countitround_seconds{
+        width:110px;
+        height:110px;
+    }
+    #countitround_OQZXMUDMDQ .countitround_days_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_OQZXMUDMDQ .countitround_hours_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_OQZXMUDMDQ .countitround_minutes_count{
+        width:110px;
+        height:110px;
+        line-height:98px;
+        font-size:18px;
+        color:#313131;
+    }
+    #countitround_OQZXMUDMDQ .countitround_seconds_count{
+        width:110px;
+        height:110px;
+        line-height:98px;
+        font-size:18px;
+        color:#313131;
+    }
+    #countitround_OQZXMUDMDQ .countitround_days_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_OQZXMUDMDQ .countitround_hours_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_OQZXMUDMDQ .countitround_minutes_text{
+        width:110px;
+        height:110px;
+        line-height:128px;
+        font-size:12px;
+        color:#868686;
+    }
+    #countitround_OQZXMUDMDQ .countitround_seconds_text{
+        width:110px;
+        height:110px;
+        line-height:128px;
+        font-size:12px;
+        color:#868686;
+    }
+</style>
+
+<div class="countitround" id="countitround_OQZXMUDMDQ">
+    
+        
+        
+        <div class="countitround_minutes">
+        <canvas class="canvas_background" height="110" width="110"></canvas>
+        <canvas class="canvas_minutes" height="110" width="110"></canvas>
+        <div class="countitround_minutes_count">277970</div>
+        <div class="countitround_minutes_text">Minutes</div>
+    </div>
+        
+        <div class="countitround_seconds">
+        <canvas class="canvas_background" height="110" width="110"></canvas>
+        <canvas class="canvas_seconds" height="110" width="110"></canvas>
+        <div class="countitround_seconds_count">49</div>
+        <div class="countitround_seconds_text">Seconds</div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+    if (typeof countitroundinstance === "undefined") {
+        var countitroundinstance = [];
+    }
+    
+    countitroundinstance.push({"unique":"countitround_OQZXMUDMDQ","startdate":"1385856000","enddate":"1417435200","now":"1400756368","layout":"ms","callback":"","color1":"#ffc937","color2":"#ff7c00","color3":"#FFF","color4":"#6e6e6e","backgroundcolor1":"#e3dfdf","backgroundcolor2":"#e3dfdf","backgroundcolor3":"#313131","backgroundcolor4":"#313131","glow1":"#ff6565","glow2":"#378cff","glow3":"#9cdb7d","glow4":"#ffdc50","glowwidth1":"0","glowwidth2":"0","glowwidth3":"0","glowwidth4":"0","backgroundwidth1":"30","backgroundwidth2":"30","backgroundwidth3":"10","backgroundwidth4":"10","frontwidth1":"30","frontwidth2":"30","frontwidth3":"20","frontwidth4":"20","size1":"150","size2":"150","size3":"110","size4":"110","textsize1":"14","textsize2":"14","textsize3":"12","textsize4":"12","countsize1":"30","countsize2":"30","countsize3":"18","countsize4":"18","textcolor1":"#868686","textcolor2":"#868686","textcolor3":"#868686","textcolor4":"#868686","countcolor1":"#313131","countcolor2":"#313131","countcolor3":"#313131","countcolor4":"#313131"});
+</script>
+<div class="space"></div>
+<style scoped="">@import url("http://www.jbmarket.net/demos/wordpress/wp-content/plugins/countitround/site/css/default.css");</style>
+<style type="text/css" scoped="">
+    #countitround_EJCZRPUFFT .countitround_days{
+        width:150px;
+        height:150px;
+    }
+    #countitround_EJCZRPUFFT .countitround_hours{
+        width:150px;
+        height:150px;
+    }
+    #countitround_EJCZRPUFFT .countitround_minutes{
+        width:150px;
+        height:150px;
+    }
+    #countitround_EJCZRPUFFT .countitround_seconds{
+        width:110px;
+        height:110px;
+    }
+    #countitround_EJCZRPUFFT .countitround_days_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_EJCZRPUFFT .countitround_hours_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_EJCZRPUFFT .countitround_minutes_count{
+        width:150px;
+        height:150px;
+        line-height:136px;
+        font-size:30px;
+        color:#313131;
+    }
+    #countitround_EJCZRPUFFT .countitround_seconds_count{
+        width:110px;
+        height:110px;
+        line-height:100px;
+        font-size:12px;
+        color:#313131;
+    }
+    #countitround_EJCZRPUFFT .countitround_days_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_EJCZRPUFFT .countitround_hours_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_EJCZRPUFFT .countitround_minutes_text{
+        width:150px;
+        height:150px;
+        line-height:180px;
+        font-size:14px;
+        color:#868686;
+    }
+    #countitround_EJCZRPUFFT .countitround_seconds_text{
+        width:110px;
+        height:110px;
+        line-height:122px;
+        font-size:10px;
+        color:#868686;
+    }
+</style>
+
+<div class="countitround" id="countitround_EJCZRPUFFT">
+    
+        
+        
+        
+        <div class="countitround_seconds">
+        <canvas class="canvas_background" height="110" width="110"></canvas>
+        <canvas class="canvas_seconds" height="110" width="110"></canvas>
+        <div class="countitround_seconds_count">16678249</div>
+        <div class="countitround_seconds_text">Seconds</div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+    if (typeof countitroundinstance === "undefined") {
+        var countitroundinstance = [];
+    }
+    
+    countitroundinstance.push({"unique":"countitround_EJCZRPUFFT","startdate":"1385856000","enddate":"1417435200","now":"1400756368","layout":"s","callback":"","color1":"#ffc937","color2":"#ff7c00","color3":"#ff6b53","color4":"#1cceff","backgroundcolor1":"#e3dfdf","backgroundcolor2":"#e3dfdf","backgroundcolor3":"#e3dfdf","backgroundcolor4":"#fff","glow1":"#ff6565","glow2":"#378cff","glow3":"#9cdb7d","glow4":"#52d4ff","glowwidth1":"0","glowwidth2":"0","glowwidth3":"0","glowwidth4":"5","backgroundwidth1":"30","backgroundwidth2":"30","backgroundwidth3":"30","backgroundwidth4":"15","frontwidth1":"30","frontwidth2":"30","frontwidth3":"30","frontwidth4":"5","size1":"150","size2":"150","size3":"150","size4":"110","textsize1":"14","textsize2":"14","textsize3":"14","textsize4":"10","countsize1":"30","countsize2":"30","countsize3":"30","countsize4":"12","textcolor1":"#868686","textcolor2":"#868686","textcolor3":"#868686","textcolor4":"#868686","countcolor1":"#313131","countcolor2":"#313131","countcolor3":"#313131","countcolor4":"#313131"});
+</script>

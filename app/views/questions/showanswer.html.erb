@@ -25,7 +25,9 @@ zoom: 0.8;
                			<div>
                				<div class="float-left">
                					<div>
-									<%= render 'userinfo' %>
+									<%= render 'userinfo' %></br>
+									<%= render 'teller' %>
+
 	                  			</div>
 							</div>	
                			</div>
@@ -39,13 +41,7 @@ zoom: 0.8;
                 		<h3 class="panel-title">Vraag</h3>
               		</div>
               		<div class="panel-body">
-               		<div class="clock"></div>
-								<script type="text/javascript">
-									var clock = $('.clock').FlipClock(<%= @seconds_left %>, {
-										countdown: true,
-										clockFace: 'MinuteCounter'
-									});
-								</script>
+               		
 								<div class="question">
 									<p class = "question">
 										<b><%=h @question.word %></b>
@@ -94,5 +90,6 @@ zoom: 0.8;
 			</div>
 	    </div>
 	</div>
+</div>
 
 	
