@@ -150,7 +150,7 @@ DEPENDENCIES
   bourbon
   carrierwave
   coffee-rails (~> 4.0.0)
-  fog (= 0.5.3)
+  fog
   jbuilder (~> 2.0)
   jquery-rails
   pg

@@ -20,7 +20,19 @@
         filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
         /* For IE 8*/
         -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
-
+.main {
+        padding: 75px 15px;
+      }
+      
+      .fullwidth
+      {
+          width: 100%;
+      }
+      
+      .align-right
+      {
+          text-align: right;   
+      }
     </style>
 
   </head>
@@ -36,7 +48,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Taal Telt</a>
+          <div class="navbar-brand")
+          <% if current_user %>
+              <li> <%= link_to "Taal Telt", :controller => "users", :action => "show", :id => current_user, :class => "navbar-brand" %></li>
+            <% else %>
+                <li> <%= link_to "Taal Telt", log_in_path, :class => "navbar-brand" %> </li>
+            <% end %>
+          </div>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,21 +63,18 @@
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "Spelregels", page_rules_path %></li>
             <li><%= link_to "Over dit project", page_about_path %></li>
-            <li><% flash.each do |name, msg| %>
-                  <%= content_tag :div, msg, :id => "flash_#{name}" %></li>
-      <% end %>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <%if current_user != nil %>
               <% if current_user.acro == "mve" %>
-                <li> <%= link_to "Beheerpagina", page_admin_path %> </li>
+                  <li> <%= link_to "Beheerpagina", page_admin_path %> </li>
               <%end%>
             <% end %>
             <% if current_user %>
-              <li> <%= link_to "Log out", log_out_path %> </li>
-              <li> <%= link_to "Profiel", :controller => "users", :action => "show", :id => current_user %>.</li>
+                <li> <%= link_to "Log out", log_out_path %> </li>
+                <li> <%= link_to "Profiel", :controller => "users", :action => "show", :id => current_user %>.</li>
             <% else %>
-              <li> <%= link_to "log in", log_in_path %> </li>
+                <li> <%= link_to "log in", log_in_path %> </li>
             <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -70,5 +85,4 @@
 
   </body>
 </html>
-
 
