@@ -16,8 +16,8 @@
                 <tr>
                   <td>
                       <p>
-                        <strong>Jouw behaalde XP:</strong>
-                        <%= @user.xp %>
+                        Jouw behaalde XP:
+                        <strong><%= @user.xp %></strong>
                       </p><% if @user.picture.present? %>
                         <%= image_tag(@user.picture_url, :height => 200, :class => "img-rounded") %>
                       <% else %>
@@ -37,12 +37,12 @@
           <div class="panel-heading">
             <h4><i class="fa fa-sitemap">&nbsp;</i>Levels</h4>
           </div>
-          <div class="panel-body">    
+          <div class="panel-body top">    
             <table class="fullwidth">
             <% @lvlscores.each do |level, stars| %>
               <tr>
                 <td><%= link_to 'Level ' + level.number.to_s, :controller => "playedlevels", :action => "startlevel", :id=>level.id %></td>
-                <td> <%= level.openingdate.strftime("%d-%m-%Y")  %> t/m <%= level.closingdate.strftime("%d-%m-%d-%Y") %>.</td>
+                <td> <%= level.openingdate.strftime("%d-%m-%Y")  %> t/m <%= level.closingdate.strftime("%d-%m-%d-%Y") %></td>
                 <td><%= image_tag("" + stars.to_s + ".jpg", :width => 60) %></td>
               </tr>
             <% end %>

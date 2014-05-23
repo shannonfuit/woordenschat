@@ -1,6 +1,6 @@
 <div class="text-center">
   <div class="btn-group">
-  <div class="btn btn-default"><%= link_to_unless @answer.hintsentenceused == true || @answer.hintimageused == true, 'synoniem', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintsemanticused"%>
+  <div class="btn btn-default"><%= link_to_unless @answer.hintsentenceused == true || @answer.hintimageused == true, 'Woord', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintsemanticused"%>
   </div>
 
   <div class="btn btn-default"><%= link_to_unless @answer.hintsemanticused == true || @answer.hintimageused == true, 'zin', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintsentenceused" %>

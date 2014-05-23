@@ -9,11 +9,12 @@
               		<div class="panel-body">
                			<div>
                				<div class="float-left">
+               				<p>Level Voltooid!</p></br>
                				<p> Beste <%= @playedlevel.user.name %>. </p>
 							<p>Je hebt dit level in <%= @playedlevel.playtime %> seconden voltooid.</p>
 							<p>Je hebt <%= @playedlevel.correctquestions %> van de 10 vragen goed.</p>
 							<p>Je hebt <%= @playedlevel.levelxp  %> XP behaald.
-							<p>Je hebt de synoniemen <%= @playedlevel.answers.where(hintsemanticused: true).count %> keer gebruikt.
+							<p>Je hebt de woorden <%= @playedlevel.answers.where(hintsemanticused: true).count %> keer gebruikt.
 							<p>Je hebt de zinnen <%= @playedlevel.answers.where(hintsentenceused: true).count %> keer gebruikt.
 							<p>Je hebt de afbeeldingen <%= @playedlevel.answers.where(hintimageused: true).count %> keer gebruikt.
 
