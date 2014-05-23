@@ -73,8 +73,7 @@ class QuestionsController < ApplicationController
     @current_user = current_user
     @current_levelxp = current_levelxp
 
-    @time = @answer.questionstarted
-    @seconds_left = (@time - Time.now + 90).to_i
+    @seconds_left = (@answer.questionstarted- Time.now).to_int.abs
 
   end
 
