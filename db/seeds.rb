@@ -31,6 +31,18 @@ q1 = Question.create([
     anscorrect: 1,
     level_id: levels.first.id }])
 
+q2 = Question.create([
+    { word: 'Sjonnie',
+    ans1: 'Hagenees',
+    ans2: 'Amsterdammer',
+    ans3: 'Mug',
+    ans4: 'Kakkerlak',
+    hintsemantic: 'Noord-holland',
+    hintsentence: 'Son in de see sien sakken',
+    hintimage: '',
+    anscorrect: 2,
+    level_id: levels.first.id }])
+
 
 DeadlineMedal.create([
     { name: 'Deadline level 1', description: 'Speel level 1 voor de sluitingsdatum', xp: 1000, levelnumber: 1 },
