@@ -33,9 +33,6 @@ gem 'bourbon'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-#fog needed for carrierwave in production
-gem "fog", "~> 1.3.1"
-
 group :development do
   gem 'sqlite3'
 end
