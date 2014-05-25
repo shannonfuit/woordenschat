@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user.save
     
     #levelinfo & stars
-    @levels = Level.all
+    @levels = Level.order("number ASC").all
     @lvlscores = Hash.new
     @levels.each { |lvl|
       @lvlscores[lvl] = 0

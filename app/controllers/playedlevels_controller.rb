@@ -85,10 +85,10 @@ class PlayedlevelsController < ApplicationController
     }
     if @playedlevel.finishlevel < @playedlevel.level.closingdate
       if @playedlevel.stars > 0
-        @starmessage = "gefeliciteerd, je hebt het level binnen de tijd gemaakt. het aantal behaalde sterren is: " + @playedlevel.stars.to_s + "."
-      else @starmessage = "helaas, je hebt geen sterren gehaald in deze ronde, ik daag je uit, probeer het nog eens!"
+        @starmessage = "Gefeliciteerd, je hebt het level binnen de tijd gemaakt! Het aantal behaalde sterren is: " + @playedlevel.stars.to_s + "."
+      else @starmessage = "Helaas, je hebt geen sterren gehaald in deze ronde. Ik daag je uit, probeer het nog eens!"
       end
-    else @starmessage = "helaas, de deadline voor dit level is verstreken. je krijgt daarom geen sterren voor deze ronde"
+    else @starmessage = "Helaas, de deadline voor dit level is verstreken. Je krijgt daarom geen sterren voor deze ronde."
     end
 
    # redirect_to :controller => "users", :action => "show", :id => current_user

@@ -19,17 +19,70 @@ levels = Level.create([
     {number: 5, openingdate: Time.now, closingdate: Time.now + 1},
     {number: 6, openingdate: Time.now, closingdate: Time.now + 1},
     ])
-q1 = Question.create([
-	{ word: 'Harry',
-    ans1: 'Hagenees',
-    ans2: 'Amsterdammer',
-    ans3: 'Mug',
-    ans4: 'Kakkerlak',
-    hintsemantic: 'Hagenaar',
-    hintsentence: 'Zegt vaak kanker',
-    hintimage: '',
-    anscorrect: 1,
-    level_id: levels.first.id }])
+questionslevel1 = Question.create([
+	{ word: 'Harry', ans1: 'Hagenees', ans2: 'Amsterdammer', ans3: 'Mug', ans4: 'Kakkerlak', hintsemantic: 'Hagenaar',
+    hintsentence: 'Zegt vaak kanker', hintimage: '', anscorrect: 1,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    { word: '', ans1: '', ans2: '', ans3: '', ans4: '', hintsemantic: '',
+    hintsentence: '', hintimage: '', anscorrect: 1 ,level_id: levels.first.id }
+    ])
 
 q2 = Question.create([
     { word: 'Sjonnie',

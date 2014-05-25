@@ -19,9 +19,9 @@
                         Jouw behaalde XP:
                         <strong><%= @user.xp %></strong>
                       </p><% if @user.picture.present? %>
-                        <%= image_tag(@user.picture_url, :height => 200, :class => "img-rounded") %>
+                        <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %>
                       <% else %>
-                        <%= image_tag("default.png", :width => 200, :class => "img-rounded") %>
+                        <%= image_tag("default.png", :height => 130, :class => "img-rounded") %>
                       <% end %>
                       <%= render 'form' %>             
                   </td>
