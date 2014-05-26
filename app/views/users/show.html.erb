@@ -18,8 +18,11 @@
                       <p>
                         Jouw behaalde XP:
                         <strong><%= @user.xp %></strong>
-                    
-                           <%= form_for(@user) do |f| %>
+                         <% if @user.picture? %>
+                          <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %>
+                           <% end %>
+                 
+                      <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -42,7 +45,7 @@
   </div>
 <% end %>
 
-         
+
                   </td>
                 </tr>                    
               </table>
