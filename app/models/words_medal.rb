@@ -1,0 +1,2 @@
+class WordsMedal < Medal
+end
