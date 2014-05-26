@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @user = current_user
     @user.xp = @user.totalxp
     @user.save
+    @throphycount = @user.achievements.count
+    @starcount = @user.playedlevels.sum("stars")
     
     #levelinfo & stars
     @levels = Level.order("number ASC").all
@@ -30,6 +32,7 @@ class UsersController < ApplicationController
 
     #achievements
     @achievements = @user.achievements.all  
+    @medals = Medal.all
 
   session[:levelxp] = 0
   end

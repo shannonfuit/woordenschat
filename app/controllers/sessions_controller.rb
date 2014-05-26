@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 	   # redirect_to root_url, :notice => "Logged in!"
 	   	redirect_to :controller => "users", :action => "show", :id => "user.id"
 	  else
-	    flash.now.alert = "Ongeldige acro of wachtwoord"
+	    flash.notice = "Ongeldige acro of wachtwoord"
 	    render "new"
 	  end
 	end

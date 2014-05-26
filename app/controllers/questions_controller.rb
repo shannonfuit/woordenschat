@@ -60,7 +60,15 @@ class QuestionsController < ApplicationController
     @answer.user = current_user
     @answer.save
     session[:answer_id] = @answer.id
+    @current_playedlevel = current_playedlevel
 
+    unless @current_playedlevel.answers.last == nil
+      if @current_playedlevel.answers.last.answercorrect?
+        flash[:notice] = "Goed beantwoord!"
+      else
+        flash[:notice] = "Fout beantwoord!"
+      end
+    end
     redirect_to controller: 'questions', action: 'showanswer', id: @question.id, answerid: @answer.id
   end
 
@@ -72,6 +80,7 @@ class QuestionsController < ApplicationController
     @current_playedlevel = current_playedlevel
     @current_user = current_user
     @current_levelxp = current_levelxp
+    @current_answer_number = @current_playedlevel.answers.count + 1
 
     @seconds_left = (@answer.questionstarted- Time.now).to_int.abs
 

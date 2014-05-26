@@ -17,8 +17,15 @@
                   <td>
                       <p>
                         Jouw behaalde XP:
-                        <strong><%= @user.xp %></strong>
-                      </p><% if @user.picture.present? %>
+                        <strong><%= @user.xp %></strong></br>
+                        Aantal sterren: <b><%= @starcount %></b></br>
+                        Aantal trofeeën: <b><%= @throphycount %></b>
+                      </p> 
+                      
+                      <%= Time.now %>
+
+
+                      <% if @user.picture.present? %>
                         <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %>
                       <% else %>
                         <%= image_tag("default.png", :height => 130, :class => "img-rounded") %>
@@ -80,13 +87,24 @@
             </div>
             <div class="panel-body">
               <table class="fullwidth">
+                <tr>
               <% @achievements.each do |achievement| %>
                 <tr>
-                  <td><%=achievement.medal.name%></td>
+                  <td><%= image_tag("trophytrue.png", :width => 40) %></td>
                   <td><%=achievement.medal.description%></td>
-                  <td><%=achievement.medal.xp%></td>
+                  <td><%=achievement.medal.xp%> xp</td>
                 </tr>
               <% end %>
+              <% @medals.each do |medal| %>
+                <% if @achievements.where(:medal => medal).empty? %>
+                  <tr>
+                    <td><%= image_tag("trophyfalse.png", :width => 40) %></td>
+                    <td><%=medal.description%></td>
+                    <td><%=medal.xp%> xp</td>
+                  </tr>
+                <%end%>
+              <% end %>
+
               </table>
             </div>
           </div>

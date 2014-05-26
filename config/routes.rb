@@ -9,10 +9,18 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :playedlevels 
+
   resources :medals 
   resources :deadline_medals, controller: 'medals', type: 'DeadlineMedal' 
   resources :three_star_medals, controller: 'medals', type: 'ThreeStarMedal' 
   resources :no_hints_medals, controller: 'medals', type: 'NoHintMedal' 
+  resources :twenty_five_in_row_medals, controller: 'medals', type: 'TwentyFiveInRowMedal' 
+  resources :fifty_in_row_medals, controller: 'medals', type: 'FiftyInRowMedal' 
+  resources :hundred_in_row_medals, controller: 'medals', type: 'HundredInRowMedal' 
+  resources :hundred_medals, controller: 'medals', type: 'HundredMedal' 
+  resources :thousand_medals, controller: 'medals', type: 'ThousandMedal' 
+  resources :all_medals_medals, controller: 'medals', type: 'AllMedalsMedal'
+
 
 
   get 'page/rules'

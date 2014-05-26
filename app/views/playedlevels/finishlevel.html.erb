@@ -1,33 +1,47 @@
 <div class="container">
-	<div class="main">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-info">
-              		<div class="panel-heading">
-                		<h3 class="panel-title">Het level is afgerond!</h3>
-              		</div>
-              		<div class="panel-body">
-               			<div>
-               				<div class="float-left">
-               				<h1>Level Voltooid!<h1>
-               				<p> Beste <%= @playedlevel.user.name %>. </p>
-							<p>Je hebt dit level in <%= @playedlevel.playtime %> seconden voltooid.</br>
-								Je hebt <%= @playedlevel.correctquestions %> van de 30 vragen goed.</br>
-							Je hebt <%= @playedlevel.levelxp  %> XP behaald.</p>
-							<p>Je hebt de woorden <%= @playedlevel.answers.where(hintsemanticused: true).count %> keer gebruikt.<br>
-								Je hebt de zinnen <%= @playedlevel.answers.where(hintsentenceused: true).count %> keer gebruikt.</br>
-								Je hebt de afbeeldingen <%= @playedlevel.answers.where(hintimageused: true).count %> keer gebruikt.</p>
+  <div class="main">
+    <div class="row">
 
-						
+      <div class="col-md-1"></div>
 
-							<p><%= @starmessage %></p>
-							<p> <%= link_to 'Terug naar het overzicht', :controller => "users", :action => "show", :id => current_user %>
-
-							</div>	
-               			</div>
-              		</div>
-	          	</div>
-			</div>
-		</div>
-	</div>
+      <div class="col col-md-4">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+           		<h4> Level voltooid!</h4>
+          </div>
+          <div class="panel-body">
+            <div class="float-left">
+            	<p> Beste <%= @playedlevel.user.name %>, </p>
+            	<p> Je hebt <%= @playedlevel.levelxp  %> XP behaald!</p>
+            	 <% unless @medals_achieved.empty? %> 
+	           		<p> Je hebt de volgende trofeeën behaald:</br>
+					<% @medals_achieved.each do |medal| %>
+						<%= image_tag("trophytrue.png", :width => 40) %> <%= medal.name %></br>
+					<% end %>
+				<%end%>
+				<p><%= @starmessage %></p>
+							
+            </div>  
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+          	<h4> statistieken</h4>
+          </div>
+          <div class="panel-body">
+         	<p>Je hebt dit level in <%= @playedlevel.playtime %> seconden voltooid.</br>
+				Je hebt <%= @playedlevel.correctquestions %> van de 30 vragen goed.</p>
+				<p>Je hebt de woorden <%= @playedlevel.answers.where(hintsemanticused: true).count %> keer gebruikt.<br>
+				Je hebt de zinnen <%= @playedlevel.answers.where(hintsentenceused: true).count %> keer gebruikt.</br>
+				Je hebt de afbeeldingen <%= @playedlevel.answers.where(hintimageused: true).count %> keer gebruikt.</p>
+				<p> <%= link_to 'Terug naar het overzicht', :controller => "users", :action => "show", :id => current_user %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
 </div>	

@@ -8,6 +8,7 @@ class ThreeStarMedal < LevelMedal
 							user_id: user, medal: self
 						})
 			user.achievements.push(achievement)
+			return true
 		end 
 	end
 end

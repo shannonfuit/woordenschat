@@ -12,5 +12,8 @@
 		xp dit level: </br>
 		<strong><%= @current_levelxp %></strong>
 	<%end%></p>
+	<% if flash[:notice] %>
+  		<b><%= flash[:notice] %></b>
+  	<% end %>
 </p>
 </div>
