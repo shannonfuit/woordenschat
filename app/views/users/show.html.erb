@@ -18,7 +18,7 @@
                       <p>
                         Jouw behaalde XP:
                         <strong><%= @user.xp %></strong>
-                         <% if @user.picture.present? %>
+                         <% if @user.picture? %>
                           <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %><br />
                            <% end %>
                  
