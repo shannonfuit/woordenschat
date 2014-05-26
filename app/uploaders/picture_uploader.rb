@@ -7,7 +7,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :fog
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -17,8 +17,8 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    'assets/images/default.png'
- end
+    'default.png'
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:

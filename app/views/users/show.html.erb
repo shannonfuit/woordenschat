@@ -18,34 +18,12 @@
                       <p>
                         Jouw behaalde XP:
                         <strong><%= @user.xp %></strong>
-                         <% if @user.picture? %>
-                          <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %>
-                           <% end %>
-                 
-                      <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-<div class="field">
-    <%= f.file_field :picture %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Verander Avatar" %>
-  </div>
-<% end %>
-
-
+                      </p><% if @user.picture.present? %>
+                        <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %>
+                      <% else %>
+                        <%= image_tag("default.png", :height => 130, :class => "img-rounded") %>
+                      <% end %>
+                      <%= render 'form' %>             
                   </td>
                 </tr>                    
               </table>
