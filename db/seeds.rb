@@ -115,24 +115,24 @@ ThreeStarMedal.create([
     ])
 
 TwentyFiveInRowMedal.create([
-    { name: '25 Vragen achter elkaar goed', description: 'Beantwoord 25 vragen achter elkaar correct', xp: 1000, levelnumber: -1 }
+    { name: '25 Vragen achter elkaar goed', description: 'Beantwoord 25 vragen achter elkaar correct', xp: 1000, levelnumber: 1 }
     ])
 
 FiftyInRowMedal.create([
-    { name: '50 Vragen achter elkaar goed', description: 'Beantwoord 50 vragen achter elkaar correct', xp: 1000, levelnumber: -1 }
+    { name: '50 Vragen achter elkaar goed', description: 'Beantwoord 50 vragen achter elkaar correct', xp: 1000, levelnumber: 1 }
     ])
 
 HundredInRowMedal.create([
-    { name: '100 Vragen achter elkaar goed', description: 'Beantwoord 100 vragen achter elkaar correct', xp: 1000, levelnumber: -1 }
+    { name: '100 Vragen achter elkaar goed', description: 'Beantwoord 100 vragen achter elkaar correct', xp: 1000, levelnumber: 1 }
     ])
 HundredMedal.create([
-    { name: '100 Vragen goed', description: 'Beantwoord 100 vragen correct', xp: 1000, levelnumber: -1 }
+    { name: '100 Vragen goed', description: 'Beantwoord 100 vragen correct', xp: 1000, levelnumber: 1 }
     ])
 ThousandMedal.create([
-    { name: '1000 Vragen Goed', description: 'Beantwoord 1000 vragen correct', xp: 1000, levelnumber: -1 }
+    { name: '1000 Vragen Goed', description: 'Beantwoord 1000 vragen correct', xp: 1000, levelnumber: 1 }
     ])
 ThousandMedal.create([
-    { name: 'Alle trofeeën behaald', description: 'Haal alle trofeeën', xp: 1000, levelnumber: -1 }
+    { name: 'Alle trofeeen behaald', description: 'Haal alle trofeeen', xp: 1000, levelnumber: 1 }
     ])
  # self.password_salt = BCrypt::Engine.generate_salt
  #      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
