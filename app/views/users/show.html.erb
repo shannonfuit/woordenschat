@@ -18,7 +18,21 @@
                       <p>
                         Jouw behaalde XP:
                         <strong><%= @user.xp %></strong>
-                         test       
+                         <% #if @user.picture? %>
+                          <%= #image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %><br />
+                           <% #end %>
+                 
+
+
+<div class="field">
+    <%= f.file_field :picture %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Verander Avatar" %>
+  </div>
+<% end %>
+         
                   </td>
                 </tr>                    
               </table>
