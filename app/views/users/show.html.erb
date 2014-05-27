@@ -21,9 +21,6 @@
                         Aantal sterren: <b><%= @starcount %></b></br>
                         Aantal trofeeën: <b><%= @throphycount %></b>
                       </p> 
-                      
-                      <%= Time.now %>
-
 
                       <% if @user.picture.present? %>
                         <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %>
