@@ -14,6 +14,9 @@
 <% elsif @answer.hintsentenceused == true %>
   <div class="alert alert-info"><%= @question.hintsentence %></div>
 <% elsif @answer.hintimageused  == true%>
-        <div class="alert alert-info"><%= image_tag("preview.png", :width => 250, :class => "img-rounded") %></div>
-    
+  <% if @question.hintimage.present? %>
+    <div class="alert alert-info"> <%= image_tag(@question.hintimage_url, :height => 250, :class => "img-rounded") %>
+  <%else %>
+    <div class="alert alert-info"><%= image_tag("preview.png", :width => 250, :class => "img-rounded") %></div>
+  <% end %>  
 <% end %>
