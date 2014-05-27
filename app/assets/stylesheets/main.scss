@@ -62,7 +62,7 @@ $colHighlight   : #FED373;
 .displayed {
     display: block;
     margin-left: auto;
-    margin-right: auto }
+    margin-right: auto; }
 
 .not-opaque {
     background: white;
@@ -88,13 +88,13 @@ $colHighlight   : #FED373;
     color: #005666;
   }
 
-  .panel-info a:visited {
+  .showlinks a:visited {
     color: #005666;
   }
-  .panel-info a {
+  .showlinks a {
     text-decoration:underline;
   }
-  .panel-info a:hover {
+  .showlinks a:hover {
     color: #fd1800;
     background: white;
   }
@@ -102,6 +102,18 @@ $colHighlight   : #FED373;
     color: #009a2d;
     font-size: 20px;
  }
+
+   .questionlink {
+    text-decoration: none;
+    border:none;}
+
+  .questionlink:hover
+{ 
+background-color: #EDF7FF;
+text-decoration: none;
+color:black;
+}
+
     
 //Count it Round Teller
 .countitround * {
@@ -114,15 +126,13 @@ $colHighlight   : #FED373;
 .countitround .countitround_minutes,
 .countitround .countitround_seconds {
     position: relative;
-    width:188px;
-    height:188px;
+    width:110px;
+    height:110px;
     float:left;
     margin:5px;
 }
 
-.countitround .canvas_days,
-.countitround .canvas_hours, 
-.countitround .canvas_minutes, 
+ 
 .countitround .canvas_seconds { 
     position: relative;
     z-index: 2;
@@ -133,9 +143,7 @@ $colHighlight   : #FED373;
     z-index: 1;
 }
 
-.countitround .countitround_days_text,
-.countitround .countitround_hours_text,
-.countitround .countitround_minutes_text,
+
 .countitround .countitround_seconds_text {
     width:188px;
     height:188px;
@@ -151,11 +159,6 @@ $colHighlight   : #FED373;
     font-weight: bold;
 }
    
-
-
-.countitround .countitround_days_count,
-.countitround .countitround_hours_count,
-.countitround .countitround_minutes_count,
 .countitround .countitround_seconds_count {
     width:188px;
     height:188px;
