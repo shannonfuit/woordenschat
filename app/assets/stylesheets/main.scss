@@ -64,10 +64,45 @@ $colHighlight   : #FED373;
     margin-left: auto;
     margin-right: auto }
 
- .not-opaque {
-        background: white;
-      }
-        
+.not-opaque {
+    background: white;
+  }
+
+.main {
+    padding: 75px 15px;
+  }
+  
+  .fullwidth
+  {
+      width: 100%;
+  }
+  
+  .align-right
+  {
+      text-align: right;   
+  }
+
+  .top{height: 310px;}
+
+  .panel-info h4 {
+    color: #005666;
+  }
+
+  .panel-info a:visited {
+    color: #005666;
+  }
+  .panel-info a {
+    text-decoration:underline;
+  }
+  .panel-info a:hover {
+    color: #fd1800;
+    background: white;
+  }
+   .panel-info strong {
+    color: #009a2d;
+    font-size: 20px;
+ }
+    
 //Count it Round Teller
 .countitround * {
     padding:0;
