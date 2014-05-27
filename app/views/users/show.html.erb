@@ -24,7 +24,7 @@
 
                       <% if @user.picture.present? %>
                         <%= image_tag(@user.picture_url, :height => 130, :class => "img-rounded") %>
-                      %#else %>
+                      <%else %>
                         <%=image_tag("default.png", :height => 130, :class => "img-rounded") %>
                       <% end %>
                       <%= render 'form' %>             
