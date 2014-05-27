@@ -30,7 +30,7 @@
         <td><%= answer.playtime %> </td>
         <td><%= answer.question.level_id %></td>
         <td><%= answer.question.id %></td>
-        <td><%= answer.user.name %></td>
+        <td><%= answer.user %></td>
         <td><%= link_to 'Toon', answer %></td>
         <td><%= link_to 'Verwijder', answer, method: :delete, data: { confirm: 'Weet je het zeker?' } %></td>
       </tr>
