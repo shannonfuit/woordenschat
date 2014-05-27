@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     #userinfo
+    @users = User.all
     @user = current_user
     @user.xp = @user.totalxp
     @user.save
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
     }
     #highscores
     @gebruikers = User.all.order('xp DESC').take(5)
+    @klassen = User.select(:klas).group(:klas).order("SUM(xp) DESC").sum(:xp)
 
     #achievements
     @achievements = @user.achievements.all  

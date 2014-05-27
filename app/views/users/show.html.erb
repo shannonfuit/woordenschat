@@ -63,7 +63,7 @@
         <div class="col-md-4">
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h4><i class="fa fa-sort-amount-desc">&nbsp;</i>Highscores</h4>
+              <h4><i class="fa fa-sort-amount-desc">&nbsp;</i>Highscores leerlingen</h4>
             </div>
             <div class="panel-body">
               <table class="fullwidth">
@@ -75,8 +75,24 @@
                 <% end %>
               </table>
             </div>
+          </div> 
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4><i class="fa fa-sort-amount-desc">&nbsp;</i>Highscores klassen</h4>
+            </div>
+            <div class="panel-body">   
+              <table class="fullwidth">
+              <% @klassen.each do |klas| %>
+                <tr>
+                  <td>klas <%= klas.first %></td>
+                  <td class="align-right"><%= klas.last %></td>
+                </tr>
+                <% end %>
+              </table>
+            </div>
           </div>
-        </div>
+
+      </div>
         <div class="col-md-6">
           <div class="panel panel-info">
             <div class="panel-heading border-warning">
