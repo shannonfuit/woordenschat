@@ -37,7 +37,7 @@
 				<p>Je hebt de woorden <%= @playedlevel.answers.where(hintsemanticused: true).count %> keer gebruikt.<br>
 				Je hebt de zinnen <%= @playedlevel.answers.where(hintsentenceused: true).count %> keer gebruikt.</br>
 				Je hebt de afbeeldingen <%= @playedlevel.answers.where(hintimageused: true).count %> keer gebruikt.</p>
-				<p> <%= link_to 'Terug naar het overzicht', :controller => "users", :action => "show", :id => current_user %></p>
+				<p> <%= link_to 'Terug naar het overzicht', :controller => "users", :action => "show", :id => current_user %></p> <%= @playedlevel.correctquestions %> </br> <%=@playedlevel.answers.count(:answercorrect == true)
           </div>
         </div>
       </div>
