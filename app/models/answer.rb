@@ -10,7 +10,7 @@ class Answer < ActiveRecord::Base
     self.playtime = elapsed_seconds
     self.givenanswer = answer
     self.answercorrect = (self.givenanswer == self.question.anscorrect)
-    if (self.answercorrect? && self.playtime <30)
+    if (self.answercorrect? && self.playtime < 30)
         if (self.hintsemanticused? || self.hintsentenceused? || self.hintimageused?)
           self.xp = 50
         else

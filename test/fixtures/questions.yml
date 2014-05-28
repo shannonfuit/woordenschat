@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  word: MyText
+  word: One
   ans1: MyText
   ans2: MyText
   ans3: MyText
@@ -10,7 +10,7 @@ one:
   hintsentence: MyText
   hintimage: MyString
   anscorrect: 1
-  level_id: 
+  level_id: 1
 
 two:
   word: MyText
@@ -22,4 +22,100 @@ two:
   hintsentence: MyText
   hintimage: MyString
   anscorrect: 1
-  level_id: 
+  level_id: 1
+
+three:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
+
+four:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
+
+five:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
+
+six:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
+
+seven:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
+
+eigth:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
+
+nine:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
+
+ten:
+  word: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  hintsemantic: MyText
+  hintsentence: MyText
+  hintimage: MyString
+  anscorrect: 1
+  level_id: 1
