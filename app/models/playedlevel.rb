@@ -11,7 +11,7 @@ class Playedlevel < ActiveRecord::Base
     self.correctquestions = self.answers.where(answercorrect: true).count
     
     self.stars = 0
-    if self.finishlevel < self.level.closingdate  
+    if self.finishlevel < self.level.closingdate  && self.finishlevel > self.level.openingdate
       if 6 <= self.score && self.score < 8
         self.stars = 1
       elsif 8 <= self.score && self.score < 10
