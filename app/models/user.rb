@@ -8,14 +8,13 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
 
-
   validates_confirmation_of :password
-  #validates_presence_of :password, :on => :create
+  # validates_presence_of :password, :on => :create
   validates_presence_of :acro
   validates_uniqueness_of :acro
 
   def encrypt_password
-    #raise password.inspect
+    # raise password.inspect
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
@@ -26,27 +25,23 @@ class User < ActiveRecord::Base
     user = find_by_acro(acro)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
-    else
-      nil
     end
   end
 
   def totalxp
-    xp = self.answers.sum(:xp) + self.achievements.inject(0){|sum,x| sum += x.medal.xp}
+    xp = answers.sum(:xp) + achievements.inject(0) { |sum, x| sum += x.medal.xp }
     if xp.nil?
       xp = 0
-    else xp 
+    else xp
     end
   end
 
-  def has_won (medal)
+  def has_won(medal)
     achievementcollected = false
     achievements = self.achievements.all
     achievements.each do |achievement|
-      if achievement.medal == medal
-        achievementcollected = true
-      end
+      achievementcollected = true if achievement.medal == medal
     end
-    return achievementcollected
+    achievementcollected
   end
 end
