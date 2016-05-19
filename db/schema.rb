@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20140521174514) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "playedlevel_id"
+    t.integer  "played_level_id"
   end
 
-  add_index "answers", ["playedlevel_id"], name: "index_answers_on_playedlevel_id"
+  add_index "answers", ["played_level_id"], name: "index_answers_on_played_level_id"
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
@@ -61,22 +61,22 @@ ActiveRecord::Schema.define(version: 20140521174514) do
     t.integer  "level_number"
   end
 
-  create_table "playedlevels", force: true do |t|
+  create_table "played_levels", force: true do |t|
     t.datetime "started_at"
     t.datetime "ended_at"
     t.integer  "seconds"
-    t.boolean  "levelcompleted",   default: false
-    t.integer  "stars",            default: 0
+    t.boolean  "level_completed", default: false
+    t.integer  "stars",           default: 0
     t.integer  "level_id"
     t.integer  "user_id"
-    t.integer  "correctquestions", default: 0
-    t.integer  "levelxp",          default: 0
+    t.integer  "count_correct",   default: 0
+    t.integer  "level_xp",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "playedlevels", ["level_id"], name: "index_playedlevels_on_level_id"
-  add_index "playedlevels", ["user_id"], name: "index_playedlevels_on_user_id"
+  add_index "played_levels", ["level_id"], name: "index_played_levels_on_level_id"
+  add_index "played_levels", ["user_id"], name: "index_played_levels_on_user_id"
 
   create_table "questions", force: true do |t|
     t.text     "word"

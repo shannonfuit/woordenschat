@@ -13,15 +13,15 @@ class UsersController < ApplicationController
     @user.xp = @user.totalxp
     @user.save
     @throphycount = @user.achievements.count
-    @starcount = @user.playedlevels.sum("stars")
+    @starcount = @user.played_levels.sum("stars")
     
     #levelinfo & stars
     @levels = Level.order("number ASC").all
     @lvlscores = Hash.new
     @levels.each { |lvl|
       @lvlscores[lvl] = 0
-      if !(@user.playedlevels.nil? && @user.playedlevels.empty?) then
-        bestlevel = @user.playedlevels.select{ | pl | pl.level_id == lvl.id }.max_by(&:stars)
+      if !(@user.played_levels.nil? && @user.played_levels.empty?) then
+        bestlevel = @user.played_levels.select{ | pl | pl.level_id == lvl.id }.max_by(&:stars)
         
         if bestlevel != nil then
           @lvlscores[lvl] = bestlevel.stars
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @achievements = @user.achievements.all  
     @medals = Medal.all
 
-  session[:levelxp] = 0
+  session[:level_xp] = 0
   end
 
   def edit

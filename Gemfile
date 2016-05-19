@@ -44,7 +44,8 @@ group :production do
   gem 'rails_12factor'
   gem 'aws-sdk'
   #for using carrierwave in production on heroku
-  gem "fog", "~> 1.3.1"
+  # TODO: fix circular warning from fog
+  gem "fog"
 end
 
 # Use Capistrano for deployment

@@ -19,14 +19,14 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def submit
-    @answer.submit(params[:answer], current_playedlevel )
-    @current_levelxp = current_levelxp
-    session[:levelxp] = @current_levelxp + @answer.xp
+    @answer.submit(params[:answer], current_played_level )
+    @current_level_xp = current_level_xp
+    session[:level_xp] = @current_level_xp + @answer.xp
     @next = @answer.question.next
       if @next
         redirect_to :controller => "questions", :action => "startanswer",:id => @next
       else
-        redirect_to :controller => "playedlevels", :action => "finishlevel", :id => current_playedlevel
+        redirect_to :controller => "played_levels", :action => "finishlevel", :id => current_played_level
       end
   end
 

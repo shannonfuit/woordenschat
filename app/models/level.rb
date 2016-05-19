@@ -1,4 +1,4 @@
 class Level < ActiveRecord::Base
   has_many :questions
-  has_many :playedlevels
+  has_many :played_levels
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :levels
   resources :users
   resources :sessions
-  resources :playedlevels 
+  resources :played_levels 
 
   resources :medals 
   resources :deadline_medals, controller: 'medals', type: 'DeadlineMedal' 

@@ -4,20 +4,20 @@ one:
   started_at: 2014-05-06 19:34:35
   ended_at: 2014-05-06 19:34:35
   seconds: 1
-  levelcompleted: false
+  level_completed: false
   stars: 1
   level_id: 
   user_id: 
-  correctquestions: 1
-  levelxp: 1
+  count_correct: 1
+  level_xp: 1
 
 two:
   started_at: 2014-05-06 19:34:35
   ended_at: 2014-05-06 19:34:35
   seconds: 1
-  levelcompleted: false
+  level_completed: false
   stars: 1
   level_id: 
   user_id: 
-  correctquestions: 1
-  levelxp: 1
+  count_correct: 1
+  level_xp: 1

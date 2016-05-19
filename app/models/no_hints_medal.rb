@@ -1,6 +1,6 @@
 class NoHintsMedal < LevelMedal
   def judge(user, played_level)
-    answers = playedlevel.answers
+    answers = played_level.answers
     return unless answers.find_by(used_semantic_hint: true) &&
                   answers.find_by(used_sentence_hint: true) &&
                   answers.find_by(used_image_hint: true) &&

@@ -60,10 +60,10 @@ class QuestionsController < ApplicationController
     @answer.user = current_user
     @answer.save
     session[:answer_id] = @answer.id
-    @current_playedlevel = current_playedlevel
+    @current_played_level = current_played_level
 
-    unless @current_playedlevel.answers.last == nil
-      if @current_playedlevel.answers.last.correct_answered?
+    unless @current_played_level.answers.last == nil
+      if @current_played_level.answers.last.correct_answered?
         flash[:notice] = "Goed beantwoord!"
       else
         flash[:notice] = "Fout beantwoord!"
@@ -77,10 +77,10 @@ class QuestionsController < ApplicationController
     @question= Question.find(params[:id])
     @next = @question.next
     @answer = Answer.find(params[:answerid])
-    @current_playedlevel = current_playedlevel
+    @current_played_level = current_played_level
     @current_user = current_user
-    @current_levelxp = current_levelxp
-    @current_answer_number = @current_playedlevel.answers.count + 1
+    @current_level_xp = current_level_xp
+    @current_answer_number = @current_played_level.answers.count + 1
 
     @seconds_left = (@answer.created_at - Time.now).to_int.abs
 
