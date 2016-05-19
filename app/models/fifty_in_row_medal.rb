@@ -5,7 +5,7 @@ class FiftyInRowMedal < WordsMedal
 			number_of_correct_answers = 0
 			answers = user.answers.order("id asc")
 			answers.each do |answer|
-				if answer.answercorrect?
+				if answer.correct_answered?
 					number_of_correct_answers += 1
 					if number_of_correct_answers == 50
 						achievement = Achievement.create({

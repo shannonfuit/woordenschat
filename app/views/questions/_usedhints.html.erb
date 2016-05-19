@@ -1,19 +1,19 @@
 <div class="text-center">
   <div class="btn-group">
-  <div class="btn btn-default"><%= link_to_unless @answer.hintsentenceused == true || @answer.hintimageused == true, 'Woord', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintsemanticused"%>
+  <div class="btn btn-default"><%= link_to_unless @answer.used_sentence_hint == true || @answer.used_image_hint == true, 'Woord', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "used_semantic_hint"%>
   </div>
 
-  <div class="btn btn-default"><%= link_to_unless @answer.hintsemanticused == true || @answer.hintimageused == true, 'zin', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintsentenceused" %>
+  <div class="btn btn-default"><%= link_to_unless @answer.used_semantic_hint == true || @answer.used_image_hint == true, 'zin', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "used_sentence_hint" %>
   </div>
-  <div class="btn btn-default"><%= link_to_unless @answer.hintsentenceused == true || @answer.hintsemanticused == true, 'afbeelding', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "hintimageused" %>
+  <div class="btn btn-default"><%= link_to_unless @answer.used_sentence_hint == true || @answer.used_semantic_hint == true, 'afbeelding', :controller => "questions", :action => "usedhints", id: @question.id, answerid: @answer.id, hintid: "used_image_hint" %>
   </div>
 </div>
 
-<% if @answer.hintsemanticused == true %>
+<% if @answer.used_semantic_hint == true %>
   <div class="alert alert-info"><%= @question.hintsemantic %></div>
-<% elsif @answer.hintsentenceused == true %>
+<% elsif @answer.used_sentence_hint == true %>
   <div class="alert alert-info"><%= @question.hintsentence %></div>
-<% elsif @answer.hintimageused  == true%>
+<% elsif @answer.used_image_hint  == true%>
   <% if @question.hintimage.present? %>
     <div class="alert alert-info"> <%= image_tag(@question.hintimage_url, :height => 250, :class => "img-rounded") %>
   <%else %>

@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:show, :edit, :update, :destroy, :submit]
 
   # GET /answers
   # GET /answers.json
@@ -16,27 +16,18 @@ class AnswersController < ApplicationController
   def new
     @answer = Answer.new
   end
-
   # POST /answers
   # POST /answers.json
-  def finishquestion
-    @answer = Answer.find(params[:answer_id])
-    @answer.finishquestion(params[:answer])
-    @answer.playedlevel = current_playedlevel
-    @next = @answer.question.next
-    @answer.save
+  def submit
+    @answer.submit(params[:answer], current_playedlevel )
     @current_levelxp = current_levelxp
     session[:levelxp] = @current_levelxp + @answer.xp
-
-    respond_to do |format|
-      if @next != nil
-          format.html { redirect_to :controller => "questions", :action => "startanswer",:id => @next}
-          format.json { head}
+    @next = @answer.question.next
+      if @next
+        redirect_to :controller => "questions", :action => "startanswer",:id => @next
       else
-        format.html { redirect_to :controller => "playedlevels", :action => "finishlevel", :id => current_playedlevel}
-        format.json { head }
+        redirect_to :controller => "playedlevels", :action => "finishlevel", :id => current_playedlevel
       end
-    end
   end
 
   # PATCH/PUT /answers/1
@@ -71,6 +62,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:givenanswer, :answercorrect, :hintsemanticused, :hintsentenceused, :hintimageused, :xp, :questionstarted, :questionfinished, :playtime, :level, :question_id)
+      params.require(:answer).permit(:given_answer, :correct_answered, :used_semantic_hint, :used_sentence_hint, :used_image_hint, :xp, :seconds, :level, :question_id)
     end
 end

@@ -32,11 +32,11 @@
           	<h4> statistieken</h4>
           </div>
           <div class="panel-body">
-         	<p>Je hebt dit level in <%= @playedlevel.playtime %> seconden voltooid.</br>
+         	<p>Je hebt dit level in <%= @playedlevel.seconds %> seconden voltooid.</br>
 				Je hebt <%= @playedlevel.correctquestions %> van de 30 vragen goed.</p>
-				<p>Je hebt de woorden <%= @playedlevel.answers.where(hintsemanticused: true).count %> keer gebruikt.<br>
-				Je hebt de zinnen <%= @playedlevel.answers.where(hintsentenceused: true).count %> keer gebruikt.</br>
-				Je hebt de afbeeldingen <%= @playedlevel.answers.where(hintimageused: true).count %> keer gebruikt.</p>
+				<p>Je hebt de woorden <%= @playedlevel.answers.where(used_semantic_hint: true).count %> keer gebruikt.<br>
+				Je hebt de zinnen <%= @playedlevel.answers.where(used_sentence_hint: true).count %> keer gebruikt.</br>
+				Je hebt de afbeeldingen <%= @playedlevel.answers.where(used_image_hint: true).count %> keer gebruikt.</p>
 				<p> <%= link_to 'Terug naar het overzicht', :controller => "users", :action => "show", :id => current_user %></p>
           </div>
         </div>

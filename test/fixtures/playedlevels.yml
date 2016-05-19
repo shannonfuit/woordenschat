@@ -3,7 +3,7 @@
 one:
   startlevel: 2014-05-06 19:34:35
   finishlevel: 2014-05-06 19:34:35
-  playtime: 1
+  seconds: 1
   levelcompleted: false
   stars: 1
   level_id: 
@@ -14,7 +14,7 @@ one:
 two:
   startlevel: 2014-05-06 19:34:35
   finishlevel: 2014-05-06 19:34:35
-  playtime: 1
+  seconds: 1
   levelcompleted: false
   stars: 1
   level_id: 

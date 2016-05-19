@@ -1,27 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  givenanswer: 1
-  answercorrect: false
-  hintsemanticused: false
-  hintsentenceused: false
-  hintimageused: false
+  given_answer: 1
+  correct_answered: false
+  used_semantic_hint: false
+  used_sentence_hint: false
+  used_image_hint: false
   xp: 1
-  questionstarted: 2014-04-30 14:27:44
-  questionfinished: 2014-04-30 14:27:44
-  playtime: 1
+  seconds: 1
   level: 1
   question_id: 
 
 two:
-  givenanswer: 1
-  answercorrect: false
-  hintsemanticused: false
-  hintsentenceused: false
-  hintimageused: false
+  given_answer: 1
+  correct_answered: false
+  used_semantic_hint: false
+  used_sentence_hint: false
+  used_image_hint: false
   xp: 1
-  questionstarted: 2014-04-30 14:27:44
-  questionfinished: 2014-04-30 14:27:44
-  playtime: 1
+  seconds: 1
   level: 1
   question_id: 

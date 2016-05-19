@@ -24,15 +24,13 @@ ActiveRecord::Schema.define(version: 20140521174514) do
   add_index "achievements", ["user_id"], name: "index_achievements_on_user_id"
 
   create_table "answers", force: true do |t|
-    t.integer  "givenanswer"
-    t.boolean  "answercorrect"
-    t.boolean  "hintsemanticused", default: false
-    t.boolean  "hintsentenceused", default: false
-    t.boolean  "hintimageused",    default: false
-    t.integer  "xp"
-    t.datetime "questionstarted"
-    t.datetime "questionfinished"
-    t.integer  "playtime"
+    t.integer  "given_answer"
+    t.boolean  "correct_answered"
+    t.boolean  "used_semantic_hint", default: false
+    t.boolean  "used_sentence_hint", default: false
+    t.boolean  "used_image_hint",    default: false
+    t.integer  "xp",                 default: 0
+    t.integer  "seconds"
     t.integer  "level"
     t.integer  "question_id"
     t.datetime "created_at"
@@ -66,7 +64,7 @@ ActiveRecord::Schema.define(version: 20140521174514) do
   create_table "playedlevels", force: true do |t|
     t.datetime "startlevel"
     t.datetime "finishlevel"
-    t.integer  "playtime"
+    t.integer  "seconds"
     t.boolean  "levelcompleted",   default: false
     t.integer  "stars",            default: 0
     t.integer  "level_id"

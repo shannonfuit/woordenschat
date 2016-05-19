@@ -52,18 +52,18 @@ class QuestionsController < ApplicationController
 
   #added methods
   def startanswer
+    
     @question= Question.find(params[:id])  
     @next = @question.next
     @answer = Answer.new
     @answer.question = @question
-    @answer.questionstarted = Time.now
     @answer.user = current_user
     @answer.save
     session[:answer_id] = @answer.id
     @current_playedlevel = current_playedlevel
 
     unless @current_playedlevel.answers.last == nil
-      if @current_playedlevel.answers.last.answercorrect?
+      if @current_playedlevel.answers.last.correct_answered?
         flash[:notice] = "Goed beantwoord!"
       else
         flash[:notice] = "Fout beantwoord!"
@@ -82,7 +82,7 @@ class QuestionsController < ApplicationController
     @current_levelxp = current_levelxp
     @current_answer_number = @current_playedlevel.answers.count + 1
 
-    @seconds_left = (@answer.questionstarted- Time.now).to_int.abs
+    @seconds_left = (@answer.created_at - Time.now).to_int.abs
 
   end
 
@@ -91,12 +91,12 @@ class QuestionsController < ApplicationController
     answer = Answer.find(params[:answerid])
     hint = params[:hintid]
 
-    if hint == "hintsemanticused"
-      answer.hintsemanticused = true
-    elsif hint == "hintsentenceused"
-      answer.hintsentenceused = true
-    elsif hint == "hintimageused"
-      answer.hintimageused = true
+    if hint == "used_semantic_hint"
+      answer.used_semantic_hint = true
+    elsif hint == "used_sentence_hint"
+      answer.used_sentence_hint = true
+    elsif hint == "used_image_hint"
+      answer.used_image_hint = true
     end
     answer.save
 

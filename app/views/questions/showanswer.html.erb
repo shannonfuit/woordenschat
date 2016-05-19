@@ -76,7 +76,7 @@ zoom: 0.8;
 	                	<div class="panel-body">
 	                 		<div>
 							<%= render 'usedhints' %>
-								<%= form_tag({:controller => "answers", :action => "finishquestion", :answer_id => @answer.id},
+								<%= form_tag({:controller => "answers", :action => "submit", :id => @answer.id},
 								:id => 'answerform') do %>
 								<%= hidden_field_tag :answer, 0 %>
 								<% end %>

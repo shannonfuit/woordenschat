@@ -21,13 +21,13 @@
   <tbody>
     <% @answers.each do |answer| %>
       <tr>
-        <td><%= answer.givenanswer %></td>
-        <td><%= answer.answercorrect %></td>
-        <td><%= answer.hintsemanticused %></td>
-        <td><%= answer.hintsentenceused %></td>
-        <td><%= answer.hintimageused %></td>
+        <td><%= answer.given_answer %></td>
+        <td><%= answer.correct_answered %></td>
+        <td><%= answer.used_semantic_hint %></td>
+        <td><%= answer.used_sentence_hint %></td>
+        <td><%= answer.used_image_hint %></td>
         <td><%= answer.xp %></td>
-        <td><%= answer.playtime %> </td>
+        <td><%= answer.seconds %> </td>
         <td><%= answer.question.level_id %></td>
         <td><%= answer.question.id %></td>
         <td><%= answer.user.name %></td>

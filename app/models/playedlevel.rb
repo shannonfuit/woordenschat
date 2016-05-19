@@ -5,10 +5,10 @@ class Playedlevel < ActiveRecord::Base
 
   def levelfinished
   	self.finishlevel = Time.now
-    self.playtime = (self.finishlevel - self.startlevel).to_i
+    self.seconds = (self.finishlevel - self.startlevel).to_i
     self.levelcompleted = true
     self.levelxp = self.answers.sum(:xp)
-    self.correctquestions = self.answers.where(answercorrect: true).count
+    self.correctquestions = self.answers.where(correct_answered: true).count
     
     self.stars = 0
     if self.finishlevel < self.level.closingdate  && self.finishlevel > self.level.openingdate

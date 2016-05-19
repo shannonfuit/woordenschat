@@ -3,21 +3,20 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :playedlevel
 
-	#answers the question
-  def finishquestion (answer)
-  	self.questionfinished = Time.now
-    elapsed_seconds = (self.questionfinished - self.questionstarted).to_i
-    self.playtime = elapsed_seconds
-    self.givenanswer = answer
-    self.answercorrect = (self.givenanswer == self.question.anscorrect)
-    if (self.answercorrect? && self.playtime < 30)
-        if (self.hintsemanticused? || self.hintsentenceused? || self.hintimageused?)
-          self.xp = 50
-        else
-          self.xp = 100
-        end
-    else
-    	self.xp = 0
+  # answers the question
+  def submit(given_answer, played_level)
+    # TODO: refactor the whole hints thing, it's totally incomprehensible
+    self.seconds = (Time.zone.now - created_at).to_i
+    self.given_answer = given_answer
+    self.playedlevel = played_level
+    self.correct_answered = given_answer == question.anscorrect
+    if correct_answered? && seconds < 30
+      self.xp = if used_semantic_hint || used_sentence_hint || used_image_hint
+                  50
+                else
+                  100
+                end
     end
+    save
   end
 end

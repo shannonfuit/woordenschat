@@ -12,40 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :givenanswer %><br>
-    <%= f.number_field :givenanswer %>
+    <%= f.label :given_answer %><br>
+    <%= f.number_field :given_answer %>
   </div>
   <div class="field">
-    <%= f.label :answercorrect %><br>
-    <%= f.check_box :answercorrect %>
+    <%= f.label :correct_answered %><br>
+    <%= f.check_box :correct_answered %>
   </div>
   <div class="field">
-    <%= f.label :hintsemanticused %><br>
-    <%= f.check_box :hintsemanticused %>
+    <%= f.label :used_semantic_hint %><br>
+    <%= f.check_box :used_semantic_hint %>
   </div>
   <div class="field">
-    <%= f.label :hintsentenceused %><br>
-    <%= f.check_box :hintsentenceused %>
+    <%= f.label :used_sentence_hint %><br>
+    <%= f.check_box :used_sentence_hint %>
   </div>
   <div class="field">
-    <%= f.label :hintimageused %><br>
-    <%= f.check_box :hintimageused %>
+    <%= f.label :used_image_hint %><br>
+    <%= f.check_box :used_image_hint %>
   </div>
   <div class="field">
     <%= f.label :xp %><br>
     <%= f.number_field :xp %>
   </div>
   <div class="field">
-    <%= f.label :questionstarted %><br>
-    <%= f.datetime_select :questionstarted %>
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
   </div>
   <div class="field">
-    <%= f.label :questionfinished %><br>
-    <%= f.datetime_select :questionfinished %>
-  </div>
-  <div class="field">
-    <%= f.label :playtime %><br>
-    <%= f.number_field :playtime %>
+    <%= f.label :seconds %><br>
+    <%= f.number_field :seconds %>
   </div>
   <div class="field">
     <%= f.label :level %><br>

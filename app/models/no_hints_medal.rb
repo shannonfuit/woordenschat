@@ -2,9 +2,9 @@ class NoHintsMedal < LevelMedal
 
 	def judge(user, playedlevel)
 		# normally this should obviously only apply when the level numbers are equal.
-		if(playedlevel.answers.where(hintsemanticused: true).count == 0 &&
-			playedlevel.answers.where(hintsentenceused: true).count == 0 &&
-			playedlevel.answers.where(hintimageused: true).count == 0 && 
+		if(playedlevel.answers.where(used_semantic_hint: true).count == 0 &&
+			playedlevel.answers.where(used_sentence_hint: true).count == 0 &&
+			playedlevel.answers.where(used_image_hint: true).count == 0 && 
 			playedlevel.level.number == self.levelnumber && !user.haswon(self)
 			)
 			achievement = Achievement.create({

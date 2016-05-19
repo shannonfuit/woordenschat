@@ -107,6 +107,6 @@ class PlayedlevelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def playedlevel_params
-      params.require(:playedlevel).permit(:startlevel, :finishlevel, :playtime, :levelcompleted, :stars, :level_id, :user_id, :correctquestions, :levelxp)
+      params.require(:playedlevel).permit(:startlevel, :finishlevel, :seconds, :levelcompleted, :stars, :level_id, :user_id, :correctquestions, :levelxp)
     end
 end

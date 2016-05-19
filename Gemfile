@@ -37,6 +37,7 @@ gem 'bourbon'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
+  gem 'rubocop', require: false
 end
 group :production do
   # gem 'pg'
