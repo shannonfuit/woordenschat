@@ -33,4 +33,15 @@ class MedalTest < ActiveSupport::TestCase
     medal.judge(user, played_level)
     assert_includes(user.medals, medal)
   end
+
+  test 'adds a HundredMedal to user' do
+    user = users(:one)
+    100.times {user.answers.create({correct_answered: true}) }
+    medal = HundredMedal.create(name: '100 vragen goed',
+                                 description: 'Beantwoord 100 vragen correct',
+                                 xp: 1000)
+
+    medal.judge(user)
+    assert_includes(user.medals, medal)
+  end
 end

@@ -5,7 +5,7 @@
   <thead>
     <tr>
       <th>Startlevel</th>
-      <th>Finishlevel</th>
+      <th>Ended at</th>
       <th>seconds</th>
       <th>Levelcompleted</th>
       <th>Stars</th>
@@ -21,7 +21,7 @@
     <% @playedlevels.each do |playedlevel| %>
       <tr>
         <td><%= playedlevel.startlevel %></td>
-        <td><%= playedlevel.finishlevel %></td>
+        <td><%= playedlevel.ended_at %></td>
         <td><%= playedlevel.seconds %></td>
         <td><%= playedlevel.levelcompleted %></td>
         <td><%= playedlevel.stars %></td>
