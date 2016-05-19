@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140521174514) do
 
   create_table "playedlevels", force: true do |t|
     t.datetime "startlevel"
-    t.datetime "finishlevel"
+    t.datetime "ended_at"
     t.integer  "seconds"
     t.boolean  "levelcompleted",   default: false
     t.integer  "stars",            default: 0

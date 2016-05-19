@@ -2,7 +2,7 @@ class CreatePlayedlevels < ActiveRecord::Migration
   def change
     create_table :playedlevels do |t|
       t.datetime :startlevel
-      t.datetime :finishlevel
+      t.datetime :ended_at
       t.integer :seconds
       t.boolean :levelcompleted, :default => false
       t.integer :stars, :default => 0

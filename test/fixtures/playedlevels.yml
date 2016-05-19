@@ -2,7 +2,7 @@
 
 one:
   startlevel: 2014-05-06 19:34:35
-  finishlevel: 2014-05-06 19:34:35
+  ended_at: 2014-05-06 19:34:35
   seconds: 1
   levelcompleted: false
   stars: 1
@@ -13,7 +13,7 @@ one:
 
 two:
   startlevel: 2014-05-06 19:34:35
-  finishlevel: 2014-05-06 19:34:35
+  ended_at: 2014-05-06 19:34:35
   seconds: 1
   levelcompleted: false
   stars: 1

@@ -4,14 +4,14 @@ class Playedlevel < ActiveRecord::Base
   has_many :answers
 
   def levelfinished
-  	self.finishlevel = Time.now
-    self.seconds = (self.finishlevel - self.startlevel).to_i
+  	self.ended_at = Time.now
+    self.seconds = (self.ended_at - self.startlevel).to_i
     self.levelcompleted = true
     self.levelxp = self.answers.sum(:xp)
     self.correctquestions = self.answers.where(correct_answered: true).count
     
     self.stars = 0
-    if self.finishlevel < self.level.closingdate  && self.finishlevel > self.level.openingdate
+    if self.ended_at < self.level.closingdate  && self.ended_at > self.level.openingdate
       if 6 <= self.score && self.score < 8
         self.stars = 1
       elsif 8 <= self.score && self.score < 10
@@ -21,7 +21,7 @@ class Playedlevel < ActiveRecord::Base
       end
     end
 
-    #if self.finishlevel < self.level.closingdate
+    #if self.ended_at < self.level.closingdate
 	    # if self.correctquestions >= 18 && self.correctquestions < 24
 	    # 	self.stars = 1
 	    # elsif self.correctquestions >= 24 && self.correctquestions < 30

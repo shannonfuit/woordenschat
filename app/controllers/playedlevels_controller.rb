@@ -88,7 +88,7 @@ class PlayedlevelsController < ApplicationController
        end
     }
    
-    if @playedlevel.finishlevel < @playedlevel.level.closingdate
+    if @playedlevel.ended_at < @playedlevel.level.closingdate
       if @playedlevel.stars > 0
         @starmessage = "Gefeliciteerd, je hebt het level binnen de tijd gemaakt! Het aantal behaalde sterren is: " + @playedlevel.stars.to_s + "."
       else @starmessage = "Helaas, je hebt geen sterren gehaald in deze ronde. Ik daag je uit, probeer het nog eens!"
@@ -107,6 +107,6 @@ class PlayedlevelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def playedlevel_params
-      params.require(:playedlevel).permit(:startlevel, :finishlevel, :seconds, :levelcompleted, :stars, :level_id, :user_id, :correctquestions, :levelxp)
+      params.require(:playedlevel).permit(:startlevel, :ended_at, :seconds, :levelcompleted, :stars, :level_id, :user_id, :correctquestions, :levelxp)
     end
 end

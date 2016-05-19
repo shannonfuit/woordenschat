@@ -51,7 +51,7 @@
 # 		    i += 1
 # 		}
 # 		playedlevel.save
-# 		playedlevel.levelfinished
+# 		playedlevel.ended_at
 
 # 		# puts "qcount: " + playedlevel.level.questions.count.to_s
 # 		# puts "cscore: " + playedlevel.correct_score.to_s
