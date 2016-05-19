@@ -4,11 +4,12 @@ class Playedlevel < ActiveRecord::Base
   has_many :answers
 
   def end
-    self.ended_at = Time.now
-    self.seconds = (ended_at - startlevel).to_i
-    self.levelcompleted = true
-    self.levelxp = answers.sum(:xp)
-    self.correctquestions = answers.where(correct_answered: true).count
+    update(
+      ended_at: Time.zone.now
+      seconds: (ended_at - started_at).to_i
+      levelcompleted: true
+      levelxp: answers.sum(:xp)
+      correctquestions: answers.where(correct_answered: true).count
 
     self.stars = 0
     if ended_at < level.closingdate && ended_at > level.openingdate

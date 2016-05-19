@@ -65,7 +65,7 @@ class PlayedlevelsController < ApplicationController
     playedlevel = Playedlevel.new
     playedlevel.level = @level
     playedlevel.user = current_user
-    playedlevel.startlevel = Time.now
+    playedlevel.started_at = Time.zone.now
     playedlevel.save
     if playedlevel
       session[:playedlevel_id] = playedlevel.id
@@ -107,6 +107,6 @@ class PlayedlevelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def playedlevel_params
-      params.require(:playedlevel).permit(:startlevel, :ended_at, :seconds, :levelcompleted, :stars, :level_id, :user_id, :correctquestions, :levelxp)
+      params.require(:playedlevel).permit(:started_at, :ended_at, :seconds, :levelcompleted, :stars, :level_id, :user_id, :correctquestions, :levelxp)
     end
 end

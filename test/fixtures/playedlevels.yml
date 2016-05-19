@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  startlevel: 2014-05-06 19:34:35
+  started_at: 2014-05-06 19:34:35
   ended_at: 2014-05-06 19:34:35
   seconds: 1
   levelcompleted: false
@@ -12,7 +12,7 @@ one:
   levelxp: 1
 
 two:
-  startlevel: 2014-05-06 19:34:35
+  started_at: 2014-05-06 19:34:35
   ended_at: 2014-05-06 19:34:35
   seconds: 1
   levelcompleted: false

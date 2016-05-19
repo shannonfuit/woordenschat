@@ -30,7 +30,7 @@
 # 		playedlevel = Playedlevel.new
 # 		playedlevel.level = levels(:one)
 # 		playedlevel.user = users(:one)
-# 		playedlevel.startlevel = Time.now
+# 		playedlevel.started_at = Time.zone.now
 
 # 		i = 1;
 # 		Question.all.each { |e|
