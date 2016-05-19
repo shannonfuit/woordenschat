@@ -16,7 +16,7 @@
             	 <% unless @medals_achieved.empty? %> 
 	           		<p> Je hebt de volgende trofeeën behaald:</br>
 					<% @medals_achieved.each do |medal| %>
-						<%= image_tag("trophytrue.png", :width => 40) %> <%= medal.name %></br>
+						<%= image_tag("trophy_true.png", :width => 40) %> <%= medal.name %></br>
 					<% end %>
 				<%end%>
 				<p><%= @starmessage %></p>

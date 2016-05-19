@@ -33,16 +33,17 @@ gem 'bourbon'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-#for using carrierwave in production on heroku
-gem "fog", "~> 1.3.1"
+
 
 group :development do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
+  # gem 'pg'
   gem 'rails_12factor'
   gem 'aws-sdk'
+  #for using carrierwave in production on heroku
+  gem "fog", "~> 1.3.1"
 end
 
 # Use Capistrano for deployment

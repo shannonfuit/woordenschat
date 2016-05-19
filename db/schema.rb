@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20140521174514) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "xp",            default: 0
-    t.string   "picture",       default: "default"
+    t.string   "picture"
     t.string   "name"
     t.string   "klas",          default: "4b"
   end
