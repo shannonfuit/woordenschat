@@ -75,7 +75,7 @@ class PlayedlevelsController < ApplicationController
 
   def finishlevel
     @playedlevel = current_playedlevel
-    @playedlevel.levelfinished
+    @playedlevel.end
     @playedlevel.save
 
     user = current_user

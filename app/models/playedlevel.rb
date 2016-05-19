@@ -3,7 +3,7 @@ class Playedlevel < ActiveRecord::Base
   belongs_to :user
   has_many :answers
 
-  def levelfinished
+  def end
     self.ended_at = Time.now
     self.seconds = (ended_at - startlevel).to_i
     self.levelcompleted = true
