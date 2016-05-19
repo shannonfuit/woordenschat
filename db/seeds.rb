@@ -443,8 +443,6 @@ HundredMedal.create([
 ThousandMedal.create([
     { name: '1000 Vragen Goed', description: 'Beantwoord 1000 vragen correct', xp: 1000, levelnumber: 1 }
     ])
-ThousandMedal.create([
+AllMedalsMedal.create([
     { name: 'Alle trofeeen behaald', description: 'Haal alle trofeeen', xp: 1000, levelnumber: 1 }
     ])
- # self.password_salt = BCrypt::Engine.generate_salt
- #      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)

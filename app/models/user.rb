@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :playedlevels
   has_many :achievements
+  has_many :medals, through: :achievements
 
   attr_accessor :password
   before_save :encrypt_password
