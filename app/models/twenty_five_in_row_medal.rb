@@ -1,25 +1,7 @@
 class TwentyFiveInRowMedal < WordsMedal
-
-	def judge(user, playedlevel)
-		if(!user.has_won(self))
-			number_of_correct_answers = 0
-			answers = user.answers.order("id asc")
-			answers.each do |answer|
-				if answer.correct_answered?
-					number_of_correct_answers += 1
-					if number_of_correct_answers == 25
-						achievement = Achievement.create({
-										user_id: user, medal: self
-									})
-						user.achievements.push(achievement)
-						return true
-					end
-				else number_of_correct_answers = 0
-				end
-			end
-		end 
-	end
+  def judge(user, _playedlevel = nil)
+    count_correct = user.answers.last(25).collect(&:correct_answered?).length
+    return false if user.has_won self || count_correct < 25
+    user.achievements.create(user: user, medal: self)
+  end
 end
-
-
-
