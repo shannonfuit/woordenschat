@@ -1,7 +1,7 @@
 class HundredMedal < WordsMedal
 
 	def judge(user, playedlevel)
-		if(!user.haswon(self))
+		if(!user.has_won(self))
 			number_of_correct_answers = 0
 			answers = user.answers.order("id asc")
 			answers.each do |answer|

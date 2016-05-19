@@ -400,49 +400,49 @@ questionslevel6 = Question.create([
     ])
 
 DeadlineMedal.create([
-    { name: 'Deadline level 1', description: 'Speel level 1 voor de sluitingsdatum', xp: 1000, levelnumber: 1 },
-    { name: 'Deadline level 2', description: 'Speel level 2 voor de sluitingsdatum', xp: 1000, levelnumber: 2 },
-    { name: 'Deadline level 3', description: 'Speel level 3 voor de sluitingsdatum', xp: 1000, levelnumber: 3 },
-    { name: 'Deadline level 4', description: 'Speel level 4 voor de sluitingsdatum', xp: 1000, levelnumber: 4 },
-    { name: 'Deadline level 5', description: 'Speel level 5 voor de sluitingsdatum', xp: 1000, levelnumber: 5 },
-    { name: 'Deadline level 6', description: 'Speel level 6 voor de sluitingsdatum', xp: 1000, levelnumber: 6 },
+    { name: 'Deadline level 1', description: 'Speel level 1 voor de sluitingsdatum', xp: 1000, level_number: 1 },
+    { name: 'Deadline level 2', description: 'Speel level 2 voor de sluitingsdatum', xp: 1000, level_number: 2 },
+    { name: 'Deadline level 3', description: 'Speel level 3 voor de sluitingsdatum', xp: 1000, level_number: 3 },
+    { name: 'Deadline level 4', description: 'Speel level 4 voor de sluitingsdatum', xp: 1000, level_number: 4 },
+    { name: 'Deadline level 5', description: 'Speel level 5 voor de sluitingsdatum', xp: 1000, level_number: 5 },
+    { name: 'Deadline level 6', description: 'Speel level 6 voor de sluitingsdatum', xp: 1000, level_number: 6 },
     ])
 
 NoHintsMedal.create([
-    { name: 'Geen hints level 1', description: 'Geen hints gebruikt in level 1', xp: 1000, levelnumber: 1 },
-    { name: 'Geen hints level 2', description: 'Geen hints gebruikt in level 2', xp: 1000, levelnumber: 2 },
-    { name: 'Geen hints level 3', description: 'Geen hints gebruikt in level 3', xp: 1000, levelnumber: 3 },
-    { name: 'Geen hints level 4', description: 'Geen hints gebruikt in level 4', xp: 1000, levelnumber: 4 },
-    { name: 'Geen hints level 5', description: 'Geen hints gebruikt in level 5', xp: 1000, levelnumber: 5 },
-    { name: 'Geen hints level 6', description: 'Geen hints gebruikt in level 6', xp: 1000, levelnumber: 6 },
+    { name: 'Geen hints level 1', description: 'Geen hints gebruikt in level 1', xp: 1000, level_number: 1 },
+    { name: 'Geen hints level 2', description: 'Geen hints gebruikt in level 2', xp: 1000, level_number: 2 },
+    { name: 'Geen hints level 3', description: 'Geen hints gebruikt in level 3', xp: 1000, level_number: 3 },
+    { name: 'Geen hints level 4', description: 'Geen hints gebruikt in level 4', xp: 1000, level_number: 4 },
+    { name: 'Geen hints level 5', description: 'Geen hints gebruikt in level 5', xp: 1000, level_number: 5 },
+    { name: 'Geen hints level 6', description: 'Geen hints gebruikt in level 6', xp: 1000, level_number: 6 },
     ])
 
 ThreeStarMedal.create([
-    { name: '3 Sterren level 1', description: 'Haal drie sterren in level 1', xp: 1000, levelnumber: 1 },
-    { name: '3 Sterren level 2', description: 'Haal drie sterren in level 2', xp: 1000, levelnumber: 2 },
-    { name: '3 Sterren level 3', description: 'Haal drie sterren in level 3', xp: 1000, levelnumber: 3 },
-    { name: '3 Sterren level 4', description: 'Haal drie sterren in level 4', xp: 1000, levelnumber: 4 },
-    { name: '3 Sterren level 5', description: 'Haal drie sterren in level 5', xp: 1000, levelnumber: 5 },
-    { name: '3 Sterren level 6', description: 'Haal drie sterren in level 6', xp: 1000, levelnumber: 6 },
+    { name: '3 Sterren level 1', description: 'Haal drie sterren in level 1', xp: 1000, level_number: 1 },
+    { name: '3 Sterren level 2', description: 'Haal drie sterren in level 2', xp: 1000, level_number: 2 },
+    { name: '3 Sterren level 3', description: 'Haal drie sterren in level 3', xp: 1000, level_number: 3 },
+    { name: '3 Sterren level 4', description: 'Haal drie sterren in level 4', xp: 1000, level_number: 4 },
+    { name: '3 Sterren level 5', description: 'Haal drie sterren in level 5', xp: 1000, level_number: 5 },
+    { name: '3 Sterren level 6', description: 'Haal drie sterren in level 6', xp: 1000, level_number: 6 },
     ])
 
 TwentyFiveInRowMedal.create([
-    { name: '25 Vragen achter elkaar goed', description: 'Beantwoord 25 vragen achter elkaar correct', xp: 1000, levelnumber: 1 }
+    { name: '25 Vragen achter elkaar goed', description: 'Beantwoord 25 vragen achter elkaar correct', xp: 1000, level_number: 1 }
     ])
 
 FiftyInRowMedal.create([
-    { name: '50 Vragen achter elkaar goed', description: 'Beantwoord 50 vragen achter elkaar correct', xp: 1000, levelnumber: 1 }
+    { name: '50 Vragen achter elkaar goed', description: 'Beantwoord 50 vragen achter elkaar correct', xp: 1000, level_number: 1 }
     ])
 
 HundredInRowMedal.create([
-    { name: '100 Vragen achter elkaar goed', description: 'Beantwoord 100 vragen achter elkaar correct', xp: 1000, levelnumber: 1 }
+    { name: '100 Vragen achter elkaar goed', description: 'Beantwoord 100 vragen achter elkaar correct', xp: 1000, level_number: 1 }
     ])
 HundredMedal.create([
-    { name: '100 Vragen goed', description: 'Beantwoord 100 vragen correct', xp: 1000, levelnumber: 1 }
+    { name: '100 Vragen goed', description: 'Beantwoord 100 vragen correct', xp: 1000, level_number: 1 }
     ])
 ThousandMedal.create([
-    { name: '1000 Vragen Goed', description: 'Beantwoord 1000 vragen correct', xp: 1000, levelnumber: 1 }
+    { name: '1000 Vragen Goed', description: 'Beantwoord 1000 vragen correct', xp: 1000, level_number: 1 }
     ])
 AllMedalsMedal.create([
-    { name: 'Alle trofeeen behaald', description: 'Haal alle trofeeen', xp: 1000, levelnumber: 1 }
+    { name: 'Alle trofeeen behaald', description: 'Haal alle trofeeen', xp: 1000, level_number: 1 }
     ])

@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140521174514) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
-    t.integer  "levelnumber"
+    t.integer  "level_number"
   end
 
   create_table "playedlevels", force: true do |t|
