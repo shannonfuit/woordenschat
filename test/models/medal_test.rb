@@ -36,9 +36,23 @@ class MedalTest < ActiveSupport::TestCase
 
   test 'adds a HundredMedal to user' do
     user = users(:one)
-    100.times {user.answers.create({correct_answered: true}) }
+    1.times {user.answers.create({correct_answered: true})}
+    1.times {user.answers.create({correct_answered: false})}
+    99.times {user.answers.create({correct_answered: true}) }
     medal = HundredMedal.create(name: '100 vragen goed',
                                  description: 'Beantwoord 100 vragen correct',
+                                 xp: 1000)
+
+    medal.judge(user)
+    assert_includes(user.medals, medal)
+  end
+
+    test 'adds a Hundred in a row Medal to user' do
+    user = users(:one)
+    1.times {user.answers.create({correct_answered: false}) }
+    100.times {user.answers.create({correct_answered: true}) }
+    medal = HundredInRowMedal.create(name: '100 vragen goed',
+                                 description: 'Beantwoord 100 vragen achter elkaar correct',
                                  xp: 1000)
 
     medal.judge(user)

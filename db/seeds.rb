@@ -427,22 +427,22 @@ ThreeStarMedal.create([
     ])
 
 TwentyFiveInRowMedal.create([
-    { name: '25 Vragen achter elkaar goed', description: 'Beantwoord 25 vragen achter elkaar correct', xp: 1000, level_number: 1 }
+    { name: '25 Vragen achter elkaar goed', description: 'Beantwoord 25 vragen achter elkaar correct', xp: 1000 }
     ])
 
 FiftyInRowMedal.create([
-    { name: '50 Vragen achter elkaar goed', description: 'Beantwoord 50 vragen achter elkaar correct', xp: 1000, level_number: 1 }
+    { name: '50 Vragen achter elkaar goed', description: 'Beantwoord 50 vragen achter elkaar correct', xp: 1000 }
     ])
 
 HundredInRowMedal.create([
-    { name: '100 Vragen achter elkaar goed', description: 'Beantwoord 100 vragen achter elkaar correct', xp: 1000, level_number: 1 }
+    { name: '100 Vragen achter elkaar goed', description: 'Beantwoord 100 vragen achter elkaar correct', xp: 1000}
     ])
 HundredMedal.create([
-    { name: '100 Vragen goed', description: 'Beantwoord 100 vragen correct', xp: 1000, level_number: 1 }
+    { name: '100 Vragen goed', description: 'Beantwoord 100 vragen correct', xp: 1000 }
     ])
 ThousandMedal.create([
-    { name: '1000 Vragen Goed', description: 'Beantwoord 1000 vragen correct', xp: 1000, level_number: 1 }
+    { name: '1000 Vragen Goed', description: 'Beantwoord 1000 vragen correct', xp: 1000  }
     ])
 AllMedalsMedal.create([
-    { name: 'Alle trofeeen behaald', description: 'Haal alle trofeeen', xp: 1000, level_number: 1 }
+    { name: 'Alle trofeeen behaald', description: 'Haal alle trofeeen', xp: 1000,  }
     ])
