@@ -14,12 +14,10 @@ class PlayedLevel < ActiveRecord::Base
     )
     if ended_at < level.closingdate && ended_at > level.openingdate
       self.stars = 0
-      puts answers.where(correct_answered: true).count
-      # puts score
-      # if 6...8.include? score then self.stars = 1
-    #   elsif 8...10.include? score then self.stars = 2
-    #   elsif score == 10 then self.stars = 3
-    #   end
+      if 6...8.include?(score) then self.stars = 1
+      elsif 8...10.include?(score) then self.stars = 2
+      elsif score == 10 then self.stars = 3
+      end
     end
     save
   end

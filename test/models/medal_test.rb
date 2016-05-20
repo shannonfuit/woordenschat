@@ -47,6 +47,16 @@ class MedalTest < ActiveSupport::TestCase
     assert_includes(user.medals, medal)
   end
 
+  test 'does not add a HundredMedal to user' do
+    user = users(:one)
+    2.times { user.answers.create(correct_answered: false) }
+    98.times { user.answers.create(correct_answered: true) }
+    medal = HundredMedal.create(name: '100 vragen goed',
+                                description: 'Beantwoord 100 vragen correct',
+                                xp: 1000)
+    medal.judge(user)
+    assert_empty(user.medals)
+  end
   test 'add a Hundred in a row Medal to user' do
     user = users(:one)
     1.times { user.answers.create(correct_answered: false) }
