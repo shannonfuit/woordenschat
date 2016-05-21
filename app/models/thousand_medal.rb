@@ -1,3 +1,4 @@
+# medal if you have 100 good answers
 class ThousandMedal < WordsMedal
   def judge(user, _played_level)
     count_correct = user.answers.all.select(&:correct_answered?).size

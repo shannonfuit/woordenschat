@@ -1,3 +1,4 @@
+# medal if you have 100 good answers
 class HundredMedal < WordsMedal
   # 100 answers in a row correct
   def judge(user, _played_level = nil)

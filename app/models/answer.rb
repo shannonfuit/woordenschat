@@ -1,3 +1,4 @@
+# Answer of the user on a question
 class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :user

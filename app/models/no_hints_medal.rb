@@ -1,3 +1,4 @@
+# medal if you used no hints in a level
 class NoHintsMedal < LevelMedal
   def judge(user, played_level)
     answers = played_level.answers

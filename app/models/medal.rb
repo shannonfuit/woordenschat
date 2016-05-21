@@ -1,3 +1,4 @@
+# medal superclass
 class Medal < ActiveRecord::Base
   # call to have the medal judge and apply itself
   # when valid to the users achievements.

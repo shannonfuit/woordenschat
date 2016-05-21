@@ -1,3 +1,4 @@
+# multiple choice questions
 class Question < ActiveRecord::Base
   mount_uploader :hintimage, HintimageUploader
   belongs_to :level

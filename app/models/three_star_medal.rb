@@ -1,3 +1,4 @@
+# medal if you won three starts in a level
 class ThreeStarMedal < LevelMedal
   def judge(user, played_level)
     return unless played_level.stars == 3 &&

@@ -1,3 +1,4 @@
+# medal if you have 50 good answers in a row
 class FiftyInRowMedal < WordsMedal
   def judge(user, _played_level = nil)
     count_correct = user.answers.last(50).select(&:correct_answered?).size
