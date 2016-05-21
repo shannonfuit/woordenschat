@@ -15,34 +15,20 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :acro
 
   def encrypt_password
-    # raise password.inspect
-    if password.present?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-    end
+    return unless password
+    self.password_salt = BCrypt::Engine.generate_salt
+    self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
   end
 
-  def self.authenticate(acro, password)
-    user = find_by_acro(acro)
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-      user
-    end
+  def authenticate(pass)
+      password_hash == BCrypt::Engine.hash_secret(pass, password_salt)
   end
 
-  def totalxp
-    xp = answers.sum(:xp) + achievements.inject(0) { |sum, x| sum += x.medal.xp }
-    if xp.nil?
-      xp = 0
-    else xp
-    end
+  def total_xp
+    answers.sum(:xp) + medals.sum(:xp)
   end
 
   def won?(medal)
-    achievementcollected = false
-    achievements = self.achievements.all
-    achievements.each do |achievement|
-      achievementcollected = true if achievement.medal == medal
-    end
-    achievementcollected
+    medals.include? medal
   end
 end

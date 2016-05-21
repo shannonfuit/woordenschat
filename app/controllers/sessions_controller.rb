@@ -3,13 +3,15 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-	  user = User.authenticate(params[:acro], params[:password])
-	  if user
+		user = User.find_by(acro: params[:acro])
+		if user.nil?
+			flash.notice = "Acro niet bekend"
+	    render "new"
+	  elsif user.authenticate(params[:password])
 	    session[:user_id] = user.id
-	   # redirect_to root_url, :notice => "Logged in!"
 	   	redirect_to :controller => "users", :action => "show", :id => "user.id"
 	  else
-	    flash.notice = "Ongeldige acro of wachtwoord"
+	    flash.notice = "Wachtwoord onjuist"
 	    render "new"
 	  end
 	end

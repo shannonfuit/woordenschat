@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     #userinfo
     @users = User.all
     @user = current_user
-    @user.xp = @user.totalxp
+    @user.xp = @user.total_xp
     @user.save
     @throphycount = @user.achievements.count
     @starcount = @user.played_levels.sum("stars")
