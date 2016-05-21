@@ -3,26 +3,26 @@ class PlayedLevel < ActiveRecord::Base
   belongs_to :user
   has_many :answers
 
-  def end
-    score = score
+  def close
     update(
       ended_at: Time.zone.now,
       seconds: (Time.zone.now - started_at).to_i,
       level_completed: true,
       level_xp: answers.sum(:xp),
-      count_correct: answers.where(correct_answered: true).count
+      count_correct: answers.correct.count
     )
-    if ended_at < level.closingdate && ended_at > level.openingdate
-      self.stars = 0
-      if 6...8.include?(score) then self.stars = 1
-      elsif 8...10.include?(score) then self.stars = 2
-      elsif score == 10 then self.stars = 3
-      end
-    end
+    score_stars
     save
   end
 
-  def score
-    (answers.where(correct_answered: true).count.to_f / level.questions.count.to_f) * 10
+  def score_stars
+    return 0 unless ended_at.between? level.openingdate, level.closingdate
+    score = (answers.correct.count.to_f / level.questions.count.to_f) * 10
+    self.stars = case score
+                 when 6...8 then 1
+                 when 8...10 then 2
+                 when 10 then 3
+                 else 0
+                 end
   end
 end

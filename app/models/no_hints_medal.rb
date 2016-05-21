@@ -5,7 +5,7 @@ class NoHintsMedal < LevelMedal
                   answers.find_by(used_sentence_hint: true) &&
                   answers.find_by(used_image_hint: true) &&
                   played_level.level.number == level_number &&
-                  !user.has_won(self)
-    user.achievements.create(user: user, medal: self)
+                  !user.won?(self)
+    user.achievements.create medal: self
   end
 end

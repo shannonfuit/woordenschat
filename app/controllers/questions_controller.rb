@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :startanswer, :showanswer]
    before_action :set_user, only: [:answer]
 
   def index
@@ -52,15 +52,12 @@ class QuestionsController < ApplicationController
 
   #added methods
   def startanswer
-    
-    @question= Question.find(params[:id])  
-    @next = @question.next
-    @answer = Answer.new
-    @answer.question = @question
-    @answer.user = current_user
-    @answer.save
-    session[:answer_id] = @answer.id
     @current_played_level = current_played_level
+    @next = @question.next
+    @answer = @current_played_level.answers.create(
+      question: @question,
+      user: current_user)
+    session[:answer_id] = @answer.id
 
     unless @current_played_level.answers.last == nil
       if @current_played_level.answers.last.correct_answered?
@@ -74,7 +71,6 @@ class QuestionsController < ApplicationController
 
   #shows page where user can answer the question
   def showanswer
-    @question= Question.find(params[:id])
     @next = @question.next
     @answer = Answer.find(params[:answerid])
     @current_played_level = current_played_level

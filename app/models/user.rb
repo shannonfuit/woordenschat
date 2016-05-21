@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def has_won(medal)
+  def won?(medal)
     achievementcollected = false
     achievements = self.achievements.all
     achievements.each do |achievement|
