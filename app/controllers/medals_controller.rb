@@ -63,25 +63,26 @@ class MedalsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medal
-      @medal = type_class.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def medal_params
-      params.require(:medal).permit(:name, :description, :xp)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medal
+    @medal = type_class.find(params[:id])
+  end
 
-    def set_type
-       @type = type
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def medal_params
+    params.require(:medal).permit(:name, :description, :xp)
+  end
 
-    def type 
-        params[:type] || "Medal" 
-    end
+  def set_type
+    @type = type
+  end
 
-    def type_class 
-        type.constantize 
-    end
+  def type
+    params[:type] || 'Medal'
+  end
+
+  def type_class
+    type.constantize
+  end
 end

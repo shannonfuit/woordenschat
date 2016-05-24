@@ -57,19 +57,17 @@ class PlayedLevelsController < ApplicationController
     end
   end
 
-    #this is only redirecting to the first question
+  # this is only redirecting to the first question
   def startlevel
     @level = Level.find(params[:id])
     @question = Question.where(level_id: @level).first
-    
+
     played_level = PlayedLevel.new
     played_level.level = @level
     played_level.user = current_user
     played_level.started_at = Time.zone.now
     played_level.save
-    if played_level
-      session[:played_level_id] = played_level.id
-    end
+    session[:played_level_id] = played_level.id if played_level
     redirect_to controller: 'questions', action: 'startanswer', id: @question.id
   end
 
@@ -81,32 +79,31 @@ class PlayedLevelsController < ApplicationController
     user = current_user
     @medals = Medal.all
     @medals_achieved = []
-    @medals.each{|medal|
+    @medals.each do |medal|
       achieved = medal.judge(user, @played_level)
-        if achieved == true
-          @medals_achieved.push(medal)
-       end
-    }
-   
-    if @played_level.ended_at < @played_level.level.closingdate
-      if @played_level.stars > 0
-        @starmessage = "Gefeliciteerd, je hebt het level binnen de tijd gemaakt! Het aantal behaalde sterren is: " + @played_level.stars.to_s + "."
-      else @starmessage = "Helaas, je hebt geen sterren gehaald in deze ronde. Ik daag je uit, probeer het nog eens!"
-      end
-    else @starmessage = "Helaas, de deadline voor dit level is verstreken. Je krijgt daarom geen sterren voor deze ronde."
+      @medals_achieved.push(medal) if achieved == true
     end
 
-   # redirect_to :controller => "users", :action => "show", :id => current_user
+    if @played_level.ended_at < @played_level.level.closingdate
+      if @played_level.stars > 0
+        @starmessage = 'Gefeliciteerd, je hebt het level binnen de tijd gemaakt! Het aantal behaalde sterren is: ' + @played_level.stars.to_s + '.'
+      else @starmessage = 'Helaas, je hebt geen sterren gehaald in deze ronde. Ik daag je uit, probeer het nog eens!'
+      end
+    else @starmessage = 'Helaas, de deadline voor dit level is verstreken. Je krijgt daarom geen sterren voor deze ronde.'
+    end
+
+    # redirect_to :controller => "users", :action => "show", :id => current_user
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_played_level
-      @played_level = PlayedLevel.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def played_level_params
-      params.require(:played_level).permit(:started_at, :ended_at, :seconds, :stars, :level_id, :user_id, :count_correct, :level_xp)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_played_level
+    @played_level = PlayedLevel.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def played_level_params
+    params.require(:played_level).permit(:started_at, :ended_at, :seconds, :stars, :level_id, :user_id, :count_correct, :level_xp)
+  end
 end

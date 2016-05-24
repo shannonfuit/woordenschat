@@ -16,18 +16,19 @@ class AnswersController < ApplicationController
   def new
     @answer = Answer.new
   end
+
   # POST /answers
   # POST /answers.json
   def submit
-    @answer.submit(params[:answer], current_played_level )
+    @answer.submit(params[:answer], current_played_level)
     @current_level_xp = current_level_xp
     session[:level_xp] = @current_level_xp + @answer.xp
     @next = @answer.question.next
-      if @next
-        redirect_to :controller => "questions", :action => "startanswer",:id => @next
-      else
-        redirect_to :controller => "played_levels", :action => "finishlevel", :id => current_played_level
-      end
+    if @next
+      redirect_to controller: 'questions', action: 'startanswer', id: @next
+    else
+      redirect_to controller: 'played_levels', action: 'finishlevel', id: current_played_level
+    end
   end
 
   # PATCH/PUT /answers/1
@@ -55,13 +56,14 @@ class AnswersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_answer
-      @answer = Answer.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def answer_params
-      params.require(:answer).permit(:given_answer, :correct_answered, :used_semantic_hint, :used_sentence_hint, :used_image_hint, :xp, :seconds, :level, :question_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def answer_params
+    params.require(:answer).permit(:given_answer, :correct_answered, :used_semantic_hint, :used_sentence_hint, :used_image_hint, :xp, :seconds, :level, :question_id)
+  end
 end

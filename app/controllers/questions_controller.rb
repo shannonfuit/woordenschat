@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :startanswer, :showanswer]
-   before_action :set_user, only: [:answer]
+  before_action :set_user, only: [:answer]
 
   def index
     @questions = Question.all
@@ -50,26 +50,27 @@ class QuestionsController < ApplicationController
     end
   end
 
-  #added methods
+  # added methods
   def startanswer
     @current_played_level = current_played_level
     @next = @question.next
     @answer = @current_played_level.answers.create(
       question: @question,
-      user: current_user)
+      user: current_user
+    )
     session[:answer_id] = @answer.id
 
-    unless @current_played_level.answers.last == nil
-      if @current_played_level.answers.last.correct_answered?
-        flash[:notice] = "Goed beantwoord!"
-      else
-        flash[:notice] = "Fout beantwoord!"
-      end
+    unless @current_played_level.answers.last.nil?
+      flash[:notice] = if @current_played_level.answers.last.correct_answered?
+                         'Goed beantwoord!'
+                       else
+                         'Fout beantwoord!'
+                       end
     end
     redirect_to controller: 'questions', action: 'showanswer', id: @question.id, answerid: @answer.id
   end
 
-  #shows page where user can answer the question
+  # shows page where user can answer the question
   def showanswer
     @next = @question.next
     @answer = Answer.find(params[:answerid])
@@ -79,19 +80,18 @@ class QuestionsController < ApplicationController
     @current_answer_number = @current_played_level.answers.count + 1
 
     @seconds_left = (@answer.created_at - Time.now).to_int.abs
-
   end
 
   def usedhints
-    question= Question.find(params[:id])
+    question = Question.find(params[:id])
     answer = Answer.find(params[:answerid])
     hint = params[:hintid]
 
-    if hint == "used_semantic_hint"
+    if hint == 'used_semantic_hint'
       answer.used_semantic_hint = true
-    elsif hint == "used_sentence_hint"
+    elsif hint == 'used_sentence_hint'
       answer.used_sentence_hint = true
-    elsif hint == "used_image_hint"
+    elsif hint == 'used_image_hint'
       answer.used_image_hint = true
     end
     answer.save
@@ -100,17 +100,18 @@ class QuestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_question
-      @question = Question.find(params[:id])
-    end
 
-    def set_user
-      @user = @current_user
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      params.require(:question).permit(:word, :ans1, :ans2, :ans3, :ans4, :hintsemantic, :hintsentence, :hintimage, :anscorrect, :level_id)
-    end
+  def set_user
+    @user = @current_user
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def question_params
+    params.require(:question).permit(:word, :ans1, :ans2, :ans3, :ans4, :hintsemantic, :hintsentence, :hintimage, :anscorrect, :level_id)
+  end
 end
