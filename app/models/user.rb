@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   validates_confirmation_of :password
-  # validates_presence_of :password, :on => :create
+  validates_presence_of :password, on: :create
   validates_presence_of :acro
   validates_uniqueness_of :acro
 
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def authenticate(pass)
-      password_hash == BCrypt::Engine.hash_secret(pass, password_salt)
+    password_hash == BCrypt::Engine.hash_secret(pass, password_salt)
   end
 
   def total_xp
