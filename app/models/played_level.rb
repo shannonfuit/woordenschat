@@ -8,7 +8,6 @@ class PlayedLevel < ActiveRecord::Base
     update(
       ended_at: Time.zone.now,
       seconds: (Time.zone.now - started_at).to_i,
-      level_completed: true,
       level_xp: answers.sum(:xp),
       count_correct: answers.correct.count
     )

@@ -4,7 +4,6 @@ one:
   started_at: 2014-05-06 19:34:35
   ended_at: 2014-05-06 19:34:35
   seconds: 1
-  level_completed: false
   stars: 1
   level_id: 
   user_id: 
@@ -15,7 +14,6 @@ two:
   started_at: 2014-05-06 19:34:35
   ended_at: 2014-05-06 19:34:35
   seconds: 1
-  level_completed: false
   stars: 1
   level_id: 
   user_id: 

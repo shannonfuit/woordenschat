@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20140521174514) do
     t.datetime "started_at"
     t.datetime "ended_at"
     t.integer  "seconds"
-    t.boolean  "level_completed", default: false
     t.integer  "stars",           default: 0
     t.integer  "level_id"
     t.integer  "user_id"

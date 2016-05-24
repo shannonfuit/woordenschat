@@ -4,7 +4,6 @@ class CreatePlayedLevels < ActiveRecord::Migration
       t.datetime :started_at
       t.datetime :ended_at
       t.integer :seconds
-      t.boolean :level_completed, default: false
       t.integer :stars, default: 0
       t.belongs_to :level, index: true
       t.belongs_to :user, index: true
