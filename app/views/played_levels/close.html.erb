@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="main">
+    <div class="row">
+
+      <div class="col-md-1"></div>
+
+      <div class="col col-md-4">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+           		<h4> Level voltooid!</h4>
+          </div>
+          <div class="panel-body">
+            <div class="float-left">
+            	<p> Beste <%= @played_level.user.name %>, </p>
+            	<p> Je hebt <%= @played_level.level_xp  %> XP behaald!</p>
+            	 <% unless @medals.blank? %> 
+	           		<p> Je hebt de volgende trofeeën behaald:</br>
+					<% @medals.each do |medal| %>
+						<%= image_tag("trophy_true.png", :width => 40) %> <%= medal.name %></br>
+					<% end %>
+				<%end%>
+				<p><%= @starmessage %></p>
+							
+            </div>  
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+          	<h4> statistieken</h4>
+          </div>
+          <div class="panel-body">
+         	<p>Je hebt dit level in <%= @played_level.seconds %> seconden voltooid.</br>
+				Je hebt <%= @played_level.count_correct %> van de 30 vragen goed.</p>
+				<p>Je hebt de woorden <%= @played_level.answers.where(used_semantic_hint: true).count %> keer gebruikt.<br>
+				Je hebt de zinnen <%= @played_level.answers.where(used_sentence_hint: true).count %> keer gebruikt.</br>
+				Je hebt de afbeeldingen <%= @played_level.answers.where(used_image_hint: true).count %> keer gebruikt.</p>
+				<p> <%= link_to 'Terug naar het overzicht', :controller => "users", :action => "show", :id => current_user %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>	

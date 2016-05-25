@@ -18,10 +18,9 @@ class MedalTest < ActiveSupport::TestCase
     user = users(:one)
     level = Level.create(number: 1,
                          openingdate: Time.now,
-                         closingdate: Time.now + 2)
+                         closed_at: Time.now + 2)
 
-    played_level = PlayedLevel.create(started_at: Time.zone.now,
-                                      ended_at: Time.zone.now + 1,
+    played_level = PlayedLevel.create(ended_at: Time.zone.now + 1,
                                       user: user,
                                       level: level)
 
@@ -73,9 +72,9 @@ class MedalTest < ActiveSupport::TestCase
     user = users(:one)
     level = Level.create(number: 1,
                          openingdate: Time.now,
-                         closingdate: Time.now + 2)
+                         closed_at: Time.now + 2)
 
-    played_level = PlayedLevel.create(started_at: Time.zone.now,
+    played_level = PlayedLevel.create(created_at: Time.zone.now,
                                       ended_at: Time.zone.now + 1,
                                       user: user,
                                       level: level,

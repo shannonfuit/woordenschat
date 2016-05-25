@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20140521174514) do
   create_table "levels", force: true do |t|
     t.integer  "number"
     t.datetime "openingdate"
-    t.datetime "closingdate"
+    t.datetime "closed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,14 +62,13 @@ ActiveRecord::Schema.define(version: 20140521174514) do
   end
 
   create_table "played_levels", force: true do |t|
-    t.datetime "started_at"
     t.datetime "ended_at"
     t.integer  "seconds"
-    t.integer  "stars",           default: 0
+    t.integer  "stars",         default: 0
     t.integer  "level_id"
     t.integer  "user_id"
-    t.integer  "count_correct",   default: 0
-    t.integer  "level_xp",        default: 0
+    t.integer  "count_correct", default: 0
+    t.integer  "level_xp",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

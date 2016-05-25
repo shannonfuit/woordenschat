@@ -45,8 +45,8 @@
             <table class="fullwidth">
             <% @lvlscores.each do |level, stars| %>
               <tr>
-                <td><%= link_to 'Level ' + level.number.to_s, :controller => "played_levels", :action => "startlevel", :id=>level.id %></td>
-                <td> <%= level.openingdate.strftime("%d-%m-%Y")  %> t/m <%= level.closingdate.strftime("%d-%m-%Y") %></td>
+                <td><%= link_to 'Level ' + level.number.to_s, played_levels_path(level_id: level.id), method: :post %></td>
+                <td> <%= level.openingdate.strftime("%d-%m-%Y")  %> t/m <%= level.closed_at.strftime("%d-%m-%Y") %></td>
                 <td><%= image_tag("" + stars.to_s + ".jpg", :width => 60) %></td>
               </tr>
             <% end %>

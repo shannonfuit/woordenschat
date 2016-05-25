@@ -7,7 +7,7 @@ class PlayedLevel < ActiveRecord::Base
   def close
     update(
       ended_at: Time.zone.now,
-      seconds: (Time.zone.now - started_at).to_i,
+      seconds: (Time.zone.now - created_at).to_i,
       level_xp: answers.sum(:xp),
       count_correct: answers.correct.count
     )
@@ -16,7 +16,7 @@ class PlayedLevel < ActiveRecord::Base
   end
 
   def score_stars
-    return 0 unless ended_at.between? level.openingdate, level.closingdate
+    return 0 unless ended_at.between? level.openingdate, level.closed_at
     self.stars = case grade
                  when 6...8 then 1
                  when 8...10 then 2

@@ -1,7 +1,6 @@
 class CreatePlayedLevels < ActiveRecord::Migration
   def change
     create_table :played_levels do |t|
-      t.datetime :started_at
       t.datetime :ended_at
       t.integer :seconds
       t.integer :stars, default: 0

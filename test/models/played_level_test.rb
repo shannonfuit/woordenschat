@@ -30,7 +30,6 @@ class PlayedLevelTest < ActiveSupport::TestCase
     played_level = PlayedLevel.create(
       level: levels(:one),
       user: users(:one),
-      started_at: Time.zone.now
     )
 
     i = 1

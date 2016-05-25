@@ -12,12 +12,12 @@
 
 #    t.integer  ""]
 levels = Level.create([
-    {number: 1, openingdate: Time.now, closingdate: Time.now + 1},
-    {number: 2, openingdate: Time.now, closingdate: Time.now + 1},
-    {number: 3, openingdate: Time.now, closingdate: Time.now + 1},
-    {number: 4, openingdate: Time.now, closingdate: Time.now + 1},
-    {number: 5, openingdate: Time.now, closingdate: Time.now + 1},
-    {number: 6, openingdate: Time.now, closingdate: Time.now + 1},
+    {number: 1, openingdate: Time.now, closed_at: Time.now + 1},
+    {number: 2, openingdate: Time.now, closed_at: Time.now + 1},
+    {number: 3, openingdate: Time.now, closed_at: Time.now + 1},
+    {number: 4, openingdate: Time.now, closed_at: Time.now + 1},
+    {number: 5, openingdate: Time.now, closed_at: Time.now + 1},
+    {number: 6, openingdate: Time.now, closed_at: Time.now + 1},
     ])
 
 
