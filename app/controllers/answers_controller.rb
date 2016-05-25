@@ -1,7 +1,5 @@
 class AnswersController < ApplicationController
   before_action :set_answer
-  # POST /answers
-  # POST /answers.json
   def submit
     @answer.submit(params[:answer])
     @current_level_xp = current_level_xp

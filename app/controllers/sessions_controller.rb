@@ -19,6 +19,5 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url
-    # redirect_to :controller => "levels", :action => "startlevel", :id => "1", :notice => "Logged out!"
   end
 end
