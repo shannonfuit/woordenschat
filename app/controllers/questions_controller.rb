@@ -1,36 +1,25 @@
 class QuestionsController < ApplicationController
   before_action :set_question
+  before_action :set_round, only: [:show]
 
-  #TODO: this should be in answer create
-  def startanswer
-    @current_round = current_round
-    @next = @question.next
-    @answer = @current_round.answers.create(
-      question: @question,
-      user: current_user
-    )
-    session[:answer_id] = @answer.id
-
-    unless @current_round.answers.last.nil?
-      flash[:notice] = if @current_round.answers.last.correct_answered?
+  def show
+    unless @round.answers.empty?
+      flash[:notice] = if @round.answers.last.correct_answered?
                          'Goed beantwoord!'
                        else
                          'Fout beantwoord!'
                        end
     end
-    redirect_to controller: 'questions', action: 'showanswer', id: @question.id, answerid: @answer.id
+    @answer = @round.answers.create(
+      question: @question,
+      user: current_user
+    )
+    @current_user = current_user
+    @round_xp = @round.answers.sum(:xp)
+    @current_answer_number = @round.answers.count
   end
 
-  # shows page where user can answer the question
-  def showanswer
-    @next = @question.next
-    @answer = Answer.find(params[:answerid])
-    @current_round = current_round
-    @current_user = current_user
-    @current_level_xp = current_level_xp
-    @current_answer_number = @current_round.answers.count + 1
-
-    @seconds_left = (@answer.created_at - Time.now).to_int.abs
+  def submit
   end
 
   def usedhints
@@ -47,7 +36,7 @@ class QuestionsController < ApplicationController
     end
     answer.save
 
-    redirect_to controller: 'questions', action: 'showanswer', id: question.id, answerid: answer.id
+    redirect_to controller: 'questions', action: 'show', id: question.id, answerid: answer.id
   end
 
   private
@@ -55,6 +44,10 @@ class QuestionsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_question
     @question = Question.find(params[:id])
+  end
+
+  def set_round
+    @round = Round.find(params[:round_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

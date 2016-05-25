@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :answers
-  resources :questions
+  resources :questions do
+    member do
+      get 'start'
+    end
+  end
   resources :users
   resources :sessions
   resources :rounds 
@@ -17,8 +21,6 @@ Rails.application.routes.draw do
   resources :thousand_medals, controller: 'medals', type: 'ThousandMedal' 
   resources :all_medals_medals, controller: 'medals', type: 'AllMedalsMedal'
 
-
-
   get 'page/rules'
   get 'page/about'
   get 'page/admin'
@@ -28,8 +30,6 @@ Rails.application.routes.draw do
 
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
-
-
 
   match ':controller/:action/:id', via: [:get, :post]
   match ':controller/:action/:id.:format', via: [:get, :post]

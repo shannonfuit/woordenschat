@@ -5,8 +5,7 @@ class RoundsController < ApplicationController
   def create
     @round = @level.rounds.create user: current_user
     session[:round_id] = @round.id
-    redirect_to controller: 'questions', action: 'startanswer',
-                id: @level.questions.first.id
+    redirect_to question_path(@level.questions.first, round_id: @round.id )
   end
 
   def close

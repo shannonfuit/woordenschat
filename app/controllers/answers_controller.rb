@@ -2,11 +2,11 @@ class AnswersController < ApplicationController
   before_action :set_answer
   def submit
     @answer.submit(params[:answer])
-    @current_level_xp = current_level_xp
-    session[:level_xp] = @current_level_xp + @answer.xp
-    @next = @answer.question.next
-    if @next
-      redirect_to controller: 'questions', action: 'startanswer', id: @next
+    @round_xp = round_xp
+    session[:level_xp] = @round_xp + @answer.xp
+    @next_question = @answer.question.next
+    if @next_question
+      redirect_to question_path(@next_question, round_id: @answer.round.id )
     else
       redirect_to controller: 'rounds', action: 'close',
                   id: @answer.round.id

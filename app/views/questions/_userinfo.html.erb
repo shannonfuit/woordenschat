@@ -8,9 +8,9 @@
 
 <div class="text-center"><p>
 	<p>xp totaal: <%= current_user.xp %></p>
-	<p><% if @current_level_xp != nil %>
+	<p><% if @round_xp != nil %>
 		xp dit level: </br>
-		<strong><%= @current_level_xp %></strong>
+		<strong><%= @round_xp %></strong>
 	<%end%></p>
 	<% if flash[:notice] %>
   		<b><%= flash[:notice] %></b>

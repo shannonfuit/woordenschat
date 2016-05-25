@@ -11,13 +11,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
-  # Level currently played. used as parameter for medals.
-  def current_round
-    @current_round ||= Round.find_by_id(session[:round_id])
-  end
-
   # used for keeping track of the amount of XP during a level
-  def current_level_xp
-    @current_level_xp ||= session[:level_xp]
+  def round_xp
+    @round_xp ||= session[:level_xp]
   end
 end
