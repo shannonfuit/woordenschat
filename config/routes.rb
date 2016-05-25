@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  
-
-  resources :achievements
 
   resources :answers
   resources :questions

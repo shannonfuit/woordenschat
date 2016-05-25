@@ -5,6 +5,6 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   def next
-    where('id > ? AND level_id = ?', id, level_id).first
+    Question.where('id > ? AND level_id = ?', id, level_id).first
   end
 end
