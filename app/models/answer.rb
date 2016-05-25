@@ -7,13 +7,14 @@ class Answer < ActiveRecord::Base
   scope :correct, -> { where(correct_answered: true) }
 
   def submit(given_answer)
-    update_attributes(
+    update(
       seconds: (Time.zone.now - created_at).to_i,
       given_answer: given_answer.to_i,
       played_level: played_level,
-      correct_answered: given_answer.to_i == question.anscorrect,
-      xp: calculate_xp
+      correct_answered: given_answer.to_i == question.anscorrect
     )
+    self.xp = calculate_xp
+    save
   end
 
   private
