@@ -20,10 +20,10 @@ class Answer < ActiveRecord::Base
 
   def calculate_xp
     return 0 unless correct_answered? && seconds < 30
-    used_hint ? 50 : 100
+    hint_used? ? 50 : 100
   end
 
-  def used_hint?
+  def hint_used?
     used_semantic_hint? || used_sentence_hint? || used_image_hint?
   end
 end
