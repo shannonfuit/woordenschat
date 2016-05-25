@@ -91,8 +91,6 @@ class PlayedLevelsController < ApplicationController
       end
     else @starmessage = 'Helaas, de deadline voor dit level is verstreken. Je krijgt daarom geen sterren voor deze ronde.'
     end
-
-    # redirect_to :controller => "users", :action => "show", :id => current_user
   end
 
   private

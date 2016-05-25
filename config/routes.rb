@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   resources :answers
   resources :questions
-  resources :levels
   resources :users
   resources :sessions
   resources :played_levels 
