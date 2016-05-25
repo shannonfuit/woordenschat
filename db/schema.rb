@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 20140521174514) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "played_level_id"
+    t.integer  "round_id"
   end
 
-  add_index "answers", ["played_level_id"], name: "index_answers_on_played_level_id"
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["round_id"], name: "index_answers_on_round_id"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
   create_table "levels", force: true do |t|
@@ -61,21 +61,6 @@ ActiveRecord::Schema.define(version: 20140521174514) do
     t.integer  "level_number"
   end
 
-  create_table "played_levels", force: true do |t|
-    t.datetime "ended_at"
-    t.integer  "seconds"
-    t.integer  "stars",         default: 0
-    t.integer  "level_id"
-    t.integer  "user_id"
-    t.integer  "count_correct", default: 0
-    t.integer  "level_xp",      default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "played_levels", ["level_id"], name: "index_played_levels_on_level_id"
-  add_index "played_levels", ["user_id"], name: "index_played_levels_on_user_id"
-
   create_table "questions", force: true do |t|
     t.text     "word"
     t.text     "ans1"
@@ -92,6 +77,21 @@ ActiveRecord::Schema.define(version: 20140521174514) do
   end
 
   add_index "questions", ["level_id"], name: "index_questions_on_level_id"
+
+  create_table "rounds", force: true do |t|
+    t.datetime "ended_at"
+    t.integer  "seconds"
+    t.integer  "stars",         default: 0
+    t.integer  "level_id"
+    t.integer  "user_id"
+    t.integer  "count_correct", default: 0
+    t.integer  "level_xp",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rounds", ["level_id"], name: "index_rounds_on_level_id"
+  add_index "rounds", ["user_id"], name: "index_rounds_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "acro"

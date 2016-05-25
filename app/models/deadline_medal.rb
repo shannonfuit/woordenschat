@@ -1,8 +1,8 @@
 # medal if you play before the level deadline
 class DeadlineMedal < LevelMedal
-  def judge(user, played_level)
-    if played_level.ended_at < played_level.level.closed_at &&
-       played_level.level.number == level_number &&
+  def judge(user, round)
+    if round.ended_at < round.level.closed_at &&
+       round.level.number == level_number &&
        !user.won?(self)
       user.achievements.create medal: self
     end

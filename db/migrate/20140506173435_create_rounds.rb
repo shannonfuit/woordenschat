@@ -1,6 +1,6 @@
-class CreatePlayedLevels < ActiveRecord::Migration
+class CreateRounds < ActiveRecord::Migration
   def change
-    create_table :played_levels do |t|
+    create_table :rounds do |t|
       t.datetime :ended_at
       t.integer :seconds
       t.integer :stars, default: 0

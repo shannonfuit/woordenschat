@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   has_many :answers
-  has_many :played_levels
+  has_many :rounds
   has_many :achievements
   has_many :medals, through: :achievements
 

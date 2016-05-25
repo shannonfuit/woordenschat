@@ -12,15 +12,15 @@ class UsersController < ApplicationController
     @user.xp = @user.total_xp
     @user.save
     @throphycount = @user.achievements.count
-    @starcount = @user.played_levels.sum('stars')
+    @starcount = @user.rounds.sum('stars')
 
     # levelinfo & stars
     @levels = Level.order('number ASC').all
     @lvlscores = {}
     @levels.each do |lvl|
       @lvlscores[lvl] = 0
-      next if @user.played_levels.nil? && @user.played_levels.empty?
-      bestlevel = @user.played_levels.select { |pl| pl.level_id == lvl.id }.max_by(&:stars)
+      next if @user.rounds.nil? && @user.rounds.empty?
+      bestlevel = @user.rounds.select { |pl| pl.level_id == lvl.id }.max_by(&:stars)
 
       @lvlscores[lvl] = bestlevel.stars unless bestlevel.nil?
     end

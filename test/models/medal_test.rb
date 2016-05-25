@@ -20,7 +20,7 @@ class MedalTest < ActiveSupport::TestCase
                          openingdate: Time.now,
                          closed_at: Time.now + 2)
 
-    played_level = PlayedLevel.create(ended_at: Time.zone.now + 1,
+    round = Round.create(ended_at: Time.zone.now + 1,
                                       user: user,
                                       level: level)
 
@@ -29,7 +29,7 @@ class MedalTest < ActiveSupport::TestCase
                                  xp: 1000,
                                  level_number: 1)
 
-    medal.judge(user, played_level)
+    medal.judge(user, round)
     assert_includes(user.medals, medal)
   end
 
@@ -74,7 +74,7 @@ class MedalTest < ActiveSupport::TestCase
                          openingdate: Time.now,
                          closed_at: Time.now + 2)
 
-    played_level = PlayedLevel.create(created_at: Time.zone.now,
+    round = Round.create(created_at: Time.zone.now,
                                       ended_at: Time.zone.now + 1,
                                       user: user,
                                       level: level,
@@ -85,7 +85,7 @@ class MedalTest < ActiveSupport::TestCase
                                   xp: 1000,
                                   level_number: 1)
 
-    medal.judge(user, played_level)
+    medal.judge(user, round)
     assert_includes(user.medals, medal)
   end
 end

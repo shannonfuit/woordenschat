@@ -8,8 +8,8 @@ class AnswersController < ApplicationController
     if @next
       redirect_to controller: 'questions', action: 'startanswer', id: @next
     else
-      redirect_to controller: 'played_levels', action: 'close',
-                  id: @answer.played_level.id
+      redirect_to controller: 'rounds', action: 'close',
+                  id: @answer.round.id
     end
   end
 

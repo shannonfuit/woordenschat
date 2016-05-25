@@ -2,7 +2,7 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :user
-  belongs_to :played_level
+  belongs_to :round
 
   scope :correct, -> { where(correct_answered: true) }
 
@@ -10,7 +10,7 @@ class Answer < ActiveRecord::Base
     update(
       seconds: (Time.zone.now - created_at).to_i,
       given_answer: given_answer.to_i,
-      played_level: played_level,
+      round: round,
       correct_answered: given_answer.to_i == question.anscorrect
     )
     self.xp = calculate_xp

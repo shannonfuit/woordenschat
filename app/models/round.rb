@@ -1,5 +1,5 @@
 # a level played by a user
-class PlayedLevel < ActiveRecord::Base
+class Round < ActiveRecord::Base
   belongs_to :level
   belongs_to :user
   has_many :answers

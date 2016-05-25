@@ -3,16 +3,16 @@ class QuestionsController < ApplicationController
 
   #TODO: this should be in answer create
   def startanswer
-    @current_played_level = current_played_level
+    @current_round = current_round
     @next = @question.next
-    @answer = @current_played_level.answers.create(
+    @answer = @current_round.answers.create(
       question: @question,
       user: current_user
     )
     session[:answer_id] = @answer.id
 
-    unless @current_played_level.answers.last.nil?
-      flash[:notice] = if @current_played_level.answers.last.correct_answered?
+    unless @current_round.answers.last.nil?
+      flash[:notice] = if @current_round.answers.last.correct_answered?
                          'Goed beantwoord!'
                        else
                          'Fout beantwoord!'
@@ -25,10 +25,10 @@ class QuestionsController < ApplicationController
   def showanswer
     @next = @question.next
     @answer = Answer.find(params[:answerid])
-    @current_played_level = current_played_level
+    @current_round = current_round
     @current_user = current_user
     @current_level_xp = current_level_xp
-    @current_answer_number = @current_played_level.answers.count + 1
+    @current_answer_number = @current_round.answers.count + 1
 
     @seconds_left = (@answer.created_at - Time.now).to_int.abs
   end

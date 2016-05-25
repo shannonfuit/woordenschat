@@ -1,24 +1,24 @@
-class PlayedLevelsController < ApplicationController
-  before_action :set_played_level, only: [:close]
+class RoundsController < ApplicationController
+  before_action :set_round, only: [:close]
   before_action :set_level, only: [:create]
 
   def create
-    @played_level = @level.played_levels.create user: current_user
-    session[:played_level_id] = @played_level.id
+    @round = @level.rounds.create user: current_user
+    session[:round_id] = @round.id
     redirect_to controller: 'questions', action: 'startanswer',
                 id: @level.questions.first.id
   end
 
   def close
-    @played_level.close
-    @medals = Medal.all.select { |m| m.judge(current_user, @played_level) }
+    @round.close
+    @medals = Medal.all.select { |m| m.judge(current_user, @round) }
     set_star_message
   end
 
   private
 
-  def set_played_level
-    @played_level = PlayedLevel.find(params[:id])
+  def set_round
+    @round = Round.find(params[:id])
   end
 
   def set_level
@@ -26,8 +26,8 @@ class PlayedLevelsController < ApplicationController
   end
 
   def set_star_message
-    if @played_level.ended_at < @played_level.level.closed_at
-      @starmessage = if @played_level.stars > 0
+    if @round.ended_at < @round.level.closed_at
+      @starmessage = if @round.stars > 0
                        received_star_message
                      else no_star_message
                      end
@@ -37,7 +37,7 @@ class PlayedLevelsController < ApplicationController
 
   def received_star_message
     'Gefeliciteerd, je hebt het level binnen de tijd gemaakt! Het aantal' \
-    "behaalde sterren is: ' + @played_level.stars.to_s + '.'"
+    "behaalde sterren is: ' + @round.stars.to_s + '.'"
   end
 
   def no_star_message

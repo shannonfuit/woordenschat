@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :questions
   resources :users
   resources :sessions
-  resources :played_levels 
+  resources :rounds 
 
   resources :medals 
   resources :deadline_medals, controller: 'medals', type: 'DeadlineMedal' 
