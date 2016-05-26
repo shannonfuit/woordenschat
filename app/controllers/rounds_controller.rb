@@ -33,6 +33,8 @@ class RoundsController < ApplicationController
     else @starmessage = too_late_message
     end
   end
+  
+  # TODO: NO! this does not belong here. reminder to use i18n!
 
   def received_star_message
     'Gefeliciteerd, je hebt het level binnen de tijd gemaakt! Het aantal' \
