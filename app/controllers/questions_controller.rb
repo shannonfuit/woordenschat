@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
       question: @question,
       user: current_user
     )
-    @current_user = current_user
+    #TODO: Use decorators, 
     @round_xp = @round.answers.sum(:xp)
     @current_answer_number = @round.answers.count
   end
